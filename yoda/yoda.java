@@ -9,8 +9,8 @@ public class yoda
    public static void main(String[] args)
 	{
 	yoda f=new yoda();
-
-	if(f.i.equals("5"))
+	
+	if("5".equals(f.i))//if(f.i.equals("5"))
 	{
 	System.out.println("t");
 	}
