@@ -1,0 +1,67 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Arroway!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>OO szemlélet</title>
+        <para>A módosított polártranszformációs normális generátor beprogramozása Java nyelven.
+Mutassunk rá, hogy a mi természetes saját megoldásunk és az OpenJDK, Oracle JDK-ban a Sun által adott OO szervezés ua.!
+<link xlink:href="https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_5.pdf">Prog1_5.pdf</link>               
+        </para>
+        <para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/OO_szemlelet">github link</link> </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+
+<section>
+        <title>"Gagyi"</title>
+        <para>
+Az ismert formális <command><![CDATA[while(x <=t && x>=t && t!=x);]]></command> tesztkérdéstípusra adj a szokásosnál "mélyebb" választ, írj Java példaprogramot mely egyszer végtelen ciklus, más x és t értékekkel pedig nem!
+A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív objektum példányokat poolozza! 
+<link xlink:href="https://www.facebook.com/groups/udprog/permalink/437825193072042/">facebook post</link>
+	</para>
+        <para>
+            Megoldás forrása:               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>   
+
+    <section>
+        <title>Yoda</title>
+        <para>
+Írjunk olyan Java programot, ami java.lang.NullPointerEx-el leáll, ha nem követjük a Yoda conditions-t!           
+<link xlink:href="https://en.wikipedia.org/wiki/Yoda_conditions">yoda wiki</link>
+	</para>
+        <para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/yoda">github link</link>              
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>        
+    
+<section>
+        <title>Kódolás from scratch</title>
+        <para>
+Induljunk ki ebből a tudományos közleményből:<link xlink:href="http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/bbp-alg.pdf">http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/bbp-alg.pdf</link>
+és csak ezt tanulmányozva írjuk meg Java nyelven a BBP algoritmus megvalósítását!
+Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei">https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei</link>
+
+	</para>
+        <para>
+            Megoldás forrása:               
+        </para>
+        <para>
+            Tanulságok, tapasztalatok, magyarázat...
+        </para>
+    </section>       
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
+</chapter>                

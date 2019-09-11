@@ -1,0 +1,28 @@
+<authorgroup xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <author>
+        <personname>
+            <surname>Tóth</surname>
+            <firstname>Balázs</firstname>        
+        </personname>    
+        <affiliation>
+            <shortaffil>Hallgató</shortaffil>
+            <jobtitle>Hallgató</jobtitle>
+            <orgname>Debreceni Egyetem</orgname>
+            <orgdiv>PTI</orgdiv>
+            <address>
+                <email>windsake@mailbox.unideb.hu</email>
+                <email>gawnoris@gmail.com</email>
+            </address>
+        </affiliation>
+        <address>
+            <street>-</street>
+            <city>Debrecen</city>
+            <postcode>4028</postcode>
+            <country>Magyarország</country>
+                <email>windsake@mailbox.unideb.hu</email>
+            <otheraddr>
+                <link xlink:href="https://web.unideb.hu/~windsake">http://web.unideb.hu/~windsake</link>
+            </otheraddr>
+        </address>
+    </author>    
+</authorgroup>

@@ -1,0 +1,238 @@
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gutenberg!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+        <cover>
+            <para>
+                Programozás tankönyvek rövid olvasónaplói.
+            </para>
+        </cover>
+    </info>
+    <section>
+        <title>Programozási alapfogalmak</title>
+        <para>         
+            <citation>PICI</citation>       
+        </para>
+        <para>Egy számítógép programozására három nyelvi szintet különböztetünk meg:</para>
+<para>-Gépi kód</para>
+<para>-assembly szint</para>
+<para>-Magas szint</para>
+<para>A magas szintű nyelveken megírt algoritmusokat forráskódoknak nevezzük.
+A forráskódok nyelvtani szabályi a szintaktikai szabályok, míg a jelentésbeli, tartalmi szabályzat a szemantika.
+Ezeket a kódokat interpreterrel, vagy fordítóprogrammal gépi kóddá kell konvertálni, hogy a processor értelmezni tudja.
+Egy fordítóprogram tetszőleges nyelvről tetszőleges nyelvre fordít.Amíg ez az egész kódból egy tárgyprogramot készít, addig az interpreter értelezi és rögtön lefuttatja a kódot, programfájl nélkül.
+</para>
+<para>
+<command>Kifejezések:</command>
+Két részből állnak, értékből és típusból.
+Egy kifejezés ezekből az összetevőkből áll:</para>
+<programlisting language="c">
+<![CDATA[-operandus: ez egy literál, változó vagy konstans, ez a kifejezés "értéke".
+-operátor: ezek a műveleti jelek, aritmetikai/logikai műveletek végrehajtására.
+-kerek zárójelek: a műveleti sorrend befolyásolására.]]>
+</programlisting>
+<para>
+Léteznek konstans kifejezések, ezek értéke fordításkor eldől, a program futása közben nem változik.
+</para>
+<para>
+<command>Utasítások:</command></para><programlisting>
+értékadó utasítás: Ezen típusú utasítás a változók értékét módosítja a program futása során.
+Üres utasítás: ilyenkor a processor egy üres gépi utasítást hajt végre.
+Ugró utasítás: A program egyik soráról a másikra ugrik a vezérlés, általános alak a <command>GOTO</command>.
+Elágazásos utasítás(kétfelé ágazás utasítás): A program egy pontján két lehetőség közül választ a program egy feltétel alapján.
+Formája: if...then...else...
+Többirányú elágazás:A program egy pontján meghatározott számú opciókból kiválaszt egyet, amelyet végrehajt.
+A választást egy kifejezés értéke szerint határozzuk meg.
+Formája: switch(kifejezés){
+case egész_kifejezés: [tevékenység]
+case egész_kifejezés: [tevékenység]
+default: tevékenység };
+A case-ágak értékei különbözzenek.
+Ha a case-ágak közül egyik sem egyezik a feltétellel, akkor a default tevékenység hajtódik végre.
+</programlisting>
+<para>
+<command>Blokk:</command>
+Egy programegység egy másik program belsejében.Eljárásorientált nyelvekben csak a <command>hatáskör</command>ben van szerepe.
+Kétféle hatáskörkezelés létezik, statikus és dinamikus.
+Előbbi a fordítási időben valósul meg, a fordítóprogram által.
+A hatáskör csak befelé terjed, kintről nem látni, ha a változót látjuk kintről, akkor az globális változó.
+A dinamikus hatáskörkezelés futási idő közben zajlik le, azt a rendszer végzi.
+Ha szabad nevet talál, a hívási láncon keresztül lépked felfelé, amíg a nevet meg nem találja.
+Az Eljárásorientált nyelvek a statikus kezelést használják.
+
+</para>
+<para>
+<command>I/O</command>:
+A programnyelvek azon eszközrendszere, amely a perifériákkal való kommunikációt hajtja végre, az operatív tárból küld, vagy vár adatokat.
+Az I/O középpontja az állomány.
+Ez lehet logikai és fizikai.
+Az előbbi egy olyan programozási eszköz, amely névvel rendelkezik, és állományjellemzői attribútumként vannak jelen.
+Fizikai állománynak pedig a hétköznapi, perifériákon megjelenő, adatokat tároló vagy tartalmazó állományt nevezzük.
+</para>
+
+    </section>        
+    <section>
+        <title>Programozás bevezetés</title>
+        <para>                
+            <citation>KERNIGHANRITCHIE</citation>
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://youtu.be/zmfT9miB-jY">https://youtu.be/zmfT9miB-jY</link>
+        </para>
+        <para>
+            A C nyelvben kevés adattípust találhatunk<command>(char, int, float, double)</command>,
+             de hozzájuk egyfajta minősítők is tartozhatnak:(short(16 bit), long(32 bit) int).
+            ezek Különböző hosszúságú egészeket írnak le.
+            Az ún. "bűvös számok" elkerülésére használhatjuk a #define parancsot, amellyel Szimbolikus állandókat hozhatunk létre.
+            Használata: #define név behelyettesítendő-szöveg-vagy-szám
+       </para>
+       <para>
+       <command>változóérvényességi tartomány:</command>
+       A változók deklarálása általában lokális módon történik,ezek a függvényen kívül nem látszanak, a másik függvény/osztály nem fér hozzájuk.
+       Ha azt szeretnénk, hogy a változónk látható legyen a függvényen kívül is, szükségünk lesz a változó elé beírni egy <command>extern</command>
+       szót, ezzel globális változóvá téve az eredetileg lokális változót.
+       </para>
+       <para>
+       <command>Változók deklarálása:</command>
+       A változók deklarálása 3 féle képpen történhet, lista szerint,szétválasztva, vagy értékadással.
+       </para>
+       <para>Lista például:<![CDATA[char c,t[5];
+       int i,g,k;]]> 
+       </para>
+        <para>
+        szétválasztva: char c; char t[5];int i; int g; int k;
+        </para>
+        <para>értékadással: char c = 'a'; int i=0;</para>
+        <para>Minden változó elé kitehetünk egy const minsősítőt, ha azt szeretnénk, hogy 
+        a változó értékét ne lehessen megváltoztatni.</para>
+        <para>
+        <command>Típuskonverzió:</command>
+        atoi függvény, a char típusú változók értékét integerré konvertálja.
+        ASCII karakterkészlet esetén használható a lower() függvény, ami a nagybetűket kisbetűkké alakítja.
+        </para><para><command>Bitenkénti operátorok:</command>
+        A C nyelvben 6 olyan operátor található, amelyet bitenkénti műveletekre használhatunk.
+        Ezek az operátorok csak char,short,int,long, és ezek előjeles/előjel nélküli formájára használhatóak.
+
+        </para>
+        <programlisting language="c"><![CDATA[&     bitenkénti ÉS-kapcsolat
+|     bitenkénti megengedő (inkluzív) VAGY-kapcsolat
+^     bitenkénti kizáró (exkluzív) VAGY-kapcsolat
+<<    balra léptetés
+>>    jobbra léptetés
+~     egyes komplemens képzés (unáris)]]></programlisting>
+        <para><command>Regiszter változó:</command>
+        Ezen fajta deklaráció a fordítóprogrammal közli, hogy az adott változóra gyakran lesz szükségünk, ezért
+        regiszterbe helyeztessük, ezzel meggyorsítva a működést, és kissebb méretet kapunk.
+        A fordítóprogram nem köteles ezt a kérést teljesíteni, figyelmen kívül is hagyhatja.
+        deklarációs forma: register int c; register char g;
+        </para>
+        <para>
+        <command>Rekurzivitás:</command>
+        A függvények rekurzívan hívhatják önmagukat, ilyenkor az automatikus változók értékei újramásolódnak az új híváshoz.
+        Ezek az értékek egymástól függetlenül léteznek, nincs hatásuk egymásra.
+
+        </para>
+        <para>
+        <command>Makrók: </command>A #define paranccsal nem csak Szimbolikus állandók hozhatók létre.
+        Segítségükkel makrókat is inicializálhatunk, tehát akár egy egész függvényt is egy szóval behelyettesíthetünk.
+        Amikor ez a szó idézőjel nélkül, egymagában megjelenik a kódban, akkor a helyettesítési értéke illesztődik be a kódba.
+
+        </para>
+        <para>
+        <command>Pointerek:</command>
+        Ezek olyan változók, amelyek más változók memóriacímét tárolják.
+        C-ben gyakran használják a mutatókat, mivel hatékonyság és tömörség növelő hatása van.
+        Ha van két változónk, <![CDATA[char c és char* p, és p = &c; a &-jel (egyoperandusú operátor) hozzárendeli a p-hez a c címét.
+        Ezt úgy szoktuk mondani, hogy a p c-re mutat.]]> Ez az operátor csak változókra és tömbelemekre használható. 
+        
+        </para>
+        <para>
+        <command>Parancssori argumentumok:</command> 
+        Lehetőségünk van argumentumok átadására a programunknak a terminálról, ezek az argumentumok 
+        a main() függvény *argc* és *argv[]* tagjai.
+        az argc egy számot tartalmaz, ez a szám az argumentumok száma.
+        Az argv[] tömb pedig az összes argumentumot tartalmazza, argv[0] a program neve.
+
+        </para>
+    </section>        
+    <section>
+        <title>Programozás</title>
+        <para>                
+            <citation>BMECPP</citation>
+            A C++ nyelv a C nyelv továbbfejlesztése, annak kényelmesebb használatára hivatott.
+        Alapértelmezett függvényargumentumok és függvénynevek túlterhelése segíti a programozók dolgát.
+
+        </para>
+        <para>
+        C-ben egy üres paraméterlistával rendelkező függvénynek bármennyi paramétere lehet, ez C++-ban viszont egy paraméter nélküli függvény.
+        Amíg C-ben megadhatunk típus nélküli függvényeket, (melyek <command>int</command> típusúak lesznek)
+        addig C++-ban nincs Alapértelmezett típus, tehát ez hibát eredményez.
+        </para>
+        <para>
+        C++-ban a <command>main()</command> függvény Alapértelmezetten renelkezik két paraméterrel, az argc és argv[] paraméterekkel, előbbi az argumentumok számát, utóbbi az argumentumokat tárolja.
+        C++-ban megjelenik a bool típus, amely logikai értékeket vehet fel.
+        Előnye az olvashatóság,valamint operátor túlterhelhetőség.
+        </para>
+        <para>
+        C-ben a több-bájtos stringek eléréséhez meg kellett hívni a fejlécben az <![CDATA[<stddef.h>,<stdlib.h> vagy <wchar.h> fájlokat]]>.
+        Ez C++-ban már beépített típus lett, így meghívását egyszerűen megtehetjük: <command>wchar_t text=L"sss";</command>
+        </para>
+        <para>
+        <command>objektumok és osztályok</command>
+        </para>
+        <para>
+        Az objektumorientáltság az 1960-as években kezdődött, és 1990-től terjedt el nagy mértékben.
+        Egy egységbe záró adattstruktúra neve az osztály.
+        Ezen osztálynak az egyedpéldányai az objektumok.
+        Ha azt szeretnénk, hogy a programban más férhessen hozzá egy bizonyos objektumhoz, akkor azt a valahogy meg kell oldanunk.
+        Ez a védelmi mechanizmus lesz az "adatrejtés".
+        Ezt megtehetjük azzal, hogy az objektum elé egy "private:" kulccsszót írunk.
+        Így csak az osztályon belüli tagok férhetnek hozzá az adathoz.
+        A dinamikus memóriakezelést C-ben a <command>malloc és free </command> függvénypárossal végeztük.
+        A paraméterek átadása miatt C++-ban már nem is függvény felelős a memóriakazelésért, hanem operátor.
+        Ez az operátor a <command>new</command>
+        </para>
+        <programlisting language="c++">
+        <![CDATA[int* p;
+        p=new int;
+        *p=10;
+        delete p;//a változó használata után felszabadítjuk a helyét a memóriában
+        ]]>
+        </programlisting>
+        <para>Ha szeretnénk, hogy a private:-ban található objektumainkat az osztályon kívül is el tudjuk érni, szükségünk lesz
+        egy <command>Friend</command> függvény vagy osztály megadására az osztályunkban.
+         </para><para><command>Konstansok és inline függvények</command></para>
+         <para>A konstansokat a "közönséges" változókhoz hasonlóan használhatjuk, viszont ezek értékei nem változhatnak a program futása során.
+         Bármiféle változtatás az értékével programhibához vezet. </para>
+        <para>Léteznek konstans pointerek is, ezeket kétfélé módon adhatjuk meg, ha a típus elé írjuk, akkor a mutatott érték válik megváltoztathatatlanná.
+        </para>
+        <para><link xlink:href="elmelet/testprog.c++"></link></para>
+        <programlisting language="c++"><![CDATA[
+        char tomb[5];
+        const char* pointer=tomb;
+        *pointer="g";//ez fordítási hibához vezet, hiszen ez a mutatott érték
+        pointer++; //hiba nélkül lefut]]></programlisting>
+        <para>A másik változat, amikor a const-ot a pointer neve elé írjuk, ekkor a mutató lesz megváltoztathatatlan.
+        </para>
+        <programlisting language="c++"><![CDATA[
+        char tomb[5];
+        char* const pointer =tomb;
+        *pointer="g";//lefut
+        pointer++;//fordítási hibát jelez]]></programlisting>
+        <para>Ezek kombinálása is lehetséges.</para>
+        <para><command>Inline függvények</command></para>
+        <para>
+        Ezen függvények esetében a fordító behelyettesíti a 
+        hívás helyére az inline-ban megadott kódrészt,ezzel
+        gyorsítva az általános függvényhívás menetét.</para>
+        <para><command>I/O alapok</command></para>
+        <para>
+        <command>operátor túlterhelés</command></para>
+        <para>A c++ nyelvben néhány új operátor lett bevezetve a C-hez képest.
+        Ilyen például a hatókör operátor(::), a pointer-tag ooperátor(.* és ->*).
+        </para>
+        <para></para>
+    </section>        
+</chapter>                        

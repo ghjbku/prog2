@@ -1,0 +1,133 @@
+<revhistory xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <revision>
+        <revnumber>0.0.1</revnumber>
+        <date>2019-02-12</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Az iniciális dokumentum szerkezetének kialakítása.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.2</revnumber>
+        <date>2019-02-14</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Inciális feladatlisták összeállítása.
+        </revremark>
+    </revision>    
+    <revision>
+        <revnumber>0.0.3</revnumber>
+        <date>2019-02-16</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Feladatlisták folytatása.
+            Feltöltés a BHAX csatorna 
+            <link xlink:href="https://gitlab.com/nbatfai/bhax">https://gitlab.com/nbatfai/bhax</link>
+            repójába.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.0.4</revnumber>
+        <date>2019-02-19</date>
+        <authorinitials>nbatfai</authorinitials>
+        <revremark>
+            Aktualizálás, javítások.
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.0</revnumber>
+        <date>2019-02-26</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 1
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.1</revnumber>
+        <date>2019-03-03</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 2
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.2</revnumber>
+        <date>2019-03-11</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 3
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.3</revnumber>
+        <date>2019-03-18</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 4
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.4</revnumber>
+        <date>2019-03-27</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 5
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.5</revnumber>
+        <date>2019-04-05</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 6
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.6</revnumber>
+        <date>2019-04-12</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 7
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.7</revnumber>
+        <date>2019-04-19</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 8 és olvasónapló
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.8</revnumber>
+        <date>2019-04-26</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 9
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.1.9</revnumber>
+        <date>2019-04-30</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok elkezdése, chapter 10
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>0.2.0</revnumber>
+        <date>2019-05-05</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Feladatok finomítása, bejezezés
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>1.0.1</revnumber>
+        <date>2019-09-09</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Második felvonás elkezdése
+        </revremark>
+    </revision>
+</revhistory>
