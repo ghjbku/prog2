@@ -130,4 +130,12 @@
             Második felvonás elkezdése
         </revremark>
     </revision>
+    <revision>
+        <revnumber>1.0.2</revnumber>
+        <date>2019-09-11</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Hello Berners beillesztése, arroway inicializálása
+        </revremark>
+    </revision>
 </revhistory>
