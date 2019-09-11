@@ -6,12 +6,14 @@
         </keywordset>
     </info>
 <section>
-        <title>Kódolás from scratch</title>
+        <title>Olvasónaplók</title>
         <para>
-Induljunk ki ebből a tudományos közleményből:<link xlink:href="http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/bbp-alg.pdf">http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/bbp-alg.pdf</link>
-és csak ezt tanulmányozva írjuk meg Java nyelven a BBP algoritmus megvalósítását!
-Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei">https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei</link>
-
+C++:Benedek Zoltán,Levendovszky Tihamér Szoftverfejlesztés C++ nyelven
+Java: Nyékyné Dr. Gaizler Judit et al. Java 2 útikalauz programozóknak 5.0
+ebből a kettőből egy pár oldalas összehasonlító esszé.
+Python:Forstner Bertalan,Ekler Péter,Kelényi Imre:Bevezetés a mobilprogramozásba
+Gyors prototípus-fejlesztés Python és Java nyelven(35-51 oldal)
+-ebből 1-oldalas élmény-napló
 	</para>
         <para>
             Megoldás forrása:               
