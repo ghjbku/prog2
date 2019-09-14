@@ -138,4 +138,11 @@
             Hello Berners beillesztése, arroway inicializálása
         </revremark>
     </revision>
+    <revision>
+        <revnumber>1.0.3</revnumber>
+        <date>2019-09-14</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Java és C++ könyvek összeállításának elkezdése/első oldal megírása</revremark>
+    </revision>
 </revhistory>
