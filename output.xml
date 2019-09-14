@@ -203,6 +203,21 @@
             Második felvonás elkezdése
         </revremark>
     </revision>
+    <revision>
+        <revnumber>1.0.2</revnumber>
+        <date>2019-09-11</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Hello Berners beillesztése, arroway inicializálása
+        </revremark>
+    </revision>
+    <revision>
+        <revnumber>1.0.3</revnumber>
+        <date>2019-09-14</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+        <revremark>
+            Java és C++ könyvek összehasonlításának elkezdése/első oldal megírása</revremark>
+    </revision>
 </revhistory>               
                                
 </info>     
@@ -5481,20 +5496,86 @@ A függvény törzsében a megadott paraméterekkel a gimp beállítja a szöveg
             <keyword/>
         </keywordset>
     </info>
-<section>
-        <title>Kódolás from scratch</title>
+    <section>
+        <title>Olvasónaplók</title>
         <para>
-Induljunk ki ebből a tudományos közleményből:<link xlink:href="http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/bbp-alg.pdf">http://crd-legacy.lbl.gov/~dhbailey/dhbpapers/bbp-alg.pdf</link>
-és csak ezt tanulmányozva írjuk meg Java nyelven a BBP algoritmus megvalósítását!
-Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei">https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei</link>
+C++:Benedek Zoltán,Levendovszky Tihamér Szoftverfejlesztés C++ nyelven
+Java: Nyékyné Dr. Gaizler Judit et al. Java 2 útikalauz programozóknak 5.0
+ebből a kettőből egy pár oldalas összehasonlító esszé.
+Python:Forstner Bertalan,Ekler Péter,Kelényi Imre:Bevezetés a mobilprogramozásba
+Gyors prototípus-fejlesztés Python és Java nyelven(35-51 oldal)
+-ebből 1-oldalas élmény-napló
+	    </para>
 
-	</para>
         <para>
-            Megoldás forrása:               
+            <command>C++ és Java összehasonlítás</command>           
         </para>
+
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            java-ban minden metódusnak kell visszatérési érték típust adni.
+C++-ban viszont nem muszáj, hiszen alapértelmezetten int típust feltételez a program, ha nem adunk neki típust.
+A cpp-tól eltérően Java-ban String[]tömb tárolja az argumentumokat
+ezzel szemben a C ill. C++-ban argv és argc változó együttes tárolja azokat
+argv az argumentumokat tároló vektor, az argc pedig az argumentumok számát tároló változó.
         </para>
+
+        <para>
+        logikai típus C++-ban bool, Java-ban boolean.
+        </para><para>
+basic io művelet java-ban System.out.Println(),  C++-ban std::cout parancs használatával történik.
+ezek listázása is eltérő, java-ban a pascal-hoz hasonlóan + jellel fűzünk össze változókat ill. szöveget, Cpp-ban pedig &gt;&gt; jel váltja fel a + szerepét
+Továbbá Java-ban nincs operátor túlterhelés!
+        </para>
+
+        <para>
+        Java-ban a karakterkészlet defaultban utf-8, c++-ban include-olni kell egy library-t, hogy utf-8-as karaktereket használhassunk, anélkül nehézkes a használatuk.
+        a konstansok megadása Java-ban a "final" kulcsszó használatával lehetséges, c++-ban ezt a const-al tehetjük meg
+        Példák:
+        </para>
+
+        
+        <programlisting language="java"><![CDATA[final static double pi=3.14;]]></programlisting>
+        
+        <programlisting language="C++"><![CDATA[const double pi=3.14;]]>
+        </programlisting>
+        <para>
+        Az objektumok elemeire hivatkozhatunk, az <command>"objektum neve"."elem neve"</command> módon.
+Ha az elem-nek egy elemére szertnénk hivatkozni, azt hasonló modon kell megtenni.
+A java-ban nincs explicit mód a memóriahely felszabadítására, a pointerek NULL-ra állítását tehetjük meg, amit a "garbage collector" később eltűntet.
+nincs dekonstruktor, ezzel szemben C-ben és C++-ban van dekonstruktor, amit az objektum elején elhelyezett "~" jellel "állítunk elő".
+
+        </para>
+        <programlisting language="C++"><![CDATA[~LZWBinFa ()
+    {
+        
+    }]]></programlisting>
+    <para>
+    Továbbá C++-ban lehetőségünk van(és kell is) a pointerek által lefoglalt memóriahelyek felszabadítására 3 módszerrel.
+    </para>
+    <programlisting language="C++"><![CDATA[delete ptr;
+ptr=NULL;
+//vagy pedig
+free(ptr);]]></programlisting>
+<para>
+C-ben nincs lehetőség a <command>"delete ptr;"</command> módszerre.
+A pointer NULL-ra állítása viszont nem szabadítja fel a helyet, csak ún. "árvát" hoz létre, mivel a C++ nem "garbage collector" nyelv.
+A lefoglalt terület még fennáll, de nem lehet elérni, és egy memory leak képződik.
+Ezek a memória leak-ek csak akkor okoznak nagyobb gondot, ha elfogy a memória, ekkor a program preemptív kilép, "crash-el".
+</para>
+<para>
+Ha egy objektumot a <command>new()</command> metódussal hoztunk létre, akkor a <command>delete</command> paranccsal szabadítsuk fel a helyet, ha a <command>malloc()-ot</command> használtuk memória lefoglaláshoz, akkor a <command>free()</command>-vel szabadítjuk fel a memóriában foglalt helyet.
+Fontos tudni, hogy a <command>free()</command> nem hívja a destructor-t, azt csak a <command>delete</command> teszi meg!
+</para>
+<para>
+Mindkét programnyelvben megtalálható az automatikus/implicit típus konverzió.
+Ha a fordító program a vártnál eltérő típusú adatot kap, azt automatikusan megpróbálja átkonvertálni a várt típusra.
+Ez nem mindíg lehetséges!
+Például az egyénileg létrehozott típusokat nem tudja átkonvertálni.
+</para>
+<para>
+A try-catch hibakezelő metódus mindkét nyelvben elérhető.
+
+</para>
     </section>       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>  
