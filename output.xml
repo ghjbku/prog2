@@ -5574,7 +5574,10 @@ Például az egyénileg létrehozott típusokat nem tudja átkonvertálni.
 </para>
 <para>
 A try-catch hibakezelő metódus mindkét nyelvben elérhető.
-
+Ezekről egy-egy példakód itt:</para><para><link xlink:href="https://github.com/ghjbku/prog2/tree/master/elm%C3%A9let/Osztas.java">Java</link> 
+</para>
+<para>
+<link xlink:href="https://github.com/ghjbku/prog2/tree/master/elm%C3%A9let/try_Catch.cpp">C++</link> 
 </para>
     </section>       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
