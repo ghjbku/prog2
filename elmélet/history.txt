@@ -1,0 +1,233 @@
+    1  cd
+    2  ls
+    3  cd ..
+    4  ls
+    5  cd ..
+    6  ls
+    7  cd /etc
+    8  ls
+    9  cd pacman.d
+   10  ls
+   11  gedit mirrorlist 
+   12  less mirrorlist 
+   13  pacman -Sy docbook-dsssl
+   14  sudo pacman -Sy docbook-dsssl
+   15  lsusb
+   16  sudo tee /etc/modprobe.d/psmouse <<< 'options psmouse proto=imps'
+   17  sudo modprobe -r psmouse
+   18  git clone https://github.com/ghjbku/DE.git
+   19  sudo apt install docbook5-xml
+   20  sudo apt get docbook5-xml
+   21  sudo apt install docbook5-xml
+   22  sudo apt-get install docbook5-xml
+   23  cmd
+   24  help
+   25  pacman -s docbook5-xml
+   26  pacman-S docbook5-xml
+   27  pacman -S docbook5-xml
+   28  sudo pacman -S docbook5-xml
+   29  sudo pacman -Syyu
+   30  xdotool mouseup 3
+   31  sudo pacman -Sy xdotool
+   32  xdotool
+   33  xdotool mouseup 3
+   34  sudo pacman -Sy docbook-dsssl
+   35  pacman -Sy dblatex
+   36  sudo pacman -Sy dblatex
+   37  sudo pacman -S texlive-lang-european
+   38  sudo pacman -S texlive-lang
+   39  make
+   40  make
+   41  ls
+   42  cd Desktop/
+   43  ls
+   44  cd sajat/
+   45  ls
+   46  make
+   47  sudo pacman -S texlive-most texlive-lang
+   48  sudo systemctl enable bumblebeed.service
+   49  sudo systemctl enable bumblebeed.service-video-intel nvidia lib32-nvidia-utils lib32-virtualgl nvidia-settings bbswitch primus lib32-primus mesa-demos
+   50  sudo pacman -S bumblemee mesa xf86-video-intel nvidia lib32-nvidia-utils lib32-virtualgl nvidia-settings bbswitch primus lib32-primus mesa-demos
+   51  sudo gpasswd -a $USER bumblebee
+   52  sudo pacman -Syuu
+   53  optirun --status
+   54  htop
+   55  ls
+   56  make
+   57  dblatex
+   58  man make 
+   59  make -B
+   60  man make
+   61  make -k
+   62  ls
+   63  evince 
+   64  evance
+   65  cd ..
+   66  cd ..
+   67  git clone https://github.com/ghjbku/DE.git
+   68  rmdir DE
+   69  rmdir help
+   70  man rmdir
+   71  rmdir DE --ignore-fail-no-non-empty
+   72  rmdir DE --ignore-fail-no-non-empty
+   73  rmdir --help
+   74  rmdir DE --ignore-fail-on-non-empty
+   75  ls
+   76  git clone https://github.com/ghjbku/DE.git
+   77  make
+   78  make -k
+   79  make
+   80  make -k
+   81  make -k
+   82  make -k
+   83  make -k
+   84  make
+   85  make -k
+   86  make 
+   87  make -k
+   88  make -k
+   89  make -k
+   90  make -k
+   91  ls
+   92  evince bhax-textbook-fdl.pdf 
+   93  git clone https://github.com/ghjbku/prog2.git
+   94  evince bhax-textbook-fdl.pdf 
+   95  make 
+   96  make -k
+   97  evince bhax-textbook-fdl.pdf 
+   98  make -k
+   99  evince bhax-textbook-fdl.pdf 
+  100  make -k
+  101  evince bhax-textbook-fdl.pdf 
+  102  ls
+  103  gedit bhax-textbook-feladatok2-berners.xml 
+  104  make -k
+  105  evince bhax-textbook-fdl.pdf 
+  106  evince Java\ 2\ Utikalauz\ Programozoknak\ 5_0\ -\ 1\ kotet.pdf 
+  107  gedit
+  108  ps
+  109  ls
+  110  nohup evince bhax-textbook-fdl.pdf 
+  111  make
+  112  make -k
+  113  make -k
+  114  evince bhax-textbook-fdl.pdf 
+  115  ls
+  116  evince bhax-textbook-fdl.pdf &
+  117  make -k
+  118  make -k
+  119  kill 6840
+  120  evince bhax-textbook-fdl.pdf &
+  121  make -k
+  122  make -k
+  123  ps
+  124  kill 6946
+  125  make -k
+  126  evince bhax-textbook-fdl.pdf &
+  127  firefox
+  128  make -k
+  129  gedit 
+  130  ls
+  131  firefox
+  132  cmake
+  133  make -k
+  134  ls
+  135  git push
+  136  make -k
+  137  make -k
+  138  firefox
+  139  firefox &
+  140  gedit
+  141  kill 8932
+  142  ls
+  143  ps
+  144  ls
+  145  make -k
+  146  make -k
+  147  make -k
+  148  make
+  149  make -k
+  150  make
+  151  clear
+  152  make
+  153  git commit
+  154  git
+  155  git --html-path
+  156  git init prog2
+  157  cd prog2/
+  158  ls
+  159  git
+  160  ps
+  161  ls
+  162  ps
+  163  git
+  164  git --git
+  165  git --git-dir
+  166  git --git-dir ./prog2
+  167  git log
+  168  git fetch
+  169  git config --global windsake
+  170  git config --global user.name windsake
+  171  git config --global user.name
+  172  git config --global user.email "gawnoris@gmail.com"
+  173  git config --global user.email
+  174  git config --global credential.helper cache
+  175  git config --global credential.helper 'cache --timeout=3600'
+  176  ls
+  177  cd ..
+  178  git clone https://github.com/ghjbku/prog2.git
+  179  cd prog2
+  180  ls
+  181  cd
+  182  ls
+  183  git remote -v
+  184  git remote add upstream https://github.com/ghjbku/prog2.git
+  185  ls
+  186  cd Desktop/
+  187  ls
+  188  cd sajat/
+  189  cd prog2
+  190  git add origin
+  191  git origin
+  192  git --help
+  193  man git
+  194  git --git-dir=.
+  195  git --git-dir=./prog2
+  196  man git
+  197  man gittutorial 7
+  198  git branch
+  199  git diff
+  200  git diff --cached
+  201  evance bhax-textbook-fdl.pdf
+  202  evince bhax-textbook-fdl.pdf
+  203  ls
+  204  make
+  205  make -k
+  206  makels
+  207  evince bhax-textbook-fdl.pdf
+  208  ls
+  209  ps
+  210  git commit -a
+  211  git push
+  212  ls
+  213  cd elmélet/
+  214  ls
+  215  gedit
+  216  touch sysprop.java
+  217  gedit sysprop.java 
+  218  javac sysprop.java 
+  219  java sysprop 
+  220  java sysprop asd
+  221  java -Dasd="do not panic!"
+  222  java -D asd="do not panic!"
+  223  java -D asd="do not panic!" sysprop
+  224  java -D asd="do not panic!" sysprop asd
+  225  java -Dasd="do not panic!" sysprop asd
+  226  java sysprop asd
+  227  java Djava.security.manager -Dasd="do not panic" sysprop asd
+  228  java -Djava.security.manager -Dasd="do not panic" sysprop asd
+  229  java -Djava.security.manager -Dasd="do not panic"
+  230  java -Djava.security.manager -Dasd="do not panic"
+  231  java -Djava.security.manager -Dasd="do not panic" -Djava.security.policy=simple.policy sysprop asd
+  232  java -Djava.security.manager -Dasd=do_not_panic -Djava.security.policy=simple.policy sysprop asd
+  233  history >> history.txt
