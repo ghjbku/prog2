@@ -88,8 +88,8 @@ Ezekről egy-egy példakód itt:</para><para><link xlink:href="https://github.co
 <para>
 <link xlink:href="https://github.com/ghjbku/prog2/tree/master/elm%C3%A9let/try_Catch.cpp">C++</link> 
 </para>
-<para>A  java nyelvben a tömb típus egy igazi típus, amíg c++-ban csak egy mutató típus. mindkét nyelvben 0-val kezdődik az indexelés a tömbben Továbbá az enum típus is jelen van.
-Java-ban a pont minden esetben a tagok elérésére szolgál, is a C++-tól eltérően itt nincs megkülönböztető jelölés osztálytagok elérésénél(C++-ban :: operátor)
+<para>A  java nyelvben a tömb típus egy igazi típus, amíg c++-ban csak egy mutató típus. mindkét nyelvben 0-val kezdődik az indexelés a tömbben, Továbbá az enum típus is jelen van.
+Java-ban a pont minden esetben a tagok elérésére szolgál, és a C++-tól eltérően itt nincs megkülönböztető jelölés osztálytagok elérésénél(C++-ban :: operátor)
 </para>
 <para>A C és C++-tól eltérően a Java-ban nics GOTO utasítás, azzal a címszóval lett elhagyva, hogy ezáltal biztonságosabb és megbízhatóbb programokat kapunk.
 a korábbi goto-val megoldott problémákra új megoldások vannak:
