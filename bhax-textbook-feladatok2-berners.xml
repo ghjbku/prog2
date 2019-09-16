@@ -100,7 +100,13 @@ Java-ban a legkissebb önálló egységek az osztályok.</para>
             <command>Python könyv élmény-napló </command>           
         </para>
         <para>
-
+        A Python <command>magasszintű, általános célú nyelv</command>, szkriptnyelvként szokták emlegetni.
+A kódokat egy futtatókörnyezeten keresztül futtatják általában, viszont vannak már kísérleti stádiumban natív kódot generáló fordítóprogramok is.
+Mind a procedurális, és az objektumorientált programozást támogatja
+Könyvátárnak mérete a nyelv egyik erősségének mondható, melyben még http támogatás is megtalálható.
+C, cpp nyelven készült modulok is egyszerűen adhatók hozzá a környezethez.
+Népszerűségét az egyszerűségnek köszönheti, <command>szinte bármilyen feladatot meg lehet oldani a nyelvben</command>, viszont elsősorban kliensszoftverek készítésére alkalmazzák.
+A mobileszközökön is futtatható, írható python kód, viszont ez nem újdonság, hiszen java ill. C++ kódokat is futtathatunk manapság.
         </para>
 
         <para>
