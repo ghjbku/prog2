@@ -2,25 +2,29 @@ public class LZWBinFa {
 public LZWBinFa() {
 fa = gyoker;
 }
-public void egyBitFeldolg(char b) {
-if (b == ’0’) {
-if (fa.nullasGyermek() == null)
+public void egyBitFeldolg(char b)
 {
-Csomopont uj = new Csomopont(’0’);
-fa.ujNullasGyermek(uj);
-fa = gyoker;
-} else {
-fa = fa.nullasGyermek();
-}
-} else {
-if (fa.egyesGyermek() == null) {
-Csomopont uj = new Csomopont(’1’);
-fa.ujEgyesGyermek(uj);
-fa = gyoker;
-} else {
-fa = fa.egyesGyermek();
-}
-}
+if (b == '0') {
+    if (fa.nullasGyermek() == null)
+    {
+    Csomopont uj = new Csomopont('0');
+    fa.ujNullasGyermek(uj);
+    fa = gyoker;
+    } else {
+    fa = fa.nullasGyermek();
+    }
+} 
+else{
+    if (fa.egyesGyermek() == null) {
+    Csomopont uj = new Csomopont('1');
+    fa.ujEgyesGyermek(uj);
+    fa = gyoker;
+    }
+    else{
+    fa = fa.egyesGyermek();
+    }
+    }
+
 }
 public void kiir() {
 melyseg = 0;
@@ -73,7 +77,7 @@ kiir(elem.nullasGyermek(), os);
 --melyseg;
 }
 }
-protected Csomopont gyoker = new C= new Csomopont('/');
+protected Csomopont gyoker = new Csomopont('/');
 int maxMelyseg;
 double atlag, szoras;
 public int getMelyseg() {
@@ -97,7 +101,8 @@ szoras = Math.sqrt(szorasosszeg / (atlagdb - 1));
 } else {
 szoras = Math.sqrt(szorasososszeg);
 }
-return szoras;
+return szoras;}
+
 public void rmelyseg(Csomopont elem) {
 if (elem != null) {
 ++melyseg;
@@ -141,16 +146,17 @@ public static void usage()
 {
     System.out.println("Usage: lzwtree in_file -o out_file");
 }
-public static void main(String[] args){
+public static void main(String args[]){
     if (args.length != 3) {
-usage();
-System.exit(-1);
-}
+    usage();
+    System.exit(-1);
+    }
 String inFile = args[0];
-if (!"-o".equals(args[1]))
-{usage();
-System.exit(-1);
-}
+
+    if (!"-o".equals(args[1]))
+    {usage();
+    System.exit(-1);
+    }
 try {
 java.io.FileInputStream beFile =
 new java.io.FileInputStream(new java.io.File(args[0]));
@@ -161,37 +167,36 @@ new java.io.FileWriter(args[2])));
 byte[] b = new byte[1];
 LZWBinFa binFa = new LZWBinFa();
 while (beFile.read(b) != -1) {
-if (b[0] == 0x0a) {
-break;
-}
+    if (b[0] == 0x0a) {
+    break;
+    }
 }
 boolean kommentben = false;
 while (beFile.read(b) != -1) {
-if (b[0] == 0x3e) {
-kommentben = true;
-continue;
-}
-if (b[0] == 0x0a) {
-kommentben = false;
-continue;
-}
-if (kommentben) {n}{
-continue;
-}
-f (b[0] == 0x4e)
-{
-continue;
-}
+    if (b[0] == 0x3e) {
+    kommentben = true;
+    continue;
+    }
+    if (b[0] == 0x0a) {
+    kommentben = false;
+    continue;
+    }
+    if (kommentben) {
+    continue;
+    }
+    if (b[0] == 0x4e)
+    {
+    continue;
+    }
 for (int i = 0; i < 8; ++i) {
-    f ((b[0] & 0x80) != 0)
-{
-binFa.egyBitFeldolg('1');
-} else
-{
-binFa.egyBitFeldolg('0');
-}
-b[0] <<=1;
-}
+    if ((b[0] & 0x80) != 0)
+    {
+    binFa.egyBitFeldolg('1');
+    }else{
+    binFa.egyBitFeldolg('0');
+    }
+    b[0] <<=1;
+    }   
 }
 binFa.kiir(kiFile);
 kiFile.println("depth = " + binFa.getMelyseg());
@@ -199,9 +204,11 @@ kiFile.println("mean = " + binFa.getAtlag());
 kiFile.println("var = " + binFa.getSzoras());
 kiFile.close();
 beFile.close();
-} catch (java.io.FileNotFoundException fnfException) {
+}
+catch (java.io.FileNotFoundException fnfException) {
 fnfException.printStackTrace();
-} catch (java.io.IOException ioException) {
+} 
+catch (java.io.IOException ioException) {
 ioException.printStackTrace();
 }
 }
