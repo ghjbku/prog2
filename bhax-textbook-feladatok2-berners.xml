@@ -96,6 +96,9 @@ a korábbi goto-val megoldott problémákra új megoldások vannak:
 ciklus elhagyása a <command>break</command> utasítással történik, a ciklus folytatása a <command>continue</command> utasítással.
 Java-ban a legkissebb önálló egységek az osztályok.</para>
   <para></para>
+
+
+
         <para>
             <command>Python könyv élmény-napló </command>           
         </para>
@@ -110,10 +113,23 @@ A mobileszközökön is futtatható, írható python kód, viszont ez nem újdon
         </para>
 
         <para>
-        </para>
+	A Symbian OS mobiltelefon operációs rendszer egyike a napjainkban legtöbbet alkalmazott operációs rendszereknek.
+	Mind C++-ban, Python-ban és Java-ban is írhatónk rá kódokat, viszont a rendszer felett még ott van egy GUI(Grafikus felhasználói felület), ezekből manapság 2 típus ismert:
+	<command>S60(korábban Series60)</command> és az <command>UIQ</command>.
+	Hasonló funkcionalitás lelhető fel mindkét rendszerben, viszont ennek ellenére a kettő nem kompatibilitis egymással, az egyikre írt programok nem fognak a másikon elfutni.
+	Az operációs rendszer alapfunkcióiban azonban megegyezik, tehát csak az UI-hez kötődő részeket kell külön megírnunk kétféleképpen.
+       </para>
 
         <para>
+	A Windows Mobile pedig a Microsoft mobiltelefonokhoz fejlesztett operációsrendszer,amely a Windows CE rendszeren alapul.
+	A Symbian-hoz képest több lehetőségünk van a programnyelvek használatát illetően.
+	A C++, Python és Java-n kívül natív alkalmazásokat készíthetünk C nyelven is, és persze az ugyancsak Microsoft által fejlesztett .NET compact framework technológiával egyaránt.
+	Ez utóbbi a Microsoft .NET telefonokra kifejlesztett változata. 
         </para>
+
+	<para>
+	
+	</para>
     </section>       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>                
