@@ -113,7 +113,7 @@ A mobileszközökön is futtatható, írható python kód, viszont ez nem újdon
         </para>
 
         <para>
-	A Symbian OS mobiltelefon operációs rendszer egyike a napjainkban legtöbbet alkalmazott operációs rendszereknek.
+	A <command>Symbian OS</command> mobiltelefon operációs rendszer egyike a napjainkban legtöbbet alkalmazott operációs rendszereknek.
 	Mind C++-ban, Python-ban és Java-ban is írhatónk rá kódokat, viszont a rendszer felett még ott van egy GUI(Grafikus felhasználói felület), ezekből manapság 2 típus ismert:
 	<command>S60(korábban Series60)</command> és az <command>UIQ</command>.
 	Hasonló funkcionalitás lelhető fel mindkét rendszerben, viszont ennek ellenére a kettő nem kompatibilitis egymással, az egyikre írt programok nem fognak a másikon elfutni.
@@ -121,14 +121,16 @@ A mobileszközökön is futtatható, írható python kód, viszont ez nem újdon
        </para>
 
         <para>
-	A Windows Mobile pedig a Microsoft mobiltelefonokhoz fejlesztett operációsrendszer,amely a Windows CE rendszeren alapul.
+	A <command>Windows Mobile</command> pedig a Microsoft mobiltelefonokhoz fejlesztett operációsrendszer,amely a Windows CE rendszeren alapul.
 	A Symbian-hoz képest több lehetőségünk van a programnyelvek használatát illetően.
 	A C++, Python és Java-n kívül natív alkalmazásokat készíthetünk C nyelven is, és persze az ugyancsak Microsoft által fejlesztett .NET compact framework technológiával egyaránt.
 	Ez utóbbi a Microsoft .NET telefonokra kifejlesztett változata. 
         </para>
 
 	<para>
-	
+	A Harmadik operációsrendszer mobiltelefonokra a nyílt forráskódú, Linux-ra épülő <command>Maemo</command>, ez a rendszer a Nokia fejlesztése alatt áll.
+	A rendszer nagyrészben az internetes elérésekre,megoldásokra fókuszál, viszont az alapvető funkciókat ezen a rendszeren is el tudjuk végezni.
+Jelenleg a Bluetooth és WLAN funkciókat támogatja, de már a Wimax támogatását is híresztelik.
 	</para>
     </section>       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
