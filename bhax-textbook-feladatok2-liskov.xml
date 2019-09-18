@@ -5,7 +5,7 @@
             <keyword/>
         </keywordset>
     </info>
-
+	
 	<section>
 <title>Liskov helyettesítés sértése</title>
         <para>Írjunk olyan OO, leforduló Java és C++ kódcsipetet, amely megsérti a Liskov elvet! Mutassunk rá a

@@ -5711,7 +5711,21 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
             <keyword/>
         </keywordset>
     </info>
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" xmlns:fo="http://www.w3.org/1999/XSL/Format" xmlns:d="http://docbook.org/ns/docbook" xmlns="http://www.w3.org/TR/xhtml1/transitional" version="1.0">
 
+  <xsl:param name="draft.mode">no</xsl:param>
+  <xsl:param name="imagedata.default.scale">maxwidth=12cm</xsl:param>
+
+  <xsl:template match="emphasis[@role='red']">
+    <xsl:param name="content">
+      <xsl:apply-templates/>
+    </xsl:param>
+    <xsl:text>{\color{red}</xsl:text>
+    <xsl:copy-of select="$content"/>
+    <xsl:text>}</xsl:text>
+  </xsl:template>
+
+</xsl:stylesheet>
 	<section>
 <title>Liskov helyettesítés sértése</title>
         <para>Írjunk olyan OO, leforduló Java és C++ kódcsipetet, amely megsérti a Liskov elvet! Mutassunk rá a
@@ -5756,7 +5770,7 @@ néhány egymásra következőt, hogy hogyan változtak a források!</para>
 	</section>
 	
 	<section>
-	<title>Hello, SMNIST for Humans!</title>
+	<title><emphasis role="red">Hello, SMNIST for Humans!</emphasis></title>
 	<para>Fejleszd tovább az SMNIST for Humans projektet SMNIST for Anyone emberre szánt appá! Lásd
 az smnist2_kutatasi_jegyzokonyv.pdf-ben a részletesebb hátteret!</para>
 	</section>
