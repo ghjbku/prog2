@@ -7,5 +7,39 @@
     </info>
 
 	<section>
+<title>Liskov helyettesítés sértése</title>
+        <para>Írjunk olyan OO, leforduló Java és C++ kódcsipetet, amely megsérti a Liskov elvet! Mutassunk rá a
+megoldásra: jobb OO tervezés.
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (93-99 fólia)
+(számos példa szerepel az elv megsértésére az UDPROG repóban, lásd pl. source/binom/Batfai-
+Barki/madarak/)</para>
+	</section>
+	
+	<section>
+<title>Szülő-gyerek</title>
+        <para>Írjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
+keresztül csak az ős üzenetei küldhetőek!
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. fólia)</para>
+	</section>
+
+	<section>
+<title>Anti OO</title>
+        <para>A BBP algoritmussal 4 a Pi hexadecimális kifejtésének a 0. pozíciótól számított 10 6, 107, 108 darab
+jegyét határozzuk meg C, C++, Java és C# nyelveken és vessük össze a futási időket!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561066</para>
+	</section>
+
+	<section>
+<title>Hello, Android!</title>
+        <para>Élesszük fel az SMNIST for Humans projektet!
+https://gitlab.com/nbatfai/smnist/tree/master/forHumans/SMNISTforHumansExp3/app/src/main
+Apró módosításokat eszközölj benne, pl. színvilág.</para>
+	</section>
+
+	<section>
+<title>Ciklomatikus komplexitás</title>
+        <para>Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
+tekintetében a https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf (77-79
+fóliát)!</para>
 	</section>
 </chapter>
