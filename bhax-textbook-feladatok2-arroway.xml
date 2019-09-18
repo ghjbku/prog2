@@ -15,8 +15,18 @@ Mutassunk rá, hogy a mi természetes saját megoldásunk és az OpenJDK, Oracle
         <para>
             Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/OO_szemlelet">github link</link> </para>
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>
+            </para>
+            <figure>
+            <title>A <type> JDK</type> kód</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="OO_szemlelet/gauss.png" scale="70" />
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> JDK</type> kód</phrase>
+                </textobject>
+            </mediaobject>
+        </figure>    
     </section>        
 
 <section>
