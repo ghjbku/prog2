@@ -215,8 +215,17 @@
         <revnumber>1.0.3</revnumber>
         <date>2019-09-14</date>
         <authorinitials>Balázs Tóth</authorinitials>
+
         <revremark>
             Java és C++ könyvek összehasonlításának elkezdése/első oldal megírása</revremark>
+    </revision>
+	 <revision>
+        <revnumber>1.0.4</revnumber>
+        <date>2019-09-16</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+
+        <revremark>
+            összehasonlítás folytatása, python napló elkezdése</revremark>
     </revision>
 </revhistory>               
                                
@@ -5579,14 +5588,17 @@ Ezekről egy-egy példakód itt:</para><para><link xlink:href="https://github.co
 <para>
 <link xlink:href="https://github.com/ghjbku/prog2/tree/master/elm%C3%A9let/try_Catch.cpp">C++</link> 
 </para>
-<para>A  java nyelvben a tömb típus egy igazi típus, amíg c++-ban csak egy mutató típus. mindkét nyelvben 0-val kezdődik az indexelés a tömbben Továbbá az enum típus is jelen van.
-Java-ban a pont minden esetben a tagok elérésére szolgál, is a C++-tól eltérően itt nincs megkülönböztető jelölés osztálytagok elérésénél(C++-ban :: operátor)
+<para>A  java nyelvben a tömb típus egy igazi típus, amíg c++-ban csak egy mutató típus. mindkét nyelvben 0-val kezdődik az indexelés a tömbben, Továbbá az enum típus is jelen van.
+Java-ban a pont minden esetben a tagok elérésére szolgál, és a C++-tól eltérően itt nincs megkülönböztető jelölés osztálytagok elérésénél(C++-ban :: operátor)
 </para>
 <para>A C és C++-tól eltérően a Java-ban nics GOTO utasítás, azzal a címszóval lett elhagyva, hogy ezáltal biztonságosabb és megbízhatóbb programokat kapunk.
 a korábbi goto-val megoldott problémákra új megoldások vannak:
 ciklus elhagyása a <command>break</command> utasítással történik, a ciklus folytatása a <command>continue</command> utasítással.
 Java-ban a legkissebb önálló egységek az osztályok.</para>
   <para/>
+
+
+
         <para>
             <command>Python könyv élmény-napló </command>           
         </para>
@@ -5601,10 +5613,25 @@ A mobileszközökön is futtatható, írható python kód, viszont ez nem újdon
         </para>
 
         <para>
-        </para>
+	A <command>Symbian OS</command> mobiltelefon operációs rendszer egyike a napjainkban legtöbbet alkalmazott operációs rendszereknek.
+	Mind C++-ban, Python-ban és Java-ban is írhatónk rá kódokat, viszont a rendszer felett még ott van egy GUI(Grafikus felhasználói felület), ezekből manapság 2 típus ismert:
+	<command>S60(korábban Series60)</command> és az <command>UIQ</command>.
+	Hasonló funkcionalitás lelhető fel mindkét rendszerben, viszont ennek ellenére a kettő nem kompatibilitis egymással, az egyikre írt programok nem fognak a másikon elfutni.
+	Az operációs rendszer alapfunkcióiban azonban megegyezik, tehát csak az UI-hez kötődő részeket kell külön megírnunk kétféleképpen.
+       </para>
 
         <para>
+	A <command>Windows Mobile</command> pedig a Microsoft mobiltelefonokhoz fejlesztett operációsrendszer,amely a Windows CE rendszeren alapul.
+	A Symbian-hoz képest több lehetőségünk van a programnyelvek használatát illetően.
+	A C++, Python és Java-n kívül natív alkalmazásokat készíthetünk C nyelven is, és persze az ugyancsak Microsoft által fejlesztett .NET compact framework technológiával egyaránt.
+	Ez utóbbi a Microsoft .NET telefonokra kifejlesztett változata. 
         </para>
+
+	<para>
+	A Harmadik operációsrendszer mobiltelefonokra a nyílt forráskódú, Linux-ra épülő <command>Maemo</command>, ez a rendszer a Nokia fejlesztése alatt áll.
+	A rendszer nagyrészben az internetes elérésekre,megoldásokra fókuszál, viszont az alapvető funkciókat ezen a rendszeren is el tudjuk végezni.
+Jelenleg a Bluetooth és WLAN funkciókat támogatja, de már a Wimax támogatását is híresztelik.
+	</para>
     </section>       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>  
@@ -5677,6 +5704,63 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>     
     
+ <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Liskov!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+	<section>
+<title>Liskov helyettesítés sértése</title>
+        <para>Írjunk olyan OO, leforduló Java és C++ kódcsipetet, amely megsérti a Liskov elvet! Mutassunk rá a
+megoldásra: jobb OO tervezés.
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (93-99 fólia)
+(számos példa szerepel az elv megsértésére az UDPROG repóban, lásd pl. source/binom/Batfai-
+Barki/madarak/)</para>
+	</section>
+	
+	<section>
+<title>Szülő-gyerek</title>
+        <para>Írjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
+keresztül csak az ős üzenetei küldhetőek!
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. fólia)</para>
+	</section>
+
+	<section>
+<title>Anti OO</title>
+        <para>A BBP algoritmussal 4 a Pi hexadecimális kifejtésének a 0. pozíciótól számított 10 6, 107, 108 darab
+jegyét határozzuk meg C, C++, Java és C# nyelveken és vessük össze a futási időket!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561066</para>
+	</section>
+
+	<section>
+<title>Hello, Android!</title>
+        <para>Élesszük fel az SMNIST for Humans projektet!
+https://gitlab.com/nbatfai/smnist/tree/master/forHumans/SMNISTforHumansExp3/app/src/main
+Apró módosításokat eszközölj benne, pl. színvilág.</para>
+	</section>
+
+	<section>
+<title>Ciklomatikus komplexitás</title>
+        <para>Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
+tekintetében a https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf (77-79
+fóliát)!</para>
+	</section>
+
+	<section>
+<title>deprecated - Hello, Android!</title>
+	<para>Élesszük fel a https://github.com/nbatfai/SamuEntropy/tree/master/cs projektjeit és vessünk össze
+néhány egymásra következőt, hogy hogyan változtak a források!</para>
+	</section>
+	
+	<section>
+	<title>Hello, SMNIST for Humans!</title>
+	<para>Fejleszd tovább az SMNIST for Humans projektet SMNIST for Anyone emberre szánt appá! Lásd
+az smnist2_kutatasi_jegyzokonyv.pdf-ben a részletesebb hátteret!</para>
+	</section>
+</chapter>     
     
             
 </part>                                                              
