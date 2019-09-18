@@ -5658,7 +5658,7 @@ Mutassunk rá, hogy a mi természetes saját megoldásunk és az OpenJDK, Oracle
             <title>A <type> JDK</type> kód</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="OO_szemlelet/gauss.png" scale="70"/>
+                    <imagedata fileref="OO_szemlelet/gauss.png" scale="200"/>
                 </imageobject>
                 <textobject>
                     <phrase>A <type> JDK</type> kód</phrase>
