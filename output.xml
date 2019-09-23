@@ -5675,7 +5675,45 @@ Mutassunk rá, hogy a mi természetes saját megoldásunk és az OpenJDK, Oracle
    <programlisting language="java"><![CDATA[ boolean nincstar=true;
  double tarolt;]]></programlisting><para>A forráskód elején inicializálunk két változót, a <command>nincstar</command> változó egy logikai változó, amely megmondja, hogy van-e eltárolva adat.
  Ezzel szemben a <command>tarolt</command> változó hordozza majd a tárolni kívánt értéket.</para>
-
+<programlisting language="java"><![CDATA[ public double kovetkezo()
+	{
+	if(nincstar)
+		{
+		double a1,a2,b1,b2,c; ]]></programlisting><para>Itt pedig egy kovetkezo nevű metódust hozunk létre, ha a nincstar értéke igaz, akkor végrehajtódik az if-ben leírt változók deklarálása.
+        </para>
+        <programlisting language="java"><![CDATA[do{
+		  a1=Math.random();
+		  a2=Math.random();
+		  b1=2*a1-1;
+		  b2=2*a2-1;
+		  c=b1 * b1 + b2 * b2;
+		          }while(c>1);]]></programlisting><para>Ez a következő pár sor egy hátultesztelős ciklus.
+                         Először az a1,a2 változók értékét randomizáljuk, majd a b1,b2 változókban az előbbi két értéket
+                         megduplázzuk és csökkentjük az értéket 1-el.
+                         a c változó értékét a b1 és b2 változók négyzetével tesszük egyenlővé. Ez addig fut, amíg a c értéke nagyobb lesz, mint 1.
+                          </para>
+        <programlisting language="java"><![CDATA[double r=Math.sqrt((-2*Math.log(c))/c);
+		tarolt=r*b2;
+		nincstar=!nincstar;
+		return r*b1;
+        ]]></programlisting><para>ezekben a sorokban létrehozunk egy r változót, és annak az értékéül a <![CDATA[Math.sqrt((-2*Math.log(c))/c)]]> függvény eredményét adjuk.
+        a tárolandó érték az r változó és a b2 változó szorzata lesz, az értékadás után pedig a nincstar értékét negáljuk.
+        végül visszatérési értékként a r és a b1 szorzatát adjuk meg.
+        </para>
+        <programlisting language="java"><![CDATA[else
+		{
+		nincstar=!nincstar;
+		return tarolt;		
+		}
+	]]></programlisting><para>Az else ágban csak annyi a dolgunk, hogy a nincstar értékét negáljuk, és a tárolt értéket adjuk meg visszatérési értékként.
+    Végezetül pedig kiíratjuk a main-ben.</para>
+     <programlisting language="java"><![CDATA[public static void main(String[] args)
+	{polargenerator g = new polargenerator();
+	for(int i=0; i<10;++i)
+		{
+		System.out.println(g.kovetkezo());
+		}
+	}]]></programlisting>
     </section>        
 
 <section>
