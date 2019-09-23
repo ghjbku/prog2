@@ -48,4 +48,5 @@ int main()
 	{
 	std::cout<< g.kovetkezo()<<std::endl;
 	}
+return 0;
 }
