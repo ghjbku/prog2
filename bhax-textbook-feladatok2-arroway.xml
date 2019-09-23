@@ -86,12 +86,23 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
 <link xlink:href="https://www.facebook.com/groups/udprog/permalink/437825193072042/">facebook post</link>
 	</para>
         <para>
-            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/gagyi">github link</link> </para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/gagyi">github link</link>
                        
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+         <figure>
+            <title>A <type> gagyi</type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="gagyi/gagyirun.png" scale="200" />
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> gagyi</type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
     </section>   
 
     <section>
