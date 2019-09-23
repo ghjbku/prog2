@@ -1,3 +1,3 @@
 # prog2
 prog2 repo
-asd
+https://shrek.unideb.hu/~windsake/
