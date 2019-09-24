@@ -10,7 +10,7 @@ public class yoda
 	{
 	yoda f=new yoda();
 	
-	if("5".equals(f.i))//if(f.i.equals("5"))
+	if(f.i.equals("5"))//if("5".equals(f.i))
 	{
 	System.out.println("t");
 	}

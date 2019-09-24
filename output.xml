@@ -5732,7 +5732,7 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
     <![CDATA[while (x <= t && x >= t && t != x);]]>        
         </para>
         <para>Amint láthatjuk, az első két tagja a ciklus feltételeknek a két változó értékét hasonlítja össze
-        . A harmadik viszont (<command>t!=x</command>) a változók mutatóját, ami az integer-cache miatt -128 és 127 között ugyanaz lesz.
+        . A harmadik viszont (<command>t!=x</command>) a változók referenciáját, ami az integer-cache miatt -128 és 127 között ugyanaz lesz.
         A gagyi.java fájl ezért végtelenciklust képez, hiszen a -129 már nincs benne a cache-ben, ezért 
         a t!=x mindíg igaz lesz.
         a gagyi2.java viszont a -128 értékkel dolgozik, ami benne van a cache-ben, tehát a ciklus nem jön létre.
@@ -5764,9 +5764,43 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
         <para>
             Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/yoda">github link</link>              
         </para>
+        <programlisting language="java"><![CDATA[public class yoda
+{
+	String i;
+   public yoda()
+   {
+   i=null;
+		
+   }
+   public static void main(String[] args)
+	{
+	yoda f=new yoda();
+	
+	if("5".equals(f.i))//if(f.i.equals("5"))
+	{
+	System.out.println("t");
+	}
+	else
+	{
+	System.out.println("f");
+	}
+   }
+}]]></programlisting>
+        <figure>
+            <title>A <type> yoda</type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="yoda/unknown.png" scale="200"/>
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> yoda</type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
+
     </section>        
     
 <section>
