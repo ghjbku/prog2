@@ -89,9 +89,21 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
             Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/gagyi">github link</link>
                        
         </para>
+    
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+    <![CDATA[while (x <= t && x >= t && t != x);]]>        
         </para>
+        <para>Amint láthatjuk, az első két tagja a ciklus feltételeknek a két változó értékét hasonlítja össze
+        . A harmadik viszont (<command>t!=x</command>) a változók mutatóját, ami az integer-cache miatt -128 és 127 között ugyanaz lesz.
+        A gagyi.java fájl ezért végtelenciklust képez, hiszen a -129 már nincs benne a cache-ben, ezért 
+        a t!=x mindíg igaz lesz.
+        a gagyi2.java viszont a -128 értékkel dolgozik, ami benne van a cache-ben, tehát a ciklus nem jön létre.
+        </para>
+        <para>Érdekesség még, hogy a Java6 óta bevezették a felső érték bindelését, amely a 
+        </para><para><command>java.lang.Integer.IntegerCache.high</command>
+         segítségével a programozó által is állítható lett.
+         Fontos tudni viszont, hogy a maximális érték legalább 127 kell, hogy legyen.
+         Ha az érték kevesebb, akkor egy AssertionError hibakódot kapunk.</para>
          <figure>
             <title>A <type> gagyi</type> futás</title>
             <mediaobject>
