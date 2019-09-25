@@ -166,4 +166,19 @@
         <authorinitials>Balázs Tóth</authorinitials>
 <revremark>Liskov chapter elkezdése</revremark>
     </revision>
+
+<revision>
+        <revnumber>1.0.7</revnumber>
+        <date>2019-10-2</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Liskov chapter befejezése</revremark>
+    </revision>
+
+<revision>
+        <revnumber>1.0.8</revnumber>
+        <date>2019-10-9</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Mandelbrot chapter elkezdése</revremark>
+    </revision>
+
 </revhistory>
