@@ -153,7 +153,7 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
            a ciklusmagban az első helyre, amelyel a NullPointer kivételeket elkerülhetjük.
            A kikommentelt részt beillesztve pedig a program lefutásánál megkapjuk a nullpointer exception-t.
        a <command>yoda f=new yoda();</command> sor példányosítja a yoda osztályt.
-       
+
         </para>
         <figure>
             <title>A <type> yoda</type> futás</title>
@@ -177,8 +177,8 @@ Induljunk ki ebből a tudományos közleményből:<link xlink:href="http://crd-l
 Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei">https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apbs02.html#pi_jegyei</link>
 
 	</para>
-        <para>
-            Megoldás forrása:               
+         <para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/PiBBP">github link</link>              
         </para>
         <para>
             Tanulságok, tapasztalatok, magyarázat...
