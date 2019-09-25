@@ -150,8 +150,20 @@
         <revnumber>1.0.4</revnumber>
         <date>2019-09-16</date>
         <authorinitials>Balázs Tóth</authorinitials>
+<revremark>összehasonlítás folytatása, python napló elkezdése</revremark>
+    </revision>
 
-        <revremark>
-            összehasonlítás folytatása, python napló elkezdése</revremark>
+	<revision>
+        <revnumber>1.0.5</revnumber>
+        <date>2019-09-24</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Arroway chapter befejezése</revremark>
+    </revision>
+
+	<revision>
+        <revnumber>1.0.6</revnumber>
+        <date>2019-09-25</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Liskov chapter elkezdése</revremark>
     </revision>
 </revhistory>
