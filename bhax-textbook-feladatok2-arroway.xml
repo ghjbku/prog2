@@ -196,8 +196,16 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
             </mediaobject>
         </figure> 
         <para>
-            Tanulságok, tapasztalatok, magyarázat...
+            a <command>public PiBBP(int d) </command> rész a d+1 hexadecimális jegytől számítja ki a jegyeket
+        , azon belűl a 16^d pi képket kiszámítása.
+        A <command> public double d16Sj(int d, int j)</command> eljárás a {16^d Sj} részlet kiszámítását végzi.
+        <command> public long n16modk(int n, int k)</command> végzi a hatványozás modulóját, itt n a kitevő, k a modulus.
         </para>
+        <programlisting language="java"><![CDATA[public String toString() {
+        
+        return d16PiHexaJegyek;
+    }]]></programlisting><para>ez az eljárás a kiszámolt hexadecimális értékeket konvertálja át stringbe, majd visszaadja az értéket.
+    </para>
     </section>       
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
 </chapter>                
