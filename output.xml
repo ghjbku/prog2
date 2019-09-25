@@ -5806,7 +5806,11 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
         </figure> 
 
     </section>        
-    
+    <section>
+        <title>Homokozó</title>
+        <para>    Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/arroway">github link</link>              
+       </para>
+    </section>
 <section>
         <title>Kódolás from scratch</title>
         <para>
@@ -5816,8 +5820,19 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
 
 	</para>
          <para>
-            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/PiBBP">github link</link>              
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/pibbp">github link</link>              
         </para>
+         <figure>
+            <title>A <type> piBBP</type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="pibbp/pibbp.png" scale="200"/>
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> piBBP</type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
         <para>
             Tanulságok, tapasztalatok, magyarázat...
         </para>
