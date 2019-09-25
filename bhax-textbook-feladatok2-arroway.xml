@@ -148,6 +148,13 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
 	}
    }
 }]]></programlisting>
+ <para>
+           A fenti programkód a yoda kondíciós megoldást mutatja, ami annyit tesz, hogy a konstanst rakjuk 
+           a ciklusmagban az első helyre, amelyel a NullPointer kivételeket elkerülhetjük.
+           A kikommentelt részt beillesztve pedig a program lefutásánál megkapjuk a nullpointer exception-t.
+       a <command>yoda f=new yoda();</command> sor példányosítja a yoda osztályt.
+       
+        </para>
         <figure>
             <title>A <type> yoda</type> futás</title>
             <mediaobject>
@@ -159,9 +166,6 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
                 </textobject>
             </mediaobject>
         </figure> 
-        <para>
-            Tanulságok, tapasztalatok, magyarázat...
-        </para>
 
     </section>        
     
