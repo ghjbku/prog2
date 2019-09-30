@@ -69,6 +69,111 @@ Apró módosításokat eszközölj benne, pl. színvilág.</para>
         <para>Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
 tekintetében a https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf (77-79
 fóliát)!</para>
+<para>a kódrészlet saját tulajdonban áll.</para>
+<programlisting language="c++"><![CDATA[
+void fight(int intel, int d)
+{
+	int i = 0;
+	int j = 0;
+	int k = 0;
+	if (intel == 1)
+	{
+		cout << "you remember the paper you found had a bear drawing on it with three numbers: 5 2 4\n";
+	}
+	else if (intel == 0)
+	{
+	}
+	cout << "the bear attacks first with a rush attack\nyou: 1.defend\n 2.side step to the right and try to hit its knee\n 3. back step\n 4.slash it with your sword \n5.side step to the left\n";
+	cin >> i;
+	if (i == 1)
+	{
+		cout << "you can`t defend without a shield, you died.";
+	}
+	else if (i == 2)
+	{
+		cout << "you try to dodge by sidestepping to right, but the bear somehow knows you would do that\nit slashes you and deals critical damage\nyou died.";
+	}
+	else if (i == 3)
+	{
+		cout << "you try to backstep, but why? \nthe bear doesn`t even have to turn anywhere, it easily kills you.\n";
+	}
+	else if (i == 4)
+	{
+		cout << "you slash the bear with your dagger as it reaches you\nyou dealt almost no damage.\nthe bear bites you with unbearable strength\nyou died";
+	}
+	else if (i == 5)
+	{
+		d++;
+		cout << "you sidestep to the left,the bear, surprised lounges to the right.\nit hits nothing but air.\nthe bear,enraged even further try to attack you from the right.\n[decision making " << d << "]\nyou: ";
+		cout << "1.defend\n 2.side step to the right and try to hit its knee\n 3. back step\n 4.slash it with your sword \n5.side step to the left\n";
+		cin >> j;
+		if (j == 1)
+		{
+			cout << "you can`t defend without a shield, you died.";
+		}
+
+		if (j == 2)
+		{
+			d++;
+			cout << " you sidestep to the right,the bear surprised again, you use the momentum to slash its knees.\nthe bear falls to the ground.\n[decision making " << d << "]\n ";
+
+			cout << "\nyou: 1.defend\n 2.side step to the right and try to hit its knee\n 3. back step\n 4.slash it with your sword \n5.side step to the left\n";
+			cin >> k;
+			if (k == 1)
+			{
+				cout << "why would you..?,you died...";
+			}
+
+			else if (k == 2)
+			{
+				cout << "why would you..?,you died...";
+			}
+
+			else if (k == 4)
+			{
+				d = d + 2;
+				cout << "you slash the head of the bear while its down.\nyou dealt monsterous amount of damage.\nyou 1hit killed the bear.[decision making " << d << "]\n\n\nCongratulations, \nYou Won The Game!";
+			}
+
+			else if (k == 3)
+			{
+				cout << "why would you..?,you died...";
+			}
+
+			else if (k == 5)
+			{
+				cout << "why would you..?,you died...";
+			}
+		}
+
+		if (j == 3)
+		{
+			cout << "you try to back step,and you succeed, but the bear somehow kicks you in the head and you die.";
+		}
+
+		if (j == 4)
+		{
+			cout << "you try to slash it with your sword, but do you think you hit harder than a bear?\nyou died from a pawn hit in the head.";
+		}
+
+		if (j == 5)
+		{
+			cout << "you try to sidestep to the left,but the bear remebers you doing that before,it turns toward you and slashes...\nyou died.";
+		}
+	}
+}
+]]></programlisting>
+<figure>
+            <title>A <type> ciklomatikus</type> ábra</title>
+            <mediaobject>
+                <imageobject>
+					<imagedata fileref="liskov/ciklomatikus.png" scale="250" />
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> ciklomatikus</type> ábra</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 	</section>
 
 	<section>
