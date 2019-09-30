@@ -223,10 +223,37 @@
         <revnumber>1.0.4</revnumber>
         <date>2019-09-16</date>
         <authorinitials>Balázs Tóth</authorinitials>
-
-        <revremark>
-            összehasonlítás folytatása, python napló elkezdése</revremark>
+<revremark>összehasonlítás folytatása, python napló elkezdése</revremark>
     </revision>
+
+	<revision>
+        <revnumber>1.0.5</revnumber>
+        <date>2019-09-24</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Arroway chapter befejezése</revremark>
+    </revision>
+
+	<revision>
+        <revnumber>1.0.6</revnumber>
+        <date>2019-09-25</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Liskov chapter elkezdése</revremark>
+    </revision>
+
+<revision>
+        <revnumber>1.0.7</revnumber>
+        <date>2019-10-2</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Liskov chapter befejezése</revremark>
+    </revision>
+
+<revision>
+        <revnumber>1.0.8</revnumber>
+        <date>2019-10-9</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Mandelbrot chapter elkezdése</revremark>
+    </revision>
+
 </revhistory>               
                                
 </info>     
@@ -5863,6 +5890,9 @@ megoldásra: jobb OO tervezés.
 https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (93-99 fólia)
 (számos példa szerepel az elv megsértésére az UDPROG repóban, lásd pl. source/binom/Batfai-
 Barki/madarak/)</para>
+<para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/liskov">github link</link>              
+        </para>
 	</section>
 	
 	<section>
@@ -5877,6 +5907,9 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. f�
         <para>A BBP algoritmussal 4 a Pi hexadecimális kifejtésének a 0. pozíciótól számított 10 6, 107, 108 darab
 jegyét határozzuk meg C, C++, Java és C# nyelveken és vessük össze a futási időket!
 https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561066</para>
+<para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/liskov">github link</link>              
+        </para>
 	</section>
 
 	<section>
@@ -5906,6 +5939,56 @@ az smnist2_kutatasi_jegyzokonyv.pdf-ben a részletesebb hátteret!</para>
 	</section>
 </chapter>     
     
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Mandelbrot!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+	
+	<section>
+<title>Reverse engineering UML osztálydiagram</title>
+<para>
+
+UML osztálydiagram rajzolása az első védési C++ programhoz. Az osztálydiagramot a forrásokból
+generáljuk (pl. Argo UML, Umbrello, Eclipse UML) Mutassunk rá a kompozíció és aggregáció
+kapcsolatára a forráskódban és a diagramon, lásd még: https://youtu.be/Td_nlERlEOs.
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 fólia)
+</para>
+</section>
+
+<section>
+<title>Forward engineering UML osztálydiagram</title>
+<para>UML-ben tervezzünk osztályokat és generáljunk belőle forrást!</para>
+</section>
+
+<section>
+<title>Egy Esettan</title>
+<para>A BME-s C++ tankönyv 14. fejezetét (427-444 elmélet, 445-469 az esettan) dolgozzuk fel!</para>
+</section>
+
+<section>
+<title>BPMN</title>
+<para>Rajzoljunk le egy tevékenységet BPMN-ben!
+https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 fólia)</para>
+</section>
+
+<section>
+<title>TEX uml</title>
+<para>Valamilyen TeX-es csomag felhasználásával készíts szép diagramokat az OOCWC projektről (pl.
+use case és class diagramokat).
+</para>
+</section>
+
+<section>
+<title>BPEL Helló, Világ! - egy visszhang folyamat</title>
+<para>
+Egy visszhang folyamat megvalósítása az alábbi teljes „videó tutoriál” alapján:
+https://youtu.be/0OnlYWX2v_I
+</para>
+</section>
+</chapter>     
             
 </part>                                                              
 

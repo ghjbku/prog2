@@ -13,6 +13,9 @@ megoldásra: jobb OO tervezés.
 https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (93-99 fólia)
 (számos példa szerepel az elv megsértésére az UDPROG repóban, lásd pl. source/binom/Batfai-
 Barki/madarak/)</para>
+<para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/liskov">github link</link>              
+        </para>
 	</section>
 	
 	<section>
@@ -27,6 +30,9 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. f�
         <para>A BBP algoritmussal 4 a Pi hexadecimális kifejtésének a 0. pozíciótól számított 10 6, 107, 108 darab
 jegyét határozzuk meg C, C++, Java és C# nyelveken és vessük össze a futási időket!
 https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561066</para>
+<para>
+            Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/liskov">github link</link>              
+        </para>
 	</section>
 
 	<section>
