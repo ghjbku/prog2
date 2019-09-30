@@ -69,7 +69,7 @@ Apró módosításokat eszközölj benne, pl. színvilág.</para>
         <para>Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
 tekintetében a https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf (77-79
 fóliát)!</para>
-<para>a kódrészlet saját tulajdonban áll.</para>
+<para><command>a kódrészlet saját tulajdonban áll.</command></para>
 <programlisting language="c++"><![CDATA[
 void fight(int intel, int d)
 {
@@ -171,6 +171,19 @@ void fight(int intel, int d)
                 </imageobject>
                 <textobject>
                     <phrase>A <type> ciklomatikus</type> ábra</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
+		<para>A komplekszitás 17-2+3=18</para>
+		<para>Számolásunkat a <link xlink:href="www.lizard.ws">lizard.ws</link> oldal is approválja.</para>
+	<figure>
+            <title>A <type> lizard ciklomatikus</type> számolás</title>
+            <mediaobject>
+                <imageobject>
+					<imagedata fileref="liskov/ciklo_lizard.png" scale="250" />
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> lizard ciklomatikus</type> számolás</phrase>
                 </textobject>
             </mediaobject>
         </figure> 
