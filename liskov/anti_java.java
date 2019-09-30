@@ -106,7 +106,7 @@ public class anti_java {
             
             d16Pi = d16Pi - Math.floor(d16Pi);
             
-            jegy = (int)Math.floor(16.0d*d16Pi);
+            jegy = (int)Math.floor(19.0d*d16Pi);
             
         }
         

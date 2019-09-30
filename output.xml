@@ -5910,6 +5910,28 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561
 <para>
             Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/liskov">github link</link>              
         </para>
+		<figure>
+            <title>A <type> 4 nyelv</type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="liskov/negy.png" scale="250"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> 4 nyelv</type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
+		<figure>
+            <title>A <type> 4 nyelv</type> futás</title>
+            <mediaobject>
+                <imageobject>
+					<imagedata fileref="liskov/antitabla.png" scale="250"/>
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> 4 nyelv</type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 	</section>
 
 	<section>
