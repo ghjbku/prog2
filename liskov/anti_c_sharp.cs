@@ -109,7 +109,7 @@ public class PiBBPBench {
             
             d16Pi = d16Pi - System.Math.Floor(d16Pi);
             
-            jegy = (int)System.Math.Floor(19.0d*d16Pi);
+            jegy = (int)System.Math.Floor(16.0d*d16Pi);
             
         }
         

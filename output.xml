@@ -5914,7 +5914,7 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561
             <title>A <type> 4 nyelv</type> futás</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="liskov/negy.png" scale="250"/>
+                    <imagedata fileref="liskov/negy.png" scale="300"/>
 				  </imageobject>
                 <textobject>
                     <phrase>A <type> 4 nyelv</type> futás</phrase>
@@ -5925,13 +5925,33 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/apas03.html#id561
             <title>A <type> 4 nyelv</type> futás</title>
             <mediaobject>
                 <imageobject>
-					<imagedata fileref="liskov/antitabla.png" scale="250"/>
+					<imagedata fileref="liskov/antitabla.png" scale="200"/>
                 </imageobject>
                 <textobject>
                     <phrase>A <type> 4 nyelv</type> futás</phrase>
                 </textobject>
             </mediaobject>
         </figure> 
+		<para>Mint láthatjuk, a JAVA mind 3 esetben a legjobban teljesített a számítások során.
+		Különös viszont, hogy minél kisebb számjegyét keressük a pi-nek, annál gyorsabban végez a java a többiekhez képest.
+		Második helyen a C# volt, nem sokkal lassabb,mint a Java, és a legutolsó a C nyelv.
+		Minden 10-ed után kb. 10-szeresére nőtt a futási idő.
+		A C fordításánál ügyelni kell arra, hogy a -lm kapcsolót is hozzáadjuk az argumentumok listájához, mivel anélkül nem fog lefordulni a program.
+		A hibakód a következő:
+		</para>
+		<programlisting language="c"><![CDATA[/usr/bin/ld: /tmp/ccKOkIzA.o: in function `d16Sj':
+anti_c.c:(.text+0xfe): undefined reference to `floor'
+/usr/bin/ld: /tmp/ccKOkIzA.o: in function `main':
+anti_c.c:(.text+0x1ff): undefined reference to `floor'
+/usr/bin/ld: anti_c.c:(.text+0x227): undefined reference to `floor'
+collect2: error: ld returned 1 exit status
+]]></programlisting>
+<para>A gcc dokumentációban csak annyi található az -lm kapcsolóról, hogy az -l kapcsoló 
+paramétere az m, ez egy úgynevezett megosztott library, amely osztályokra van bonta, és objektumokat tartalmaz.
+A mi esetünkben az m könyvtár tartalmát kívánjuk használni, amelyben a floor függvény található.
+Ez a math lib.
+Ha includeoljuk a math.h headert, akkor erre a kapcsolóra is szükségünk lesz.
+Ez C++-ban már nem szükséges, elég csak az include.</para>
 	</section>
 
 	<section>
@@ -5946,6 +5966,10 @@ Apró módosításokat eszközölj benne, pl. színvilág.</para>
         <para>Számoljuk ki valamelyik programunk függvényeinek ciklomatikus komplexitását! Lásd a fogalom
 tekintetében a https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_2.pdf (77-79
 fóliát)!</para>
+<para>A ciklomatikus komplexitás számításakor a beágyazott ciklusok azonos súllyal vannak számolva, mint a külső ciklusok.
+Viszont valójában a belső ciklusok jelenlétével a programkód megértése nehezebb lesz.
+Attól függetlenül, hogy a ciklusok száma szerint a program bonyolultsága alacsony kéne, hogy legyen, még lehet bonyolult a forráskód.
+</para>
 <para><command>a kódrészlet saját tulajdonban áll.</command></para>
 <programlisting language="c++"><![CDATA[
 void fight(int intel, int d)
@@ -6035,7 +6059,7 @@ void fight(int intel, int d)
 
 		if (j == 5)
 		{
-			cout << "you try to sidestep to the left,but the bear remebers you doing that before,it turns toward you and slashes...\nyou died.";
+			cout << "you try to sidestep to the left,but the bear remembers you doing that before,it turns toward you and slashes...\nyou died.";
 		}
 	}
 }
@@ -6051,7 +6075,13 @@ void fight(int intel, int d)
                 </textobject>
             </mediaobject>
         </figure> 
-		<para>A komplekszitás 17-2+3=18</para>
+		<para>A komplexitás 17-2+3=18</para>
+		<para>a komplexitási érték 4 típusra bontja fel a forráskódokat.
+		Ha a komplexitás végeredményeként <command>1-10 közötti szám</command>ot kapunk, akkor a forráskód egyszerűnek mondható.
+		</para><para><command>11 és 20 között</command> mérsékelten nehézkes a kód megértése.</para>
+		<para><command>21 és 50 között</command> a programkód bonyolult</para><para>az utolsó osztály pedig a 
+		<command>50 feletti</command> számok, mely a nagyon bonyolult forráskódoknál fordul elő, és magas a kockázat a hibák ejtésénél.
+		</para>
 		<para>Számolásunkat a <link xlink:href="www.lizard.ws">lizard.ws</link> oldal is approválja.</para>
 	<figure>
             <title>A <type> lizard ciklomatikus</type> számolás</title>

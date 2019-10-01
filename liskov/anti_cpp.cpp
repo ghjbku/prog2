@@ -103,7 +103,7 @@ int main ()
 
       d16Pi = (d16Pi - floor(d16Pi));
 
-      jegy = (int) floor(19.0 * d16Pi);
+      jegy = (int) floor(16.0 * d16Pi);
 
     }
 
