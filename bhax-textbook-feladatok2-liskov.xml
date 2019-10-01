@@ -16,6 +16,78 @@ Barki/madarak/)</para>
 <para>
             Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/liskov">github link</link>              
         </para>
+		<para>Először nézzük a liskov elvet követő programot:</para>
+		<programlisting language="c++"><![CDATA[class Madar {
+//public:
+//  void repul(){};
+};]]></programlisting>
+<para>itt nincs repul metódus a Madar osztály tagjaként, tehát nem örökli majd a pingvinünk a repul objektumot.
+Ez a RepuloMadar osztálypéldányosított sas osztály-nak az egyedisége.
+</para>
+<programlisting language="c++"><![CDATA[
+class Program {
+public:
+     void fgv ( Madar &madar ) {
+          // madar.repul(); a madár már nem tud repülni
+          // s hiába lesz a leszármazott típusoknak
+          // repül metódusa, azt a Madar& madar-ra úgysem lehet hívni
+     }
+};
+
+class RepuloMadar : public Madar {
+public:
+     virtual void repul() {};
+};
+
+class Sas : public RepuloMadar
+{};
+
+class Pingvin : public Madar 
+{};
+]]></programlisting>
+<para>itt látható a madar.repul funkció kikommentelve, tehát nem öröklődik a pingvinünk-nél, ezért az fgv függvény nem fogja repültetni azt.
+</para>
+<para>A liskov elvet sértő program pedig így néz ki:</para>
+<programlisting language="c++"><![CDATA[
+class Madar {
+public:
+     virtual void repul() {};
+};
+
+// ez a két osztály alkotja a "P programot" az LPS-ben
+class Program {
+public:
+     void fgv ( Madar &madar ) {
+          madar.repul();
+     }
+};
+
+]]></programlisting>
+<para>Itt nincs kikommentelve a madar.repül metódus, ezzel a későbbiekben megsértjük majd az elvet.
+</para>
+<programlisting language="c++"><![CDATA[
+class Sas : public Madar
+{};
+
+class Pingvin : public Madar // ezt úgy is lehet/kell olvasni, hogy a pingvin tud repülni
+{};
+
+int main ( int argc, char **argv )
+{
+     Program program;
+     Madar madar;
+     program.fgv ( madar );
+
+     Sas sas;
+     program.fgv ( sas );
+
+     Pingvin pingvin;
+     program.fgv ( pingvin ); // sérül az LSP, mert a P::fgv röptetné a Pingvint, ami ugye lehetetlen.
+
+}]]></programlisting>
+<para>Itt pedig látható, hogy a sas-nak nincs külön alosztály generálva, a RepuloMadar osztály, ehelyett
+mindkét állat a madar osztály tagjaként van hitelesítve.
+</para>
 	</section>
 	
 	<section>
@@ -23,6 +95,66 @@ Barki/madarak/)</para>
         <para>Írjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
 keresztül csak az ős üzenetei küldhetőek!
 https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. fólia)</para>
+<para>A java forrás:<command> A forrás Kovács Ferenc tulajdona.</command></para>
+<programlisting language="java"><![CDATA[
+class szulo
+{
+protected int m_age;
+protected String m_name;
+    public void setAge(int age) {
+    m_age = age;
+    }
+    public void setName(String name) {
+    m_name = name;
+    }
+    public int getAge(){
+    return m_age;
+    }
+}
+class gyerek extends szulo
+{
+    public String getName() {
+    return m_name;
+    }
+}
+class szuloGyerek
+{
+    public static void main (String args[])
+    {
+    szulo s = new gyerek();
+    s.setName("Apuci");
+    s.setAge(60);
+    gyerek gy = new gyerek();
+    s.setName("Laci");
+    s.setAge(15);
+
+    System.out.println(gy.getName() + " " + s.getName());
+    }
+}]]></programlisting>
+<para>Látható, hogy a program három osztályra bomlik szét, az első, a szülő osztály, itt létrehozunk 
+két protected változót, az m_name és m_age változókat.
+Továbbá itt inicializálunk két metódust, a setAge és setName-et.
+A setAge egy int típusú adatot kér be, majd a protected m_age változó értékét egyenlővé teszi a bekért értékkel.
+Ugyan ez történik a setName-ben, azzal a különbséggel, hogy ez a függvény string adatot vár.
+Van még továbbá egy getAge függvényünk, amely az m_age változó értékét adja vissza, ezzel biztosítva, hogy az értéket használhassuk az osztályon kívül is.
+</para>
+<para>Következő osztály a gyerek.
+ez egy rövid kis osztály, egyetlen tagja a getName függvény, amely megpróbálja elérni a szülő osztály m_name változóját, de persze
+ez nem sikerül majd, mivel az protected.</para>
+<para>A harmadik osztályban teszteljük az elméletünket, először feltültjük a változók értékeit a set függvények segítségével,
+majd megpróbáljuk lekérni a nevet a <command><![CDATA[System.out.println(gy.getName() + " " + s.getName());]]></command> sorral.
+Amint azt látni fogjuk, ez nem sikerül.</para>
+<figure>
+            <title>A <type> szülőgyerek </type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="liskov/szulogyerek.png" scale="250" />
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> szülőgyerek </type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 	</section>
 
 	<section>
