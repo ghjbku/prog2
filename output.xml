@@ -6269,6 +6269,18 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 
                 </textobject>
             </mediaobject>
         </figure> 
+        <para>Az aggregáció egy rész-egész kapcsolatot jelent.
+         A fő-objektum fizikailag is tartalmazza, vagy birtokolja a rész-objektumot, 
+        általában ezen objektum létezése függésben van a fő-objektumtól.
+        Ennek két fajtája lehet, gyenge és erős aggregáció.
+        A <command>gyenge aggregáció</command>-ban a rész-objektum létezhet a fő-obj. nélkül is, míg 
+        az <command>erős aggregáció</command>-nál ez nem lehetséges.
+        Általában az erős aggregáció-t szokták <command>kompozíció</command>-nak nevezni. 
+        A <command>gyenge aggr.</command> jele a két osztály között húzott telített egyenes, melynek végén egy üres rombusz található.
+        A rombusz azon az oldalon van, amely osztály a fő-objektum.
+        Az <command>erős aggr./kompozíció</command> jele is egy vonal, viszont a végén egy telített rombusz található.
+        Az UML ábrán megtalálható mindkét típusú asszociáció.
+        </para>
 </section>
 
 <section>
@@ -6318,6 +6330,27 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 
                 </textobject>
             </mediaobject>
         </figure> 
+        <para>A képen egy regisztrációs folyamat BPMN ábrája látható.(Business Process Model and Notation/ üzleti folyatmodellezés és jelölés)
+        Indulunk a <command>regisztráció</command> gomb megnyomásától.
+        Ekkor az oldal egy kérést küld a szervernek, amely után egy új lap jelenik meg, ezen a lapon helyezkedik majd el
+        a regisztrációhoz szükséges szövegdobozok és utasítások sorozata, na meg persze a <command>regisztráció</command> gomb.
+        A szerver válaszában már az egész oldalt küldi el, amelyben az oldal tartalma egészében megtalálható, a felhasználónak csak annyi a dolga, hogy
+        megadja a szükséges információkat.
+        Ezután két dolog történhet, ha az oldal képes az on-the-spot információ-ellenőrzésre, akkor
+        már a <command>regisztráció</command> gomb megnyomása előtt visszajelzést ad, hogy a megadott adatok helyesek-e, esetleg már valaki által foglaltak-e vagy sem.
+        A másik lehetőség ugyebár,hogy csak a gomb megnyomása után tudjuk meg, hogy valid adatokat adtunk-e meg.
+        A model az első opció szerint lett elkészítve.
+        </para>
+        <para>Ha minden validálva lett, akkor jöhet a regisztráció.
+        A felhasználó újra megnyomja a gombot.
+        Ezután a kliens kérést küld a szervernek, amelyben a titkosított adatok is jelen vannak.
+        Ez egy keretbe van foglalva, és egy ún. SET/POST kérés-típus kel útra a szerver felé, amely arra kéri 
+        a szervert, hogy az adatokat vigye be az adatbázisba, ezzel véglelegítve a regisztrációt.
+        Végezetül a szerver visszaigazoló üzenetet küld, amelyben megtaláljuk, hogy a regisztráció sikeres volt-e, vagy egy esetleges szerver-oldali hiba miatt sikertelen.
+        Az utóbbi esetben később újrapróbálkozhat a felhasználó, esetleg ha van elérhetőség kitéve az oldalra, ott tájékoztathatja az oldal üzemeltetőjét.
+
+        </para>
+
 </section>
 
 <section>
@@ -6332,6 +6365,69 @@ use case és class diagramokat).
 <para>
 Egy visszhang folyamat megvalósítása az alábbi teljes „videó tutoriál” alapján:
 https://youtu.be/0OnlYWX2v_I
+</para>
+</section>
+</chapter>     
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Chomsky!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+	
+	<section>
+<title>Encoding</title>
+<para>
+
+Fordítsuk le és futtassuk a Javat tanítok könyv MandelbrotHalmazNagyító.java forrását úgy, hogy a
+fájl nevekben és a forrásokban is meghagyjuk az ékezetes betűket!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/adatok.html
+</para>
+</section>
+
+<section>
+<title>OOCW lexer</title>
+<para>Izzítsuk be az OOCWC-t és vázoljuk a https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll lexert és kapcsolását a programunk OO struktúrájába!</para>
+</section>
+
+<section>
+<title>l334d1c4<superscript>5</superscript> (ződ)</title>
+<para>
+Írj olyan OO Java vagy C++ osztályt, amely leet cipherként működik, azaz megvalósítja ezt a betű
+helyettesítést: https://simple.wikipedia.org/wiki/Leet (Ha ez első részben nem tetted meg, akkor írasd
+ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
+</section>
+
+<section>
+<title>Full screen(ződ)</title>
+<para>
+Készítsünk egy teljes képernyős Java programot!
+Tipp: https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#labirintus_jatek</para>
+</section>
+
+<section>
+<title>Paszigráfia Rapszódia OpenGL full screen vizualizáció</title>
+<para>
+Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, textúrázás, a szintek jobb
+elkülönítése, kézreállóbb irányítás.
+</para>
+</section>
+
+<section>
+<title>Paszigráfia Rapszódia LuaLaTeX vizualizáció</title>
+<para>
+
+Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, még erősebb 3D-s hatás.
+</para>
+</section>
+
+<section>
+<title>Perceptron osztály</title>
+<para>
+
+Dolgozzuk be egy külön projektbe a projekt Perceptron osztályát!
+Lásd https://youtu.be/XpBnR31BRJY
 </para>
 </section>
 </chapter>     

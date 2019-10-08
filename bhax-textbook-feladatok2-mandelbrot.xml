@@ -26,6 +26,18 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 
                 </textobject>
             </mediaobject>
         </figure> 
+        <para>Az aggregáció egy rész-egész kapcsolatot jelent.
+         A fő-objektum fizikailag is tartalmazza, vagy birtokolja a rész-objektumot, 
+        általában ezen objektum létezése függésben van a fő-objektumtól.
+        Ennek két fajtája lehet, gyenge és erős aggregáció.
+        A <command>gyenge aggregáció</command>-ban a rész-objektum létezhet a fő-obj. nélkül is, míg 
+        az <command>erős aggregáció</command>-nál ez nem lehetséges.
+        Általában az erős aggregáció-t szokták <command>kompozíció</command>-nak nevezni. 
+        A <command>gyenge aggr.</command> jele a két osztály között húzott telített egyenes, melynek végén egy üres rombusz található.
+        A rombusz azon az oldalon van, amely osztály a fő-objektum.
+        Az <command>erős aggr./kompozíció</command> jele is egy vonal, viszont a végén egy telített rombusz található.
+        Az UML ábrán megtalálható mindkét típusú asszociáció.
+        </para>
 </section>
 
 <section>
@@ -75,6 +87,27 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 
                 </textobject>
             </mediaobject>
         </figure> 
+        <para>A képen egy regisztrációs folyamat BPMN ábrája látható.(Business Process Model and Notation/ üzleti folyatmodellezés és jelölés)
+        Indulunk a <command>regisztráció</command> gomb megnyomásától.
+        Ekkor az oldal egy kérést küld a szervernek, amely után egy új lap jelenik meg, ezen a lapon helyezkedik majd el
+        a regisztrációhoz szükséges szövegdobozok és utasítások sorozata, na meg persze a <command>regisztráció</command> gomb.
+        A szerver válaszában már az egész oldalt küldi el, amelyben az oldal tartalma egészében megtalálható, a felhasználónak csak annyi a dolga, hogy
+        megadja a szükséges információkat.
+        Ezután két dolog történhet, ha az oldal képes az on-the-spot információ-ellenőrzésre, akkor
+        már a <command>regisztráció</command> gomb megnyomása előtt visszajelzést ad, hogy a megadott adatok helyesek-e, esetleg már valaki által foglaltak-e vagy sem.
+        A másik lehetőség ugyebár,hogy csak a gomb megnyomása után tudjuk meg, hogy valid adatokat adtunk-e meg.
+        A model az első opció szerint lett elkészítve.
+        </para>
+        <para>Ha minden validálva lett, akkor jöhet a regisztráció.
+        A felhasználó újra megnyomja a gombot.
+        Ezután a kliens kérést küld a szervernek, amelyben a titkosított adatok is jelen vannak.
+        Ez egy keretbe van foglalva, és egy ún. SET/POST kérés-típus kel útra a szerver felé, amely arra kéri 
+        a szervert, hogy az adatokat vigye be az adatbázisba, ezzel véglelegítve a regisztrációt.
+        Végezetül a szerver visszaigazoló üzenetet küld, amelyben megtaláljuk, hogy a regisztráció sikeres volt-e, vagy egy esetleges szerver-oldali hiba miatt sikertelen.
+        Az utóbbi esetben később újrapróbálkozhat a felhasználó, esetleg ha van elérhetőség kitéve az oldalra, ott tájékoztathatja az oldal üzemeltetőjét.
+
+        </para>
+
 </section>
 
 <section>
