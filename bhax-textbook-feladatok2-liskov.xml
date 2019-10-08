@@ -95,7 +95,7 @@ mindkét állat a madar osztály tagjaként van hitelesítve.
         <para>Írjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
 keresztül csak az ős üzenetei küldhetőek!
 https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. fólia)</para>
-<para>A java forrás:<command> A forrás Kovács Ferenc tulajdona.</command></para>
+<para>A java forrás:<command> A forrás Kovács Ferencz tulajdona.</command></para>
 <programlisting language="java"><![CDATA[
 class szulo
 {

@@ -5972,7 +5972,7 @@ mindkét állat a madar osztály tagjaként van hitelesítve.
         <para>Írjunk Szülő-gyerek Java és C++ osztálydefiníciót, amelyben demonstrálni tudjuk, hogy az ősön
 keresztül csak az ős üzenetei küldhetőek!
 https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_1.pdf (98. fólia)</para>
-<para>A java forrás:<command> A forrás Kovács Ferenc tulajdona.</command></para>
+<para>A java forrás:<command> A forrás Kovács Ferencz tulajdona.</command></para>
 <programlisting language="java"><![CDATA[
 class szulo
 {
@@ -6258,11 +6258,44 @@ generáljuk (pl. Argo UML, Umbrello, Eclipse UML) Mutassunk rá a kompozíció �
 kapcsolatára a forráskódban és a diagramon, lásd még: https://youtu.be/Td_nlERlEOs.
 https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 fólia)
 </para>
+<figure>
+            <title>Az <type>LZW UML  </type></title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="mandelbrot/uml_binfa.png" scale="40"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>Az <type> LZW UML </type> </phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 <section>
 <title>Forward engineering UML osztálydiagram</title>
 <para>UML-ben tervezzünk osztályokat és generáljunk belőle forrást!</para>
+<figure>
+            <title>Az <type>új UML  </type></title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="mandelbrot/class diagram.png" scale="150"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>Az <type> új UML </type> </phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
+        <figure>
+            <title>Az <type>új UML  </type></title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="mandelbrot/prob.png" scale="150"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>Az <type> új UML </type> </phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 <section>
@@ -6274,6 +6307,17 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 
 <title>BPMN</title>
 <para>Rajzoljunk le egy tevékenységet BPMN-ben!
 https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 fólia)</para>
+<figure>
+            <title>A <type>BPMN ábra</type></title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="mandelbrot/bpmn diagram.png" scale="80"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type>BPMN</type> ábra </phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 <section>
