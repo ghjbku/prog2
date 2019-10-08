@@ -58,19 +58,31 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog1_6.pdf (28-32 
             <title>Az <type>új UML  </type></title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="mandelbrot/prob.png" scale="150" />
+                    <imagedata fileref="mandelbrot/uml_generated.png" scale="250" />
 				  </imageobject>
                 <textobject>
                     <phrase>Az <type> új UML </type> </phrase>
                 </textobject>
             </mediaobject>
         </figure> 
+        <para>
+        Az UML segítségével létrehozott diagramon az Osztályok között kétirányú összeköttetés, ún. asszociáció áll fenn. 
+        Ezen kapcsolat iránya megadható,de nem szükséges. 
+        A kapcsolatban résztvevő osztályok léte egymástól általában független, 
+        de minimum az egyikük ismeri/használja a másikat.
+        Gyakorlatilag az osztályokból létrejövő objektumok között van összefüggés.
+
+Jele: a két osztály között telített vonal, a végén nyíllal, ha írányt is jelölünk.</para>
+<para>Ebben az UML-ben 3 osztályt ábrázoltam, amelyek segítségével eldönti a program, hogy a bekért állat neve és faja alapján
+madár-e, avagy sem.
+Az első két osztály a <command>bird/madár</command> és a <command>not_bird/nem_madár</command> osztályok.
+Ezekben az osztályokban tároljuk majd a különböző állatokat aszerint, hogy madár vagy sem a megadott adat.
+A harmadik osztály az <command>is_it_bird/madár?</command>, melynek feladata e fontos kérdés eldöntése.
+Miután megkapja a <command>species</command> és <command>name</command> adatokat, egy if-statement sorozat segítségével
+eldönti, hogy melyik osztályhoz küldi tovább az adatokat.
+</para>
 </section>
 
-<section>
-<title>Egy Esettan</title>
-<para>A BME-s C++ tankönyv 14. fejezetét (427-444 elmélet, 445-469 az esettan) dolgozzuk fel!</para>
-</section>
 
 <section>
 <title>BPMN</title>
@@ -108,6 +120,33 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 
 
         </para>
 
+</section>
+
+<section>
+<title>Egy Esettan</title>
+<para>A BME-s C++ tankönyv 14. fejezetét (427-444 elmélet, 445-469 az esettan) dolgozzuk fel!</para>
+<para>forrás:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/mandelbrot/esettanulmany">github link</link>              
+        </para>
+        <para>A product.h headerfájl tartlamazza a termékkel kapcsolatos adatokat, mint például 
+        a termék kora, beszerzési dátum és ár, a termék neve és a jelenlegi ára.
+        Mivel viszont az <command>initialPrice, dateOfAcquisition és a name</command> tagváltozók 
+        protected/védettek, ezért azok eléréséhez szükségünk van a publikus:</para>
+        <programlisting language="C++"><![CDATA[time_t Product::GetDateOfAcquisition() const
+        {return dateOfAcquisition;}
+        
+        int Product::GetInitialPrice() const {return initialPrice;}
+        
+        string Product::GetName() const {return name;}]]></programlisting><para>függvényekre.</para>
+        <para>A termék korának kiszámítását a <command>GetAge</command> függvény végzi, amely az aktuális dátumból és a beszerzési dátumból számolja ki azt.
+        A függvény forráskódja a következő:</para>
+        <programlisting language="C++"><![CDATA[int Product::GetAge() const
+        {
+            time_t currentTime;
+            time(&currentTime);
+            double timeDiffInSec = Difftime(cirrentTime, dateOfAcquisition);
+            return (int)(timeDiffInSec/(3600*24));
+        }]]></programlisting><para>A függvény return sorában láthatjuk az (int) szócskát a timediff előtt, ez 
+        egy ún. típus kényszerítés, jelen esetben a visszatérési érték típusát integerré konvertálja.</para>
 </section>
 
 <section>
