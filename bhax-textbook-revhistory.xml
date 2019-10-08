@@ -176,9 +176,15 @@
 
 <revision>
         <revnumber>1.0.8</revnumber>
-        <date>2019-10-9</date>
+        <date>2019-10-5</date>
         <authorinitials>Balázs Tóth</authorinitials>
 <revremark>Mandelbrot chapter elkezdése</revremark>
+    </revision>
+    <revision>
+        <revnumber>1.0.9</revnumber>
+        <date>2019-10-8</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Mandelbrot chapter befejezése</revremark>
     </revision>
 
 </revhistory>

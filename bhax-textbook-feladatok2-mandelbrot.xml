@@ -135,7 +135,7 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 
         {return dateOfAcquisition;}
         
         int Product::GetInitialPrice() const {return initialPrice;}
-        
+
         string Product::GetName() const {return name;}]]></programlisting><para>függvényekre.</para>
         <para>A termék korának kiszámítását a <command>GetAge</command> függvény végzi, amely az aktuális dátumból és a beszerzési dátumból számolja ki azt.
         A függvény forráskódja a következő:</para>
@@ -147,6 +147,34 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_7.pdf (34-47 
             return (int)(timeDiffInSec/(3600*24));
         }]]></programlisting><para>A függvény return sorában láthatjuk az (int) szócskát a timediff előtt, ez 
         egy ún. típus kényszerítés, jelen esetben a visszatérési érték típusát integerré konvertálja.</para>
+        <para>Az osztályban megtalálható a GetCurrentPrice függvény is, amely segítségével
+        a termék jelenlegi ára számítható ki,viszont mivel az ár termékfüggő, ezért azt virtuálisan definiáljuk,
+         hogy később a leszármazott osztályok felüldefiniálhassák azt.
+         Ez a függvény a beszerzési árat adja vissza a product.h fájlban.
+</para>
+<para>A hardDisk osztályban megtalálható ezen függvény felüldefiniálása:</para>
+<programlisting language="C++"><![CDATA[class HardDisk : public Product
+{
+    int speedRPM;
+public:
+int GetCurrentPrice() const;
+...
+};
+
+int HardDisk::GetCurrentPrice() const
+{
+    int ageInDays = GetAge();
+    if(ageInDays < 30)
+    {
+        return initialPrice;
+    }
+    else if (ageInDays >= 30 && ageInDays <90)
+    {return (int)(initialPrice * 0.9);}
+    else
+    {return (int)(initialPrice * 0.8);}
+}
+]]></programlisting><para>Itt is megtalálható a típuskényszerítés, amivel elérjük, hogy
+ne tört számot kapjunk vissza, hanem egész számot.</para>
 </section>
 
 <section>
