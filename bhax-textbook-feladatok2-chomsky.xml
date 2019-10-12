@@ -45,6 +45,17 @@ ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
 <para>
 Készítsünk egy teljes képernyős Java programot!
 Tipp: https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#labirintus_jatek</para>
+<figure>
+            <title>A <type> fullscreen </type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="chomsky/fullscreen.png" scale="250" />
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> fullscreen </type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 <section>

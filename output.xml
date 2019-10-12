@@ -6457,6 +6457,17 @@ Fordítsuk le és futtassuk a Javat tanítok könyv MandelbrotHalmazNagyító.ja
 fájl nevekben és a forrásokban is meghagyjuk az ékezetes betűket!
 https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/adatok.html
 </para>
+<figure>
+            <title>A <type> mandel </type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="chomsky/encoding_fut.png" scale="250"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> mandel </type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 <section>
@@ -6477,6 +6488,17 @@ ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
 <para>
 Készítsünk egy teljes képernyős Java programot!
 Tipp: https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#labirintus_jatek</para>
+<figure>
+            <title>A <type> fullscreen </type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="chomsky/fullscreen.png" scale="250"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> fullscreen </type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 <section>
@@ -6547,14 +6569,13 @@ készített titkos szövegen.
 Készítsünk olyan példát, amely egy képet tesz az alábbi projekt Perceptron osztályának bemenetére
 és a Perceptron ne egy értéket, hanem egy ugyanakkora méretű „képet” adjon vissza. (Lásd még a 4
 hét/Perceptron osztály feladatot is.)
-</para>
-
+</para></section>
+<section>
 <title>Összefoglaló</title>
 <para>
 
 Az előző 4 feladat egyikéről írj egy 1 oldalas bemutató „”esszé szöveget!
-</para>
-</section>
+</para></section>
 <section><title>+feladat</title>
 <para>egy egyszerű string osztály elkészítését 
 (hogy ne a verembe tegyük a kockászárójel megvalósítását,
