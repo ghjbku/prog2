@@ -16,7 +16,7 @@ osztályát (miután kicsomagoltuk az src.zip állományt, arra ráengedve)!
 
 </section>
 
-</section>
+<section>
 <title>Másoló-mozgató szemantika</title>
 <para>
 
@@ -33,7 +33,7 @@ https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_3.pdf (71-73 
 készített titkos szövegen.
 </para>
 
-</section>
+<section>
 <title>Változó argumentumszámú ctor</title>
 <para>
 
@@ -47,6 +47,9 @@ hét/Perceptron osztály feladatot is.)
 
 Az előző 4 feladat egyikéről írj egy 1 oldalas bemutató „”esszé szöveget!
 </para>
-
 </section>
+<section><title>+feladat</title>
+<para>egy egyszerű string osztály elkészítését 
+(hogy ne a verembe tegyük a kockászárójel megvalósítását,
+ mert az nyilván odacsap az osztály értelmezésének)</para></section>
 </chapter>
