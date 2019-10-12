@@ -14,6 +14,17 @@ Fordítsuk le és futtassuk a Javat tanítok könyv MandelbrotHalmazNagyító.ja
 fájl nevekben és a forrásokban is meghagyjuk az ékezetes betűket!
 https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/adatok.html
 </para>
+<figure>
+            <title>A <type> mandel </type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="chomsky/encoding_fut.png" scale="250" />
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> mandel </type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 <section>
