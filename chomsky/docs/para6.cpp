@@ -359,6 +359,19 @@ void keyboard ( unsigned char key, int x, int y )
                 glMatrixMode ( GL_MODELVIEW );
 
         }
+	else if( key == 'w' ) {
+                cubeLetters[index].rotx += 25.0;
+        } else if ( key == 's') {
+                cubeLetters[index].rotx -= 5.0;
+        } else if ( key == 'd' ) {
+                cubeLetters[index].roty -= 5.0;
+        } else if ( key == 'a' ) {
+                cubeLetters[index].roty += 25.0;
+        } else if ( key == 'q' ) {
+                cubeLetters[index].rotz += 25.0;
+        } else if ( key == 'e' ) {
+                cubeLetters[index].rotz -= 5.0;
+        }
 
         glutPostRedisplay();
 
@@ -366,17 +379,17 @@ void keyboard ( unsigned char key, int x, int y )
 
 void skeyboard ( int key, int x, int y )
 {
-        if ( key == GLUT_KEY_W ) {
+        if ( key == GLUT_KEY_UP ) {
                 cubeLetters[index].rotx += 25.0;
-        } else if ( key == GLUT_KEY_S ) {
+        } else if ( key == GLUT_KEY_DOWN ) {
                 cubeLetters[index].rotx -= 5.0;
-        } else if ( key == GLUT_KEY_A ) {
+        } else if ( key == GLUT_KEY_RIGHT ) {
                 cubeLetters[index].roty -= 5.0;
-        } else if ( key == GLUT_KEY_D ) {
+        } else if ( key == GLUT_KEY_LEFT ) {
                 cubeLetters[index].roty += 25.0;
-        } else if ( key == GLUT_KEY_Q ) {
+        } else if ( key == GLUT_KEY_PAGE_UP ) {
                 cubeLetters[index].rotz += 25.0;
-        } else if ( key == GLUT_KEY_E ) {
+        } else if ( key == GLUT_KEY_PAGE_DOWN ) {
                 cubeLetters[index].rotz -= 5.0;
         }
 
