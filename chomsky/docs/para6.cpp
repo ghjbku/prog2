@@ -63,7 +63,7 @@ void drawPaRaCube ( int idx )
 
         glBegin ( GL_QUADS );
 
-        glColor3f ( 0.818f, .900f, 0.824f );
+        glColor3f ( 0.0f, .20f, 0.824f );
 
         glVertex3f ( -1.0f, 1.0f, 1.0f );
         glVertex3f ( 1.0f, 1.0f, 1.0f );
@@ -98,7 +98,7 @@ void drawPaRaCube ( int idx )
         glEnd();
 
         glBegin ( GL_LINES );
-        glColor3f ( .188f, 0.209f, 0.190f );
+        glColor3f ( .9188f, 0.209f, 0.6190f );
 
         for ( int i=0; i<=cubeLetters[idx].nn[0]; i++ ) {
 
@@ -117,7 +117,7 @@ void drawPaRaCube ( int idx )
         for ( int i {0}; i<cubeLetters[idx].cc[0].size() /2; ++i ) {
                 glBegin ( GL_QUADS );
 
-                glColor3f ( .0f, .15f, .150f );
+                glColor3f ( .30f, .13522f, .13350f );
 
                 glVertex3f ( 1.0f- ( cubeLetters[idx].cc[0][2*i]+1 ) * ( 2.0/cubeLetters[idx].nn[0] ),
                              1.0f- ( cubeLetters[idx].cc[0][2*i+1]+1 ) * ( 2.0/cubeLetters[idx].nn[0] ), 1.002f );
@@ -133,7 +133,7 @@ void drawPaRaCube ( int idx )
 
 
         glBegin ( GL_LINES );
-        glColor3f ( .188f, 0.20f, 0.10f );
+        glColor3f ( .6188f, 0.620f, 0.610f );
 
         for ( int i=0; i<=cubeLetters[idx].nn[1]; i++ ) {
 
@@ -151,7 +151,7 @@ void drawPaRaCube ( int idx )
         for ( int i {0}; i<cubeLetters[idx].cc[1].size() /2; ++i ) {
                 glBegin ( GL_QUADS );
 
-                glColor3f ( 0.15f, .29f, .82f );
+                glColor3f ( 0.1115f, .129f, .812f );
 
                 glVertex3f ( 1.002f, 1.0f-cubeLetters[idx].cc[1][2*i]* ( 2.0/cubeLetters[idx].nn[1] ),
                              1.0f- ( cubeLetters[idx].cc[1][2*i+1]+1 ) * ( 2.0/cubeLetters[idx].nn[1] ) );
@@ -167,7 +167,7 @@ void drawPaRaCube ( int idx )
         }
 
         glBegin ( GL_LINES );
-        glColor3f ( .18f, 0.29f, 0.190f );
+        glColor3f ( .184f, 0.429f, 0.1490f );
 
         for ( int i=0; i<=cubeLetters[idx].nn[2]; i++ ) {
 
@@ -185,7 +185,7 @@ void drawPaRaCube ( int idx )
         for ( int i {0}; i<cubeLetters[idx].cc[2].size() /2; ++i ) {
                 glBegin ( GL_QUADS );
 
-                glColor3f ( .30f, .82f, .150f );
+                glColor3f ( .430f, .82f, .1450f );
 
                 glVertex3f ( 1.0f-cubeLetters[idx].cc[2][2*i]* ( 2.0/cubeLetters[idx].nn[2] ),
                              1.002f , 1.0f-cubeLetters[idx].cc[2][2*i+1]* ( 2.0/cubeLetters[idx].nn[2] ) );
@@ -200,7 +200,7 @@ void drawPaRaCube ( int idx )
         }
 
         glBegin ( GL_LINES );
-        glColor3f ( .88f, 0.209f, 0.90f );
+        glColor3f ( .88f, 0.2509f, 0.590f );
 
         for ( int i=0; i<=cubeLetters[idx].nn[3]; i++ ) {
 
@@ -217,7 +217,7 @@ void drawPaRaCube ( int idx )
 
         for ( int i {0}; i<cubeLetters[idx].cc[3].size() /2; ++i ) {
                 glBegin ( GL_QUADS );
-                glColor3f ( .80f, .82f, .150f );
+                glColor3f ( .780f, .782f, .150f );
 
                 glVertex3f ( -1.002f, 1.0f- ( cubeLetters[idx].cc[3][2*i]+1 ) * ( 2.0/cubeLetters[idx].nn[3] ),
                              1.0f-cubeLetters[idx].cc[3][2*i+1]* ( 2.0/cubeLetters[idx].nn[3] ) );
@@ -232,7 +232,7 @@ void drawPaRaCube ( int idx )
         }
 
         glBegin ( GL_LINES );
-        glColor3f ( .188f, 0.209f, 0.190f );
+        glColor3f ( .6188f, 0.209f, 0.1690f );
 
         for ( int i=0; i<=cubeLetters[idx].nn[4]; i++ ) {
 
@@ -249,7 +249,7 @@ void drawPaRaCube ( int idx )
 
         for ( int i {0}; i<cubeLetters[idx].cc[4].size() /2; ++i ) {
                 glBegin ( GL_QUADS );
-                glColor3f ( .64f, 0.15f, 0.20f );
+                glColor3f ( .64f, 0.915f, 0.120f );
 
                 glVertex3f ( 1.0f- ( cubeLetters[idx].cc[4][2*i]+1 ) * ( 2.0/cubeLetters[idx].nn[4] ),
                              1.0f-cubeLetters[idx].cc[4][2*i+1]* ( 2.0/cubeLetters[idx].nn[4] ), -1.002f );
@@ -264,7 +264,7 @@ void drawPaRaCube ( int idx )
         }
 
         glBegin ( GL_LINES );
-        glColor3f ( .188f, 0.209f, 0.10f );
+        glColor3f ( .188f, 0.55209f, 0.170f );
 
         for ( int i=0; i<=cubeLetters[idx].nn[5]; i++ ) {
 
@@ -281,7 +281,7 @@ void drawPaRaCube ( int idx )
 
         for ( int i {0}; i<cubeLetters[idx].cc[5].size() /2; ++i ) {
                 glBegin ( GL_QUADS );
-                glColor3f ( .11f, .18f, .56f );
+                glColor3f ( .171f, .18f, .756f );
 
                 glVertex3f ( 1.0f-cubeLetters[idx].cc[5][2*i]* ( 2.0/cubeLetters[idx].nn[5] ),
                              -1.002f , 1.0f-cubeLetters[idx].cc[5][2*i+1]* ( 2.0/cubeLetters[idx].nn[5] ) );
@@ -366,17 +366,17 @@ void keyboard ( unsigned char key, int x, int y )
 
 void skeyboard ( int key, int x, int y )
 {
-        if ( key == GLUT_KEY_UP ) {
-                cubeLetters[index].rotx += 5.0;
-        } else if ( key == GLUT_KEY_DOWN ) {
+        if ( key == GLUT_KEY_W ) {
+                cubeLetters[index].rotx += 25.0;
+        } else if ( key == GLUT_KEY_S ) {
                 cubeLetters[index].rotx -= 5.0;
-        } else if ( key == GLUT_KEY_RIGHT ) {
+        } else if ( key == GLUT_KEY_A ) {
                 cubeLetters[index].roty -= 5.0;
-        } else if ( key == GLUT_KEY_LEFT ) {
-                cubeLetters[index].roty += 5.0;
-        } else if ( key == GLUT_KEY_PAGE_UP ) {
-                cubeLetters[index].rotz += 5.0;
-        } else if ( key == GLUT_KEY_PAGE_DOWN ) {
+        } else if ( key == GLUT_KEY_D ) {
+                cubeLetters[index].roty += 25.0;
+        } else if ( key == GLUT_KEY_Q ) {
+                cubeLetters[index].rotz += 25.0;
+        } else if ( key == GLUT_KEY_E ) {
                 cubeLetters[index].rotz -= 5.0;
         }
 

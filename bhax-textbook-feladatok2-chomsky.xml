@@ -64,6 +64,24 @@ Tipp: https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#l
 Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, textúrázás, a szintek jobb
 elkülönítése, kézreállóbb irányítás.
 </para>
+<programlisting language="c++"><![CDATA[void skeyboard ( int key, int x, int y )
+{
+        if ( key == GLUT_KEY_W ) {
+                cubeLetters[index].rotx += 25.0;
+        } else if ( key == GLUT_KEY_S ) {
+                cubeLetters[index].rotx -= 5.0;
+        } else if ( key == GLUT_KEY_A ) {
+                cubeLetters[index].roty -= 5.0;
+        } else if ( key == GLUT_KEY_D ) {
+                cubeLetters[index].roty += 25.0;
+        } else if ( key == GLUT_KEY_Q ) {
+                cubeLetters[index].rotz += 25.0;
+        } else if ( key == GLUT_KEY_E ) {
+                cubeLetters[index].rotz -= 5.0;
+        }
+
+        glutPostRedisplay();
+}]]></programlisting>
 </section>
 
 <section>
