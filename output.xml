@@ -6526,13 +6526,26 @@ g.drawString("az ipar számára a professzionális programozó, a tudománynak �
 	}
 }
 ]]></programlisting><para>Itt látható a bucky.java fájl tartalma.
-Mint láthatjuk, a program a dm objektumban inicializálja a megjelenítési beállításokat,
-<![CDATA[ DisplayMode dm = new DisplayMode(800,600,16,DisplayMode.REFRESH_RATE_UNKNOWN);]]>
+Mint láthatjuk, a program a dm objektumban inicializálja a megjelenítési beállításokat,</para>
+<programlisting language="java">
+<![CDATA[ DisplayMode dm = new DisplayMode(800,600,16,DisplayMode.REFRESH_RATE_UNKNOWN);]]></programlisting>
+<para>
 Az első két integer típus a felbontást, a harmadik a színkészletet,
 az utolsó paraméter pedig a frissítési rátát állítják be, viszont az utóbbit nem tudjuk,
  ezért az REFRESH_RATE_UNKNOWN parancsot használjuk.</para>
+ <programlisting language="java"><![CDATA[public void run(DisplayMode dm)
+
+		{
+            .
+            .
+            .
+            Screen s = new Screen();
+		try{
+		s.SetFullScreen(dm, this);]]></programlisting>
  <para>A run metódus a program megjelenítési képét inicializálja, itt található a SetFullScreen parancs is, amely a 
- teljes-képernyős mód beállításáért felel.
+ teljes-képernyős mód beállításáért felel.</para><programlisting language="java"><![CDATA[setBackground(Color.BLACK);
+		setForeground(Color.WHITE);
+		setFont(new Font("Arial",Font.PLAIN, 24));]]></programlisting><para>
  Itt állítjuk be a betűk típusát, méretét, illetve a betűk és a háttér színét is, melyek ebben a sorrendben fehér ill. fekete szinűek.</para>
 <para>A <command>Screen s = new Screen();</command> parancs példányosítja a megjeleníteni kívánt ablakunkat.</para>
 <programlisting language="java"><![CDATA[public void paint(Graphics g)
@@ -6541,8 +6554,8 @@ az utolsó paraméter pedig a frissítési rátát állítják be, viszont az ut
 	g.drawString("This...A programozásra gondolva olykor valami misztikus érzés járja ",200,200);
 g.drawString("át az embert, ami további hajtóerőt és lelkesedést kölcsönöz. A sikeres oktatás ",200,300);
 g.drawString("elsődleg es célja ennek átadása, ebből fejlődhet majd ki minden más, ami csak kell:",200,400); 
-g.drawString(" A könyvet elsősorban\n tanári kézikönyvként ajánljuk középiskolai informatikatanároknak, de kiegészítő\n irodalomként hasznos olvasmánynak tartjuk informatikus tanárjelöltek, diákok és általában a programozni tanulni vágyók számára \negyaránt. ",200,450);
-g.drawString("az ipar számára a professzionális programozó, a tudománynak és az emberiségnek a komplex problémákkal megküzdeni tudó algoritmuselmélész, az\n egyénnek és a társadalomnak a boldog és tetterős polgár. Reményeink szerint ennek az érzésnek az átadásához ezzel a digitális szakkönyvvel \nmi is hozzá tudunk járulni, miközben általában foglalkozunk \na programozással, annak elméletével és filozófiájával, majd részletesen és gyakorlatiasan az objektumorientált paradigmával, és ezen belül\n a Java programozással. Ebben a kézikönyvben\n a Java nyelvvel egy labirintus játék világának felépítése során ismerkedünk meg, a\nmi során ezt az egyszerű, példa labirintus játékot elkészítjük a weboldalon elhelyezhető appletként, mobiltelefonos és teljes képernyős\n PC-s, illetve hálózati: TCP/IP, Java Servlet\n, Java RMI és CORBA változatban is. De ezeken a labirintus témájú esettanulmányokon túl biológiai, matematikai és informatikai programozási példákkal is megismerkedhet majd \na kedves Olvasó.",200, 500);
+g.drawString(" A könyvet elsősorban\n tanári kézikönyvként ajánljuk középiskolai... ",200,450);
+g.drawString("az ipar számára a professzionális programozó, a tudománynak ...",200, 500);
 	}]]></programlisting><para>Végül pedig látható a paint metódus.
     Ez felel a képernyőre "festésért",ami ezesetben csak pár sor szöveg, de lehet ez akár ábrák, képek sokasága is, a megjeleníteni kívánt objektum szerint viszont a kód is változik, és nehézségi foka is egyre nől.
 
@@ -6551,7 +6564,7 @@ g.drawString("az ipar számára a professzionális programozó, a tudománynak �
             <title>A <type> fullscreen </type> futás</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="chomsky/fullscreen.png" scale="250"/>
+                    <imagedata fileref="chomsky/fullscreen.png" scale="150"/>
 				  </imageobject>
                 <textobject>
                     <phrase>A <type> fullscreen </type> futás</phrase>
@@ -6595,6 +6608,14 @@ A régi irányítás is működik, esetleges használati kényelmetlenségek elk
 }]]></programlisting>
 <para>itt látható az irányításra szolgáló billentyűk kiosztásának a kódrészlete, emellett pedig a forgatások sebességét is láthatjuk a kódrészleten.
 </para>
+<para>a program lefordításához a következő kapcsolók kellenek:
+g++ para6.cpp -o para <command> -lboost_system -lGL -lGLU -lglut</command></para>
+<para>Az lboost_system library a boost-nak a használata miatt szükséges, az lGL, az lGLU ls az lglut kapcsolók pedig az openGL könyvtárai, hiszen az openGL-t használva jelenítettük meg a kockákat, ezért ezekre is szükségünk volt.
+Érdekes viszont megfigyelnünk, hogy az glut(opengl utility toolkit) támogatása már több,mint 15 éve lejárt, ehelyett a freeglut-ot használják manapság az openGL programok írásánál,
+viszont ez a jelenlegi programunkat nem befolyásolja, a megfelelő library-k segítségével tökéletesen működőképes.
+A freeglut megtalálható itt:<link xlink:href="http://freeglut.sourceforge.net/">http://freeglut.sourceforge.net/</link></para>
+           
+ 
 </section>
 
 <section>
