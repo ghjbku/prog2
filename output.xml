@@ -6467,20 +6467,16 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/adatok.html
                     <phrase>A <type> mandel </type> futás</phrase>
                 </textobject>
             </mediaobject>
-        </figure> 
-</section>
-
-<section>
-<title>OOCW lexer</title>
-<para>Izzítsuk be az OOCWC-t és vázoljuk a https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll lexert és kapcsolását a programunk OO struktúrájába!</para>
-</section>
-
-<section>
-<title>l334d1c4<superscript>5</superscript> (ződ)</title>
-<para>
-Írj olyan OO Java vagy C++ osztályt, amely leet cipherként működik, azaz megvalósítja ezt a betű
-helyettesítést: https://simple.wikipedia.org/wiki/Leet (Ha ez első részben nem tetted meg, akkor írasd
-ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
+        </figure>
+        <para>A képen látható, amint megpróbáljuk az encoding nélkül lefordítani a programunkat, kevés sikerrel.
+        A -encoding kapcsoló használatával és a megfelelő karakterkészlettel viszont tökéletesen/hiba nélkül lefordul és lefut a program.
+        A lehetséges karakterkészletek megtalálhatóak az oracle oldalán:</para><para> <link xlink:href="https://docs.oracle.com/javase/7/docs/technotes/guides/intl/encoding.doc.html">https://docs.oracle.com/javase/7/docs/technotes/guides/intl/encoding.doc.html</link>              
+        </para>
+        <para>
+        Az általunk használt készlet a 1252-es, amit Latin-1-nek is hívnak.
+        A javac -encoding nélkül általában a rendszer által használt codeset-et használja alapértelmezetten, de mivel a JVM nem igazán veszi figyelembe a helyi rendszert(hiszen virtual machine), ezért ez nem univerzális "igazság".
+        Viszont az igaz, hogy a javac-ban konfigurálható az alapértelemezett enkódolási charset, és ez általában megyegyezik a helyi gépen használtal.
+        A program futása folyamán ez az alapértelemezett karakterkészlet megállapítható a <command><![CDATA[Charset.defaultCharset()]]></command> parancs használatával.</para> 
 </section>
 
 <section>
@@ -6488,6 +6484,69 @@ ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
 <para>
 Készítsünk egy teljes képernyős Java programot!
 Tipp: https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#labirintus_jatek</para>
+<programlisting language="java"><![CDATA[import java.awt.*;
+import javax.swing.JFrame;
+
+public class bucky extends JFrame
+{
+	public static void main (String[] args)
+	{
+	DisplayMode dm = new DisplayMode(800,600,16,DisplayMode.REFRESH_RATE_UNKNOWN);
+	bucky b = new bucky();
+	b.run(dm);
+	}
+
+	public void run(DisplayMode dm)
+
+		{
+		setBackground(Color.BLACK);
+		setForeground(Color.WHITE);
+		setFont(new Font("Arial",Font.PLAIN, 24));
+	
+		Screen s = new Screen();
+		try{
+		s.SetFullScreen(dm, this);
+			try{
+			Thread.sleep(2700);
+			
+		}catch(Exception ex){}
+		}finally{
+			s.RestoreScreen();
+		}
+	}
+	 
+	public void paint(Graphics g)
+	{
+	
+	g.drawString("This...A programozásra gondolva olykor valami misztikus érzés járja ",200,200);
+g.drawString("át az embert, ami további hajtóerőt és lelkesedést kölcsönöz. A sikeres oktatás ",200,300);
+g.drawString("elsődleg es célja ennek átadása, ebből fejlődhet majd ki minden más, ami csak kell:",200,400); 
+g.drawString(" A könyvet elsősorban\n tanári kézikönyvként ajánljuk középiskolai informatikatanároknak, de kiegészítő\n irodalomként hasznos olvasmánynak tartjuk informatikus tanárjelöltek, diákok és általában a programozni tanulni vágyók számára \negyaránt. ",200,450);
+g.drawString("az ipar számára a professzionális programozó, a tudománynak és az emberiségnek a komplex problémákkal megküzdeni tudó algoritmuselmélész, az\n egyénnek és a társadalomnak a boldog és tetterős polgár. Reményeink szerint ennek az érzésnek az átadásához ezzel a digitális szakkönyvvel \nmi is hozzá tudunk járulni, miközben általában foglalkozunk \na programozással, annak elméletével és filozófiájával, majd részletesen és gyakorlatiasan az objektumorientált paradigmával, és ezen belül\n a Java programozással. Ebben a kézikönyvben\n a Java nyelvvel egy labirintus játék világának felépítése során ismerkedünk meg, a\nmi során ezt az egyszerű, példa labirintus játékot elkészítjük a weboldalon elhelyezhető appletként, mobiltelefonos és teljes képernyős\n PC-s, illetve hálózati: TCP/IP, Java Servlet\n, Java RMI és CORBA változatban is. De ezeken a labirintus témájú esettanulmányokon túl biológiai, matematikai és informatikai programozási példákkal is megismerkedhet majd \na kedves Olvasó.",200, 500);
+	}
+}
+]]></programlisting><para>Itt látható a bucky.java fájl tartalma.
+Mint láthatjuk, a program a dm objektumban inicializálja a megjelenítési beállításokat,
+<![CDATA[ DisplayMode dm = new DisplayMode(800,600,16,DisplayMode.REFRESH_RATE_UNKNOWN);]]>
+Az első két integer típus a felbontást, a harmadik a színkészletet,
+az utolsó paraméter pedig a frissítési rátát állítják be, viszont az utóbbit nem tudjuk,
+ ezért az REFRESH_RATE_UNKNOWN parancsot használjuk.</para>
+ <para>A run metódus a program megjelenítési képét inicializálja, itt található a SetFullScreen parancs is, amely a 
+ teljes-képernyős mód beállításáért felel.
+ Itt állítjuk be a betűk típusát, méretét, illetve a betűk és a háttér színét is, melyek ebben a sorrendben fehér ill. fekete szinűek.</para>
+<para>A <command>Screen s = new Screen();</command> parancs példányosítja a megjeleníteni kívánt ablakunkat.</para>
+<programlisting language="java"><![CDATA[public void paint(Graphics g)
+	{
+	
+	g.drawString("This...A programozásra gondolva olykor valami misztikus érzés járja ",200,200);
+g.drawString("át az embert, ami további hajtóerőt és lelkesedést kölcsönöz. A sikeres oktatás ",200,300);
+g.drawString("elsődleg es célja ennek átadása, ebből fejlődhet majd ki minden más, ami csak kell:",200,400); 
+g.drawString(" A könyvet elsősorban\n tanári kézikönyvként ajánljuk középiskolai informatikatanároknak, de kiegészítő\n irodalomként hasznos olvasmánynak tartjuk informatikus tanárjelöltek, diákok és általában a programozni tanulni vágyók számára \negyaránt. ",200,450);
+g.drawString("az ipar számára a professzionális programozó, a tudománynak és az emberiségnek a komplex problémákkal megküzdeni tudó algoritmuselmélész, az\n egyénnek és a társadalomnak a boldog és tetterős polgár. Reményeink szerint ennek az érzésnek az átadásához ezzel a digitális szakkönyvvel \nmi is hozzá tudunk járulni, miközben általában foglalkozunk \na programozással, annak elméletével és filozófiájával, majd részletesen és gyakorlatiasan az objektumorientált paradigmával, és ezen belül\n a Java programozással. Ebben a kézikönyvben\n a Java nyelvvel egy labirintus játék világának felépítése során ismerkedünk meg, a\nmi során ezt az egyszerű, példa labirintus játékot elkészítjük a weboldalon elhelyezhető appletként, mobiltelefonos és teljes képernyős\n PC-s, illetve hálózati: TCP/IP, Java Servlet\n, Java RMI és CORBA változatban is. De ezeken a labirintus témájú esettanulmányokon túl biológiai, matematikai és informatikai programozási példákkal is megismerkedhet majd \na kedves Olvasó.",200, 500);
+	}]]></programlisting><para>Végül pedig látható a paint metódus.
+    Ez felel a képernyőre "festésért",ami ezesetben csak pár sor szöveg, de lehet ez akár ábrák, képek sokasága is, a megjeleníteni kívánt objektum szerint viszont a kód is változik, és nehézségi foka is egyre nől.
+
+    </para>
 <figure>
             <title>A <type> fullscreen </type> futás</title>
             <mediaobject>
@@ -6507,24 +6566,35 @@ Tipp: https://www.tankonyvtar.hu/en/tartalom/tkt/javat-tanitok-javat/ch03.html#l
 Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, textúrázás, a szintek jobb
 elkülönítése, kézreállóbb irányítás.
 </para>
-<programlisting language="c++"><![CDATA[void skeyboard ( int key, int x, int y )
+<para>A program módosítás szempontjából az alábbiakon esett át:
+színvilág változtatás, mostantól a kockák teste kék színű.
+Az irányítás kézreállóságának biztosítása: wasd billentyűk használhatóak a nyilak funkciójának ellátásához, továbbá a Z irányú mozgásra (ami eddig a page up és page down bill.-el történt), most a q és e billentyűk szolgálhatnak.
+A Forgatási sebesség pozitív irányban meg lett növelve, korrigálhatóság miatt a negatív irány azonos értéken maradt.
+A régi irányítás is működik, esetleges használati kényelmetlenségek elkerülése végett.</para>
+<programlisting language="c++"><![CDATA[void keyboard ( unsigned char key, int x, int y )
 {
-        if ( key == GLUT_KEY_W ) {
+    .
+    .
+    .
+    .
+       else if( key == 'w' ) {
                 cubeLetters[index].rotx += 25.0;
-        } else if ( key == GLUT_KEY_S ) {
+        } else if ( key == 's') {
                 cubeLetters[index].rotx -= 5.0;
-        } else if ( key == GLUT_KEY_A ) {
+        } else if ( key == 'd' ) {
                 cubeLetters[index].roty -= 5.0;
-        } else if ( key == GLUT_KEY_D ) {
+        } else if ( key == 'a' ) {
                 cubeLetters[index].roty += 25.0;
-        } else if ( key == GLUT_KEY_Q ) {
+        } else if ( key == 'q' ) {
                 cubeLetters[index].rotz += 25.0;
-        } else if ( key == GLUT_KEY_E ) {
+        } else if ( key == 'e' ) {
                 cubeLetters[index].rotz -= 5.0;
         }
 
         glutPostRedisplay();
 }]]></programlisting>
+<para>itt látható az irányításra szolgáló billentyűk kiosztásának a kódrészlete, emellett pedig a forgatások sebességét is láthatjuk a kódrészleten.
+</para>
 </section>
 
 <section>
@@ -6533,6 +6603,19 @@ elkülönítése, kézreállóbb irányítás.
 
 Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, még erősebb 3D-s hatás.
 </para>
+</section>
+
+<section>
+<title>OOCW lexer</title>
+<para>Izzítsuk be az OOCWC-t és vázoljuk a https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll lexert és kapcsolását a programunk OO struktúrájába!</para>
+</section>
+
+<section>
+<title>l334d1c4<superscript>5</superscript> (ződ)</title>
+<para>
+Írj olyan OO Java vagy C++ osztályt, amely leet cipherként működik, azaz megvalósítja ezt a betű
+helyettesítést: https://simple.wikipedia.org/wiki/Leet (Ha ez első részben nem tetted meg, akkor írasd
+ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
 </section>
 
 <section>

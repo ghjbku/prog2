@@ -30,6 +30,8 @@
 #include <vector>
 #include "boost/tokenizer.hpp"
 #include <GL/glut.h>
+#include <GL/freeglut.h>
+//#include <string.h>
 
 class PaRaCube
 {
@@ -298,6 +300,16 @@ void drawPaRaCube ( int idx )
         glPopMatrix();
 
 }
+void displayText( float x, float y, int r, int g, int b, char *str ) 
+   {
+    char*c;
+
+    glColor3f( r, g, b );
+    glRasterPos2f( x, y );
+     for(c=str; *c!=' '; c++ ) {
+     glutBitmapCharacter( GLUT_BITMAP_TIMES_ROMAN_24, *c );
+     }
+    }
 
 void draw ( void )
 {
@@ -321,6 +333,11 @@ void draw ( void )
                         drawPaRaCube ( i );
                 }
 
+	displayText(100, 150,0,0,0, "q/e for z axis");
+	displayText(150, 200,0,0,0, "w/s for x axis");
+	displayText(150, 200,0,0,0, "a/d for y axis");
+	displayText(200, 200,0,0,0, "+/- to zoom in/out");
+	
         glutSwapBuffers();
 }
 
@@ -396,18 +413,45 @@ void skeyboard ( int key, int x, int y )
         glutPostRedisplay();
 }
 
-
 void reshape ( int width, int height )
 {
         w = width;
         h = height;
-
         glMatrixMode ( GL_PROJECTION );
         glLoadIdentity();
         gluPerspective ( fovy, ( float ) w/ ( float ) h, .1f, 1000.0f );
         glViewport ( 0, 0, w, h );
         glMatrixMode ( GL_MODELVIEW );
+
 }
+void drawStrokeText(char*string,int x,int y,int z)
+{
+	  char *c;
+	  glPushMatrix();
+	  glTranslatef(x, y+8,z);
+	 // glScalef(0.09f,-0.08f,z);
+  
+	  for (c=string; *c != '\0'; c++)
+	  {
+    		glutStrokeCharacter(GLUT_STROKE_ROMAN , *c);
+	  }
+	  glPopMatrix();
+}
+
+void render(void)
+{ 
+	glClear(GL_COLOR_BUFFER_BIT); 
+	glLoadIdentity();
+ 
+	glColor3f(1,1,255);
+	drawStrokeText("Osama Hosam's OpenGL Tutorials",200,200,0);
+
+	glutSwapBuffers(); 
+} 
+
+
+
+    
 
 int
 main ( int argc, char *argv[] )
@@ -453,10 +497,11 @@ main ( int argc, char *argv[] )
         glutCreateWindow ( "Pasigraphy Rhapsody, para6, exp2" );
         glutReshapeFunc ( reshape );
         glutDisplayFunc ( draw );
+	//glutIdleFunc(draw);
         glutKeyboardFunc ( keyboard );
         glutSpecialFunc ( skeyboard );
 
-        glutMainLoop();
+	glutMainLoop();
         return 0;
 }
 
