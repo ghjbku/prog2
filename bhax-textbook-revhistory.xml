@@ -199,5 +199,13 @@
 <revremark>chomsky chapter befejezése</revremark>
     </revision>
 
+<revision>
+        <revnumber>1.1.2</revnumber>
+        <date>2019-10-16</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Gödel és Stroustrup chapterek elkezdése</revremark>
+    </revision>
+
+
 
 </revhistory>
