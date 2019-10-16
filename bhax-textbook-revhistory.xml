@@ -186,5 +186,18 @@
         <authorinitials>Balázs Tóth</authorinitials>
 <revremark>Mandelbrot chapter befejezése</revremark>
     </revision>
+  <revision>
+        <revnumber>1.1.0</revnumber>
+        <date>2019-10-13</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>chomsky chapter elkezdése</revremark>
+    </revision>
+ <revision>
+        <revnumber>1.1.1</revnumber>
+        <date>2019-10-15</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>chomsky chapter befejezése</revremark>
+    </revision>
+
 
 </revhistory>
