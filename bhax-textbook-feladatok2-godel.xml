@@ -16,6 +16,27 @@ https://youtu.be/DL6iQwPx1Yw (8:05-től)</para>
 	<title>C++11 Custom Allocator</title>
 	<para>https://prezi.com/jvvbytkwgsxj/high-level-programming-languages-2-c11-allocators/ a
 CustomAlloc-os példa, lásd C forrást az UDPROG repóban!</para>
+	<para>forráskód:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/godel/">github link</link> </para>
+<programlisting language="c++"><![CDATA[class TrackingAllocator
+{
+.
+.
+.
+
+pointer allocate(size_type numObjects)
+    {
+        mAllocations += numObjects;
+        return static_cast<pointer>(operator new(sizeof(T) * numObjects));
+    }
+
+    void deallocate(pointer p, size_type numObjects)
+    {
+        operator delete(p);
+    }
+
+]]></programlisting>
+<para>A programkód legfontosabb részletei az allokációért felelős <command>allocate</command> és a deallokációért felelős <command>deallocate</command> függvények.
+Ezek a TrackingAllocator osztályban foglalnak helyet.</para>
 	</section>
 
 	<section>
