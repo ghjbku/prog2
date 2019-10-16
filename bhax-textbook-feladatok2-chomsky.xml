@@ -175,6 +175,224 @@ A freeglut megtalálható itt:<link xlink:href="http://freeglut.sourceforge.net/
  
 </section>
 
+
+<section>
+<title>l334d1c4<superscript>5</superscript> (ződ)</title>
+<para>
+Írj olyan OO Java vagy C++ osztályt, amely leet cipherként működik, azaz megvalósítja ezt a betű
+helyettesítést: https://simple.wikipedia.org/wiki/Leet (Ha ez első részben nem tetted meg, akkor írasd
+ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
+
+<para>A cipher java-ban.</para>
+<programlisting language="java"><![CDATA[import java.util.Scanner;
+import java.util.Vector;
+
+
+public class Leet {
+
+    public static Vector<String> translate(String word, Vector<String> wordvect)
+    {
+        
+        word=word.toUpperCase();
+        for(int i=0;i<word.length();i++)
+        {
+            switch (word.charAt(i)) {
+                case 'A' : wordvect.add("4");
+                     break;
+                case 'B' : wordvect.add("|3");
+                     break;
+                case 'C' : wordvect.add("(");
+                     break;
+                case 'D' : wordvect.add("|)");
+                     break;
+                case 'E' : wordvect.add("3");
+                     break;
+                case 'F' : wordvect.add("|=");
+                     break;
+                case 'G' : wordvect.add("6");
+                     break;
+                case 'H' : wordvect.add("|-|");
+                     break;
+                case 'I' : wordvect.add("|");
+                     break;     
+                case 'J' : wordvect.add(".]");
+                     break;
+                case 'K' : wordvect.add("|<");
+                     break;      
+                case 'L' : wordvect.add("1");
+                     break;      
+                case 'M' : wordvect.add("|Y|");
+                     break;
+                case 'N' : wordvect.add("N");
+                     break;
+                case 'O' : wordvect.add("0");
+                     break;
+                 case 'P' : wordvect.add("P");
+                     break;
+                case 'Q' : wordvect.add("Q");
+                     break;
+                case 'R' : wordvect.add("|2");
+                     break;
+                case 'S' : wordvect.add("5");
+                     break;
+                case 'T' : wordvect.add("7");
+                     break;
+                case 'U' : wordvect.add("|_|");
+                     break;                    
+                case 'V' : wordvect.add("V");
+                     break;
+                case 'W' : wordvect.add("W");
+                     break;                    
+                case 'X' : wordvect.add("}{");
+                     break;                     
+                case 'Y' : wordvect.add("'/");
+                     break;
+                case 'Z' : wordvect.add("2");
+                     break;
+                case ' ' : wordvect.add(" ");
+                     break;      
+            }
+        
+        
+        }
+        
+    return wordvect; 
+    }
+    
+    public static void main(String[] args) {
+       Vector<String> wordvect = new Vector<>();
+       Scanner scan = new Scanner(System.in);
+       String word;
+       String question;
+       boolean questionbool = true;
+ 
+      while(questionbool=true)
+      {
+       questionbool=false;
+       System.out.println("irj be egy szót!");
+       word=scan.nextLine();
+       System.out.println("szó: "+word);
+       
+       wordvect=translate(word,wordvect);
+               
+       for(int i=0;i<wordvect.size();i++)
+         System.out.print(wordvect.get(i));
+       
+       System.out.print("\n");
+       System.out.println("tovább?(y / n)");
+       question=scan.nextLine();
+       if(question.startsWith("y"))
+       {
+           wordvect.clear();
+           questionbool = true;
+       }
+       else
+           break;
+      }
+           
+       
+       
+    }
+    
+}
+]]></programlisting>
+<para>A program "backbone"-ja a translate funkció, amely a "word", azaz a bekért szót először átírja csupa nagybetűre,
+majd a switch elágazásból kiválasztja a szó jelenlegi karakterét, és behelyettesíti a hozzá tartozó 1337 "betű"-vel.
+A szó összes karakterén végighalad a for-ciklussal, míg a szó végéhez nem ér.</para>
+<programlisting language="java"><![CDATA[public static Vector<String> translate(String word, Vector<String> wordvect)
+    {
+        
+        word=word.toUpperCase();
+        for(int i=0;i<word.length();i++)
+        {
+            switch (word.charAt(i)) {
+                case 'A' : wordvect.add("4");
+                     break;
+                case 'B' : wordvect.add("|3");
+                     break;
+                case 'C' : wordvect.add("(");
+                     break;
+                case 'D' : wordvect.add("|)");
+                     break;
+                case 'E' : wordvect.add("3");
+                     break;
+                case 'F' : wordvect.add("|=");
+                     break;
+                case 'G' : wordvect.add("6");
+                     break;
+                case 'H' : wordvect.add("|-|");
+                     break;
+                case 'I' : wordvect.add("|");
+                     break;     
+                case 'J' : wordvect.add(".]");
+                     break;
+                case 'K' : wordvect.add("|<");
+                     break;      
+                case 'L' : wordvect.add("1");
+                     break;      
+                case 'M' : wordvect.add("|Y|");
+                     break;
+                case 'N' : wordvect.add("N");
+                     break;
+                case 'O' : wordvect.add("0");
+                     break;
+                 case 'P' : wordvect.add("P");
+                     break;
+                case 'Q' : wordvect.add("Q");
+                     break;
+                case 'R' : wordvect.add("|2");
+                     break;
+                case 'S' : wordvect.add("5");
+                     break;
+                case 'T' : wordvect.add("7");
+                     break;
+                case 'U' : wordvect.add("|_|");
+                     break;                    
+                case 'V' : wordvect.add("V");
+                     break;
+                case 'W' : wordvect.add("W");
+                     break;                    
+                case 'X' : wordvect.add("}{");
+                     break;                     
+                case 'Y' : wordvect.add("'/");
+                     break;
+                case 'Z' : wordvect.add("2");
+                     break;
+                case ' ' : wordvect.add(" ");
+                     break;      
+            }
+        
+        
+        }
+        
+    return wordvect; 
+    }]]></programlisting>
+    <para>Ha vége a szónak, kilép a ciklusból és visszatérési értékként visszadobja a <command>wordvect</command> vektor-t.
+    </para>
+    <programlisting language="java"><![CDATA[public static void main(String[] args) {
+       Vector<String> wordvect = new Vector<>();
+       Scanner scan = new Scanner(System.in);
+       String word;
+       String question;
+       boolean questionbool = true;]]></programlisting>
+       <para>A main függvényben példányosítjuk a wordvect objektumot, majd egy szöveg-scannert inicializálunk, 
+       melyel majd a szavakat kérjük be a felhasználótól.</para>
+       <programlisting language='java'><![CDATA[while(questionbool=true)
+      {
+       questionbool=false;
+       System.out.println("irj be egy szót!");
+       word=scan.nextLine();
+       System.out.println("szó: "+word);
+       
+       wordvect=translate(word,wordvect);
+               
+       for(int i=0;i<wordvect.size();i++)
+         System.out.print(wordvect.get(i));
+       ]]></programlisting><para>Követekző a while ciklus, amely magáért a szó bekéréséért és annak lefordításáért felel.
+       a <command>word=scan.nextLine();</command> sor kéri be a word változóba a szót,a <command>wordvect=translate(word,wordvect);</command> sor pedig magáért a lefordításért felelős.
+       Végül a for-ciklus kiírja a lefordított szöveget karakterenként.</para>
+</section>
+
 <section>
 <title>Paszigráfia Rapszódia LuaLaTeX vizualizáció</title>
 <para>
@@ -186,14 +404,6 @@ Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvil�
 <section>
 <title>OOCW lexer</title>
 <para>Izzítsuk be az OOCWC-t és vázoljuk a https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll lexert és kapcsolását a programunk OO struktúrájába!</para>
-</section>
-
-<section>
-<title>l334d1c4<superscript>5</superscript> (ződ)</title>
-<para>
-Írj olyan OO Java vagy C++ osztályt, amely leet cipherként működik, azaz megvalósítja ezt a betű
-helyettesítést: https://simple.wikipedia.org/wiki/Leet (Ha ez első részben nem tetted meg, akkor írasd
-ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
 </section>
 
 <section>
