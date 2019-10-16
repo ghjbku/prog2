@@ -6558,7 +6558,8 @@ g.drawString(" A könyvet elsősorban\n tanári kézikönyvként ajánljuk köz�
 g.drawString("az ipar számára a professzionális programozó, a tudománynak ...",200, 500);
 	}]]></programlisting><para>Végül pedig látható a paint metódus.
     Ez felel a képernyőre "festésért",ami ezesetben csak pár sor szöveg, de lehet ez akár ábrák, képek sokasága is, a megjeleníteni kívánt objektum szerint viszont a kód is változik, és nehézségi foka is egyre nől.
-
+</para><para>Megoldás forrásai:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/chomsky">github link</link>              
+     
     </para>
 <figure>
             <title>A <type> fullscreen </type> futás</title>
