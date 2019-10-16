@@ -38,5 +38,63 @@ Interface Comparable<T> szerepét!]]></para>
 	<title>GIMP Scheme hack</title>
 	<para>Ha az előző félévben nem dolgoztad fel a témát (például a mandalás vagy a króm szöveges
 dobozosat) akkor itt az alkalom!</para>
+	<para>
+            Írj olyan script-fu kiterjesztést a GIMP programhoz, amely név-mandalát készít a
+            bemenő szövegből!               
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2019/01/10/a_gimp_lisp_hackelese_a_scheme_programozasi_nyelv">https://bhaxor.blog.hu/2019/01/10/a_gimp_lisp_hackelese_a_scheme_programozasi_nyelv</link>      
+        </para>
+        <para><command>A forráskód Bátfai Norbert tulajdonában áll.</command>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala</link>               
+        </para>
+<para>
+            
+            Tanulságok, tapasztalatok, magyarázat...
+            A megszokott-tól eltérően a nyelvben nem infix alakban adjuk meg a műveleteket, hanem prefix alakban.
+
+        </para> 
+        <programlisting><![CDATA[(define (elem x lista)
+
+    (if (= x 1) (car lista) (elem (- x 1) ( cdr lista ) ) )
+
+)]]></programlisting> 
+<para>Mint láthatjuk, itt a define kulcsszóval lehet függvényeket inicializálni.
+Ez a függvény az "elem" névre hallgat, és 2 paramétert kér be, az "x"-et és a "lista"-át.
+Ha az x=1, akkor a (car lista) parancs hajtódik végre, ha nem, akkor pedig az (elem (x-1) (cdr lista)) parancs.
+Ez miatt a sor miatt a függvény rekurzív lesz, hiszen addig hajta végre az "else" ágat, amíg az x!=1.
+
+</para>
+<programlisting><![CDATA[(define (text-width text font fontsize)
+(let*
+    (
+        (text-width 1)
+    )
+    (set! text-width (car (gimp-text-get-extents-fontname text fontsize PIXELS font)))    
+
+    text-width
+    )
+)]]></programlisting>  
+<para>
+Ez a függvény a szöveg szélességét kezeli.
+paraméterként bekéri a szöveget, a betűtípust és a betűméretet.
+A függvény törzsében a megadott paraméterekkel a gimp beállítja a szöveg kinézetét.
+</para>  
+<programlisting><![CDATA[(define (script-fu-bhax-mandala text text2 font fontsize width height color gradient)
+(let*
+    (]]></programlisting>
+    <para>Ezen kezdetű függvény tekinthető a main fügvénynek, hiszen itt alkalmazzuk az előbb megadott függvényeket, itt 
+    írjuk a program érdemi részét.
+     </para>      
+     <programlisting><![CDATA[(gimp-image-insert-layer image layer 0 0)
+
+    (gimp-context-set-foreground '(0 255 0))
+    (gimp-drawable-fill layer FILL-FOREGROUND)
+    (gimp-image-undo-disable image) ]]></programlisting>
+    <para>
+    Az első sor beilleszt egy layert, a második sor beállítja annak háttérszínét zöldre, a harmadik sor kitölti a hátteret, az utolsó
+    sor pedig újra aktiválja a képet.
+    </para>
+
 	</section>
 </chapter>
