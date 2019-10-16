@@ -2,6 +2,7 @@
 #include <limits>
 #include <memory>
 #include <vector>
+#include <string>
 
 template<class T>
 class TrackingAllocator
@@ -46,8 +47,8 @@ typename TrackingAllocator<T>::size_type TrackingAllocator<T>::mAllocations = 0;
 
 int main()
 {
-    std::vector<int, TrackingAllocator<int>> v(5);
-    std::cout << v.get_allocator().get_allocations() << std::endl;
+    std::vector<std::string, TrackingAllocator<std::string>> v(3);
+    std::cout << "allokált memóriahelyek száma:"<< v.get_allocator().get_allocations() << std::endl;
 
     return 0;
 }
