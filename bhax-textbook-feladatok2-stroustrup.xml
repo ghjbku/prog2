@@ -287,7 +287,7 @@ currentMap.remove(wrong_dm.charAt(i));
                     </phrase>
                 </textobject>
             </mediaobject>
-        </figure>
+        </figure><para>Ezen a képen látható, hogy az utolsó két sor szinte pofon-egyszerűen kitalálható a törést követően, na persze nem 100%-os a törés, de egy pár futás után össze lehet illeszteni a szöveget.</para>
 </section>
 
     <section>
