@@ -179,6 +179,28 @@ helyette az új fa gyokerének az új Egyes és Nullás gyermekei-t a régi gyö
         https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_3.pdf (71-73 fólia) által
         készített titkos szövegen.
     </para>
+    <para>A forráskód itt található:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/stroustrup">github link</link>
+        </para><para>Az encrypt függvény:</para>
+        <programlisting language="java"><![CDATA[
+public BigInteger[] encript(String msg) {
+byte[] buffer = msg.getBytes();
+java.math.BigInteger[] priv = new java.math.BigInteger[buffer.length];
+for (int i = 0 ; i < priv.length ; i++) {
+priv[i] = new java.math.BigInteger(new byte[] {buffer[i]});
+priv[i] = priv[i].modPow(this.e, this.n);
+}
+return priv;]]></programlisting><para>A BigInteger[] egy BigInteger tömb, ez a típus a java.math.BigInteger importálásával érhető el.
+</para>
+<programlisting language="java"><![CDATA[byte[] buffer = msg.getBytes();]]></programlisting><para>
+Ez a sor létrehoz egy byte tömböt, amely a buffer névre hallgat.
+Ez a buffer értékül kapja a <command>msg</command> string byte-sorozattá alakított változatát.
+A sorozattá alakítás a platform alapértelmezett charset-ével történik.</para><para>
+A következő sorban egy priv változót hozunk létre, amely szintén BigInteger tömb típusú lesz.
+Ezután egy for ciklust indítunk, ami a priv változó összes elemén végigmegy, először az i-edik elemét egyenlővé teszi
+egy új BigInteger-el, majd egy modulus exponenciális függvényt végez el azokon.
+A <command>this.e</command> jelenti az exponenciális számot, míg a <command>this.n</command> a modulus-t. 
+A pow-al szemben a modpow képes elvégezni a számítást akkor is, ha az exp negatív szám.
+</para>
       <figure>
             <title>
                 Az
@@ -219,7 +241,8 @@ helyette az új fa gyokerének az új Egyes és Nullás gyermekei-t a régi gyö
         </figure><para>Látható, hogy a program egyfajta bruteforce metódusként üzemel azzal, hogy az RSA kódolás
         betűk helyett szavanként történt meg, ezért a betű előfordulási arány segítségével készíthető olyan program, amely az eredeti szöveg egy részét képes "lefordítani".
         Sajnos ez nem teljesen lehetséges, hiszen ha a betűk aránya a szövegben nem egyezik meg az online található statisztikával, akkor az betű-elcsúszásokhoz vezet, emiatt szinte lehetetlen a teljes decriptálás.
-        </para>
+        Látható viszont az első képnél, hogy ha minden betűt sikeresen eltalál, onnan már egész egyszerű kitalálnunk az eredeti szót.
+        Ha nem sikerült volna megfejteni a szót, amire gondoltam, a szó: <command>valami</command></para>
 </section>
 
     <section>
