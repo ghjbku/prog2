@@ -220,6 +220,31 @@ A pow-al szemben a modpow képes elvégezni a számítást akkor is, ha az exp n
                 </textobject>
             </mediaobject>
         </figure>
+        <programlisting language="java"><![CDATA[
+        public String atlagDecrypt(String clean ,BigInteger[] msg , Map<Character,Integer> m) {
+byte[] buffer = clean.getBytes();
+for (int i = 0 ; i < msg.length ; i++) {
+msg[i] = msg[i].modPow(this.d, this.n);
+buffer[i] = msg[i].byteValue();
+}
+.
+.
+.
+.
+.]]></programlisting><para>Ez pedig az átlag szerinti szöveg-törés függvénye.
+Mint az encrypt-ben, itt is lesz egy buffer változónk, amely a clean változó byte-sorozattá alakított változatát tárolja.
+A for ciklusban a msg tömb elemein megyünk végig, először megint a modpow függvény segítségét hívjuk, majd 
+a buffer-en is végigmegyünk, és a buffer i-edik elemének értékéül a msg i-edik elemének a byte-szerinti értékét adjuk.(mivel ugye a msg egy szám típusú tömb,
+annak vesszük a modulusát, hatványozását, attól még szám lesz, és ezt a számot konvertáljuk át byte formára.)</para>
+        <programlisting language="java"><![CDATA[
+        for (int i = 0 ; i < wrong_dm.length() ; i++) {
+Character c;
+if ( ( (c = contains(currentMap.get(wrong_dm.charAt(i)),m )) != null )) {
+wrong_dm =wrong_dm.replace(wrong_dm.charAt(i), c);
+currentMap.remove(wrong_dm.charAt(i));
+}
+        ]]></programlisting><para>Itt látható a karakterek kicserélése a map-ban látott gyakoriságot követve, és ezzel létrejön a "tiszta, lefordított szöveg".
+        </para>
          <figure>
             <title>
                 Az
