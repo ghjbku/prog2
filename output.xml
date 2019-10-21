@@ -259,6 +259,27 @@
         <authorinitials>Balázs Tóth</authorinitials>
 <revremark>Mandelbrot chapter befejezése</revremark>
     </revision>
+  <revision>
+        <revnumber>1.1.0</revnumber>
+        <date>2019-10-13</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>chomsky chapter elkezdése</revremark>
+    </revision>
+ <revision>
+        <revnumber>1.1.1</revnumber>
+        <date>2019-10-15</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>chomsky chapter befejezése</revremark>
+    </revision>
+
+<revision>
+        <revnumber>1.1.2</revnumber>
+        <date>2019-10-16</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Gödel és Stroustrup chapterek elkezdése</revremark>
+    </revision>
+
+
 
 </revhistory>               
                                
@@ -5249,236 +5270,7 @@ tf.app.run(main=main, argv=[sys.argv[0]] + unparsed)]]>
         <para><command>A forráskód Bátfai Norbert tulajdonában áll.</command>
             Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala</link>               
         </para>
-        <programlisting language="c++">
-        <![CDATA[; bhax_mandala9.scm
-;
-; BHAX-Mandala creates a mandala from a text box.
-; Copyright (C) 2019  Norbert Bátfai, batfai.norbert@inf.unideb.hu
-;
-;    This program is free software: you can redistribute it and/or modify
-;    it under the terms of the GNU General Public License as published by
-;    the Free Software Foundation, either version 3 of the License, or
-;    (at your option) any later version.
-;
-;    This program is distributed in the hope that it will be useful,
-;    but WITHOUT ANY WARRANTY; without even the implied warranty of
-;    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-;    GNU General Public License for more details.
-;
-;    You should have received a copy of the GNU General Public License
-;    along with this program.  If not, see <https://www.gnu.org/licenses/>.
-;
-; Version history
-;
-;  This Scheme code is partially based on the Python code 
-;  Pat625_Mandala_With_Your_Name.py by Tin Tran, which is released under the GNU GPL v3, see 
-;  https://gimplearn.net/viewtopic.php/Pat625-Mandala-With-Your-Name-Script-for-GIMP?t=269&p=976
-;
-;  https://bhaxor.blog.hu/2019/01/10/a_gimp_lisp_hackelese_a_scheme_programozasi_nyelv
-; 
-
-(define (elem x lista)
-
-    (if (= x 1) (car lista) (elem (- x 1) ( cdr lista ) ) )
-
-)
-
-(define (text-width text font fontsize)
-(let*
-    (
-        (text-width 1)
-    )
-    (set! text-width (car (gimp-text-get-extents-fontname text fontsize PIXELS font)))    
-
-    text-width
-    )
-)
-
-(define (text-wh text font fontsize)
-(let*
-    (
-        (text-width 1)
-        (text-height 1)
-    )
-    ;;;
-    (set! text-width (car (gimp-text-get-extents-fontname text fontsize PIXELS font)))    
-    ;;; ved ki a lista 2. elemét
-    (set! text-height (elem 2  (gimp-text-get-extents-fontname text fontsize PIXELS font)))    
-    ;;;    
-    
-    (list text-width text-height)
-    )
-)
-
-
-;(text-width "alma" "Sans" 100)
-
-(define (script-fu-bhax-mandala text text2 font fontsize width height color gradient)
-(let*
-    (
-        (image (car (gimp-image-new width height 0)))
-        (layer (car (gimp-layer-new image width height RGB-IMAGE "bg" 100 LAYER-MODE-NORMAL-LEGACY)))
-        (textfs)
-        (text-layer)
-        (text-width (text-width text font fontsize))
-        ;;;
-        (text2-width (car (text-wh text2 font fontsize)))
-        (text2-height (elem 2 (text-wh text2 font fontsize)))
-        ;;;
-        (textfs-width)
-        (textfs-height)
-        (gradient-layer)
-    )
-
-    (gimp-image-insert-layer image layer 0 0)
-
-    (gimp-context-set-foreground '(0 255 0))
-    (gimp-drawable-fill layer FILL-FOREGROUND)
-    (gimp-image-undo-disable image) 
-
-    (gimp-context-set-foreground color)
-
-    (set! textfs (car (gimp-text-layer-new image text font fontsize PIXELS)))
-    (gimp-image-insert-layer image textfs 0 -1)
-    (gimp-layer-set-offsets textfs (- (/ width 2) (/ text-width 2))  (/ height 2))
-    (gimp-layer-resize-to-image-size textfs)
-
-    (set! text-layer (car (gimp-layer-new-from-drawable textfs image)))
-    (gimp-image-insert-layer image text-layer 0 -1)
-    (gimp-item-transform-rotate-simple text-layer ROTATE-180 TRUE 0 0)
-    (set! textfs (car(gimp-image-merge-down image text-layer CLIP-TO-BOTTOM-LAYER)))
-
-    (set! text-layer (car (gimp-layer-new-from-drawable textfs image)))
-    (gimp-image-insert-layer image text-layer 0 -1)
-    (gimp-item-transform-rotate text-layer (/ *pi* 2) TRUE 0 0)
-    (set! textfs (car(gimp-image-merge-down image text-layer CLIP-TO-BOTTOM-LAYER)))
-
-    (set! text-layer (car (gimp-layer-new-from-drawable textfs image)))
-    (gimp-image-insert-layer image text-layer 0 -1)
-    (gimp-item-transform-rotate text-layer (/ *pi* 4) TRUE 0 0)
-    (set! textfs (car(gimp-image-merge-down image text-layer CLIP-TO-BOTTOM-LAYER)))
-    
-    (set! text-layer (car (gimp-layer-new-from-drawable textfs image)))
-    (gimp-image-insert-layer image text-layer 0 -1)
-    (gimp-item-transform-rotate text-layer (/ *pi* 6) TRUE 0 0)
-    (set! textfs (car(gimp-image-merge-down image text-layer CLIP-TO-BOTTOM-LAYER)))    
-    
-    (plug-in-autocrop-layer RUN-NONINTERACTIVE image textfs)
-    (set! textfs-width (+ (car(gimp-drawable-width textfs)) 100))
-    (set! textfs-height (+ (car(gimp-drawable-height textfs)) 100))
-        
-	(gimp-layer-resize-to-image-size textfs)
-    
-    (gimp-image-select-ellipse image CHANNEL-OP-REPLACE (- (- (/ width 2) (/ textfs-width 2)) 18) 
-        (- (- (/ height 2) (/ textfs-height 2)) 18) (+ textfs-width 36) (+ textfs-height 36))
-	(plug-in-sel2path RUN-NONINTERACTIVE image textfs)
-        
-    (gimp-context-set-brush-size 22)
-    (gimp-edit-stroke textfs)
-    
-    (set! textfs-width (- textfs-width 70))
-    (set! textfs-height (- textfs-height 70))
-    
-    (gimp-image-select-ellipse image CHANNEL-OP-REPLACE (- (- (/ width 2) (/ textfs-width 2)) 18) 
-        (- (- (/ height 2) (/ textfs-height 2)) 18) (+ textfs-width 36) (+ textfs-height 36))
-	(plug-in-sel2path RUN-NONINTERACTIVE image textfs)
-        
-    (gimp-context-set-brush-size 8)
-    (gimp-edit-stroke textfs)
-        
-    (set! gradient-layer (car (gimp-layer-new image width height RGB-IMAGE "gradient" 100 LAYER-MODE-NORMAL-LEGACY)))
-    
-    (gimp-image-insert-layer image gradient-layer 0 -1)
-	(gimp-image-select-item image CHANNEL-OP-REPLACE textfs)
-	(gimp-context-set-gradient gradient) 
-	(gimp-edit-blend gradient-layer BLEND-CUSTOM LAYER-MODE-NORMAL-LEGACY GRADIENT-RADIAL 100 0 
-	REPEAT-TRIANGULAR FALSE TRUE 5 .1 TRUE (/ width 2) (/ height 2) (+ (+ (/ width 2) (/ textfs-width 2)) 8) (/ height 2))
-	
-	(plug-in-sel2path RUN-NONINTERACTIVE image textfs)
-
-    (set! textfs (car (gimp-text-layer-new image text2 font fontsize PIXELS)))
-    (gimp-image-insert-layer image textfs 0 -1)
-    (gimp-message (number->string text2-height))
-    (gimp-layer-set-offsets textfs (- (/ width 2) (/ text2-width 2)) (- (/ height 2) (/ text2-height 2)))
-		
-    ;(gimp-selection-none image)
-    ;(gimp-image-flatten image)
-    
-    (gimp-display-new image)
-    (gimp-image-clean-all image)
-    )
-)
-
-;(script-fu-bhax-mandala "Bátfai Norbert" "BHAX" "Ruge Boogie" 120 1920 1080 '(255 0 0) "Shadows 3")
-
-(script-fu-register "script-fu-bhax-mandala"
-    "Mandala9"
-    "Creates a mandala from a text box."
-    "Norbert Bátfai"
-    "Copyright 2019, Norbert Bátfai"
-    "January 9, 2019"
-    ""
-    SF-STRING       "Text"      "Bátf41 Haxor"
-    SF-STRING       "Text2"     "BHAX"
-    SF-FONT         "Font"      "Sans"
-    SF-ADJUSTMENT   "Font size" '(100 1 1000 1 10 0 1)
-    SF-VALUE        "Width"     "1000"
-    SF-VALUE        "Height"    "1000"
-    SF-COLOR        "Color"     '(255 0 0)
-    SF-GRADIENT     "Gradient"  "Deep Sea"
-)
-(script-fu-menu-register "script-fu-bhax-mandala" 
-    "<Image>/File/Create/BHAX"
-)
-]]>
-        </programlisting>
-        <para>
-            
-            Tanulságok, tapasztalatok, magyarázat...
-            A megszokott-tól eltérően a nyelvben nem infix alakban adjuk meg a műveleteket, hanem prefix alakban.
-
-        </para> 
-        <programlisting><![CDATA[(define (elem x lista)
-
-    (if (= x 1) (car lista) (elem (- x 1) ( cdr lista ) ) )
-
-)]]></programlisting> 
-<para>Mint láthatjuk, itt a define kulcsszóval lehet függvényeket inicializálni.
-Ez a függvény az "elem" névre hallgat, és 2 paramétert kér be, az "x"-et és a "lista"-át.
-Ha az x=1, akkor a (car lista) parancs hajtódik végre, ha nem, akkor pedig az (elem (x-1) (cdr lista)) parancs.
-Ez miatt a sor miatt a függvény rekurzív lesz, hiszen addig hajta végre az "else" ágat, amíg az x!=1.
-
-</para>
-<programlisting><![CDATA[(define (text-width text font fontsize)
-(let*
-    (
-        (text-width 1)
-    )
-    (set! text-width (car (gimp-text-get-extents-fontname text fontsize PIXELS font)))    
-
-    text-width
-    )
-)]]></programlisting>  
-<para>
-Ez a függvény a szöveg szélességét kezeli.
-paraméterként bekéri a szöveget, a betűtípust és a betűméretet.
-A függvény törzsében a megadott paraméterekkel a gimp beállítja a szöveg kinézetét.
-</para>  
-<programlisting><![CDATA[(define (script-fu-bhax-mandala text text2 font fontsize width height color gradient)
-(let*
-    (]]></programlisting>
-    <para>Ezen kezdetű függvény tekinthető a main fügvénynek, hiszen itt alkalmazzuk az előbb megadott függvényeket, itt 
-    írjuk a program érdemi részét.
-     </para>      
-     <programlisting><![CDATA[(gimp-image-insert-layer image layer 0 0)
-
-    (gimp-context-set-foreground '(0 255 0))
-    (gimp-drawable-fill layer FILL-FOREGROUND)
-    (gimp-image-undo-disable image) ]]></programlisting>
-    <para>
-    Az első sor beilleszt egy layert, a második sor beállítja annak háttérszínét zöldre, a harmadik sor kitölti a hátteret, az utolsó
-    sor pedig újra aktiválja a képet.
-    </para>
+       
     </section>        
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                         
   <!--  <section>
@@ -6913,6 +6705,128 @@ Az előző 4 feladat egyikéről írj egy 1 oldalas bemutató „”esszé szöv
 <para>egy egyszerű string osztály elkészítését 
 (hogy ne a verembe tegyük a kockászárójel megvalósítását,
  mert az nyilván odacsap az osztály értelmezésének)</para></section>
+</chapter>     
+
+<chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Gödel!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+	
+	<section>
+<title>gengszterek</title>
+        <para>Gengszterek rendezése lambdával a Robotautó Világbajnokságban
+https://youtu.be/DL6iQwPx1Yw (8:05-től)</para>
+	</section>
+
+	<section>
+	<title>C++11 Custom Allocator</title>
+	<para>https://prezi.com/jvvbytkwgsxj/high-level-programming-languages-2-c11-allocators/ a
+CustomAlloc-os példa, lásd C forrást az UDPROG repóban!</para>
+	<para>forráskód:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/godel/">github link</link> </para>
+<programlisting language="c++"><![CDATA[class TrackingAllocator
+{
+.
+.
+.
+
+pointer allocate(size_type numObjects)
+    {
+        mAllocations += numObjects;
+        return static_cast<pointer>(operator new(sizeof(T) * numObjects));
+    }
+
+    void deallocate(pointer p, size_type numObjects)
+    {
+        operator delete(p);
+    }
+
+]]></programlisting>
+<para>A programkód legfontosabb részletei az allokációért felelős <command>allocate</command> és a deallokációért felelős <command>deallocate</command> függvények.
+Ezek a TrackingAllocator osztályban foglalnak helyet.</para>
+	</section>
+
+	<section>
+	<title>STL map érték szerinti rendezése</title>
+	<para>Például: https://github.com/nbatfai/future/blob/master/cs/F9F2/fenykard.cpp#L180</para>
+	</section>
+
+	<section>
+	<title>Alternatív Tabella rendezése</title>
+	<para>Mutassuk be a https://progpater.blog.hu/2011/03/11/alternativ_tabella<![CDATA[ a programban a java.lang
+Interface Comparable<T> szerepét!]]></para>
+	</section>
+
+	<section>
+	<title>Prolog családfa</title>
+	<para>Ágyazd be a Prolog családfa programot C++ vagy Java programba! Lásd para_prog_guide.pdf!</para>
+	</section>
+
+	<section>
+	<title>GIMP Scheme hack</title>
+	<para>Ha az előző félévben nem dolgoztad fel a témát (például a mandalás vagy a króm szöveges
+dobozosat) akkor itt az alkalom!</para>
+	<para>
+            Írj olyan script-fu kiterjesztést a GIMP programhoz, amely név-mandalát készít a
+            bemenő szövegből!               
+        </para>
+        <para>
+            Megoldás videó: <link xlink:href="https://bhaxor.blog.hu/2019/01/10/a_gimp_lisp_hackelese_a_scheme_programozasi_nyelv">https://bhaxor.blog.hu/2019/01/10/a_gimp_lisp_hackelese_a_scheme_programozasi_nyelv</link>      
+        </para>
+        <para><command>A forráskód Bátfai Norbert tulajdonában áll.</command>
+            Megoldás forrása: <link xlink:href="https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala">https://gitlab.com/nbatfai/bhax/tree/master/attention_raising/GIMP_Lisp/Mandala</link>               
+        </para>
+<para>
+            
+            Tanulságok, tapasztalatok, magyarázat...
+            A megszokott-tól eltérően a nyelvben nem infix alakban adjuk meg a műveleteket, hanem prefix alakban.
+
+        </para> 
+        <programlisting><![CDATA[(define (elem x lista)
+
+    (if (= x 1) (car lista) (elem (- x 1) ( cdr lista ) ) )
+
+)]]></programlisting> 
+<para>Mint láthatjuk, itt a define kulcsszóval lehet függvényeket inicializálni.
+Ez a függvény az "elem" névre hallgat, és 2 paramétert kér be, az "x"-et és a "lista"-át.
+Ha az x=1, akkor a (car lista) parancs hajtódik végre, ha nem, akkor pedig az (elem (x-1) (cdr lista)) parancs.
+Ez miatt a sor miatt a függvény rekurzív lesz, hiszen addig hajta végre az "else" ágat, amíg az x!=1.
+
+</para>
+<programlisting><![CDATA[(define (text-width text font fontsize)
+(let*
+    (
+        (text-width 1)
+    )
+    (set! text-width (car (gimp-text-get-extents-fontname text fontsize PIXELS font)))    
+
+    text-width
+    )
+)]]></programlisting>  
+<para>
+Ez a függvény a szöveg szélességét kezeli.
+paraméterként bekéri a szöveget, a betűtípust és a betűméretet.
+A függvény törzsében a megadott paraméterekkel a gimp beállítja a szöveg kinézetét.
+</para>  
+<programlisting><![CDATA[(define (script-fu-bhax-mandala text text2 font fontsize width height color gradient)
+(let*
+    (]]></programlisting>
+    <para>Ezen kezdetű függvény tekinthető a main fügvénynek, hiszen itt alkalmazzuk az előbb megadott függvényeket, itt 
+    írjuk a program érdemi részét.
+     </para>      
+     <programlisting><![CDATA[(gimp-image-insert-layer image layer 0 0)
+
+    (gimp-context-set-foreground '(0 255 0))
+    (gimp-drawable-fill layer FILL-FOREGROUND)
+    (gimp-image-undo-disable image) ]]></programlisting>
+    <para>
+    Az első sor beilleszt egy layert, a második sor beállítja annak háttérszínét zöldre, a harmadik sor kitölti a hátteret, az utolsó
+    sor pedig újra aktiválja a képet.
+    </para>
+
+	</section>
 </chapter>     
 </part>                                                              
 
