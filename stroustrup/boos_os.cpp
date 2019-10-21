@@ -6,17 +6,24 @@
 #include <boost/filesystem/fstream.hpp>
 
 //-lboost_system -lboost_filesystem -std=c++14
+
+/*
+--A forrás Kovács Ferencz tulajdona
+*/
 #define GetCurrentDir getcwd
 using namespace std;
 
 vector<string> searchRootFolders (vector<string> folders);
 void readClasses (string path, vector<string>& classes);
-string GetCurrentWorkingDir( void ) {
+
+string GetCurrentWorkingDir( void )
+{
 char buff[FILENAME_MAX];
 GetCurrentDir( buff, FILENAME_MAX );
 string current_working_dir(buff);
 return current_working_dir;
 }
+
 int main(int argc, char const *argv[])
 {
 vector<string> roots = {

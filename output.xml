@@ -6659,52 +6659,119 @@ Lásd https://youtu.be/XpBnR31BRJY
             <keyword/>
         </keywordset>
     </info>
-	
-	<section>
-<title>JDK osztályok</title>
-<para>
 
-Írjunk olyan Boost C++ programot (indulj ki például a fénykardból) amely kilistázza a JDK összes
-osztályát (miután kicsomagoltuk az src.zip állományt, arra ráengedve)!
-</para>
+    <section>
+        <title>JDK osztályok</title>
+        <para>
 
-</section>
+            Írjunk olyan Boost C++ programot (indulj ki például a fénykardból) amely kilistázza a JDK összes
+            osztályát (miután kicsomagoltuk az src.zip állományt, arra ráengedve)!
+        </para>
+        <para>
+            A programkód forrása (
+            <command>Nem saját source</command>
+            ):
+            <link xlink:href="https://github.com/ghjbku/prog2/tree/master/stroustrup">github link</link>
+        </para>
+        <figure>
+            <title>
+                A
+                <type>jdk</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="stroustrup/jdk.png" scale="250"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>jdk</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para>A program három függvényből áll, a GetCurrentWorkingDir,readClasses és searchRootFolders függvényekből.
+        Nézzük először a <command>GetCurrentWorkingDir</command> funkciót:</para>
+        <programlisting language="c++"><![CDATA[
+string GetCurrentWorkingDir( void )
+{
+char buff[FILENAME_MAX];
+GetCurrentDir( buff, FILENAME_MAX );
+string current_working_dir(buff);
+return current_working_dir;
+}]]></programlisting>
+<para>A függvényünk nem kér be paraméternek semmit, a GetCurrentDir beépített függvényt használja(getcwd)
+,hogy az aktuális könyvtár nevét bekérje, majd létrehoz egy string típusú <command>current_working_dir</command>
+ változót, melyben eltároljuk a buffer-ben található fájlnevet, melyet végül visszaad a függvény.</para>
+   <para>Következő funkció egy visszatérési érték nélküli funkció/metódus lesz, a <command>readClasses:</command></para>
+   <programlisting language="c++"><![CDATA[
+void readClasses ( boost::filesystem::path path, vector<string>& classes)
+{
+if ( is_regular_file ( path ) ) {
+std::string ext ( ".java" );
+if ( !ext.compare ( boost::filesystem::extension ( path ) ) ){
+classes.push_back(path.string());
+}
+} else if ( is_directory ( path ) )
+for ( boost::filesystem::directory_entry & entry : boost::filesystem::directory_iterator ( path ) )
 
-<section>
-<title>Másoló-mozgató szemantika</title>
-<para>
+readClasses ( entry.path(),classes);
+}]]></programlisting>
+   <para>A függvény paraméterként egy path típusú path változót és egy string-vector objektumot vár.
+   Ha az is_regular_file függvény igaz értéket ad vissza, akkor megadjuk a keresni kívánt fájl-kiterjesztést az ext objektumban,
+   ami most a ".java"</para>
+   <para>A Következő if elágazásban megnézzük, hogy az ext objektumunk értéke megegyezik-e a path-ban található kiterjesztéssel.
+   Ha nem,akkor push_back, tehát a classes vektor végéhez adja a path-et.
+   </para>
+   <para>Else if ágba lépünk, ha az <command>is_regular_file</command> nem volt igaz, ekkor 
+   az <command>is_directory</command> függvényt hívjuk meg ellenőrzésre.
+   Ha a path egy könyvtár, akkor meghívunk egy for ciklust, melyben az entry.path() elérési utakat behelyezzük a classes vektorunkba.
+   A ciklus addig megy, amíg van entry.</para>
+    </section>
 
-Kódcsipeteken (copy és move ctor és assign) keresztül vesd össze a C++11 másoló és a mozgató
-szemantikáját, a mozgató konstruktort alapozd a mozgató értékadásra!
-</para>
+    <section>
+        <title>Másoló-mozgató szemantika</title>
+        <para>
 
-</section>
-<title>Hibásan implementált RSA törése</title>
-<para>
+            Kódcsipeteken (copy és move ctor és assign) keresztül vesd össze a C++11 másoló és a mozgató
+            szemantikáját, a mozgató konstruktort alapozd a mozgató értékadásra!
+        </para>
 
-Készítsünk betű gyakoriság alapú törést egy hibásan implementált RSA kódoló:
-https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_3.pdf (71-73 fólia) által
-készített titkos szövegen.
-</para>
+    </section>
+    <title>Hibásan implementált RSA törése</title>
+    <para>
 
-<section>
-<title>Változó argumentumszámú ctor</title>
-<para>
+        Készítsünk betű gyakoriság alapú törést egy hibásan implementált RSA kódoló:
+        https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_3.pdf (71-73 fólia) által
+        készített titkos szövegen.
+    </para>
 
-Készítsünk olyan példát, amely egy képet tesz az alábbi projekt Perceptron osztályának bemenetére
-és a Perceptron ne egy értéket, hanem egy ugyanakkora méretű „képet” adjon vissza. (Lásd még a 4
-hét/Perceptron osztály feladatot is.)
-</para></section>
-<section>
-<title>Összefoglaló</title>
-<para>
+    <section>
+        <title>Változó argumentumszámú ctor</title>
+        <para>
 
-Az előző 4 feladat egyikéről írj egy 1 oldalas bemutató „”esszé szöveget!
-</para></section>
-<section><title>+feladat</title>
-<para>egy egyszerű string osztály elkészítését 
-(hogy ne a verembe tegyük a kockászárójel megvalósítását,
- mert az nyilván odacsap az osztály értelmezésének)</para></section>
+            Készítsünk olyan példát, amely egy képet tesz az alábbi projekt Perceptron osztályának bemenetére
+            és a Perceptron ne egy értéket, hanem egy ugyanakkora méretű „képet” adjon vissza. (Lásd még a 4
+            hét/Perceptron osztály feladatot is.)
+        </para>
+    </section>
+    <section>
+        <title>Összefoglaló</title>
+        <para>
+
+            Az előző 4 feladat egyikéről írj egy 1 oldalas bemutató „”esszé szöveget!
+        </para>
+    </section>
+    <section>
+        <title>+feladat</title>
+        <para>
+            egy egyszerű string osztály elkészítését
+            (hogy ne a verembe tegyük a kockászárójel megvalósítását,
+            mert az nyilván odacsap az osztály értelmezésének)
+        </para>
+    </section>
 </chapter>     
 
 <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
