@@ -6729,6 +6729,39 @@ readClasses ( entry.path(),classes);
    az <command>is_directory</command> függvényt hívjuk meg ellenőrzésre.
    Ha a path egy könyvtár, akkor meghívunk egy for ciklust, melyben az entry.path() elérési utakat behelyezzük a classes vektorunkba.
    A ciklus addig megy, amíg van entry.</para>
+   <para>Utolsó függvény pedig a <command>searchRootFolders</command>:</para>
+   <programlisting language="c++"><![CDATA[
+   vector<string> searchRootFolders (vector<string> folders)
+{
+vector <string> classes;
+for ( const auto & path : folders)
+{
+boost::filesystem::path root ( path );
+readClasses ( root, classes);
+}
+return classes;
+}]]></programlisting>
+<para>Láthatjuk, hogy ez a függvény már használja a readClasses függvényt,amit az előbb néztünk át,
+itt a path a root objektum lesz, a class pedig marad a régi.
+visszatérési érték a classes objektum lesz.</para>
+<para>Végül jöhet a main függvény:</para>
+<programlisting language="c++"><![CDATA[
+int main(int argc, char const *argv[])
+{
+vector<string> roots = {
+GetCurrentWorkingDir()+"/"+"src"
+};
+
+vector<string> classes = searchRootFolders ( roots );
+cout<<endl<<"-----------------Printing java classes------------------------"<<endl;
+for(auto &i : classes)
+{
+cout << i << endl;
+}
+cout << "összesen " << classes.size() << " osztály található\n";
+return 0;
+}]]></programlisting><para>A classes vektorunk értékéül a searchRootFolders függvény visszatérési értékét adjuk, ami ugyancsak a classes objektum volt.
+Ezután egy for ciklusban kiíratjuk a classes-ben található elérési utakat, végül a classes.size()-al megnézzük, hogy mennyi osztályt talált a program.</para>
     </section>
 
     <section>
