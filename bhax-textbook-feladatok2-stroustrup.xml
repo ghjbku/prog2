@@ -116,16 +116,70 @@ Ezután egy for ciklusban kiíratjuk a classes-ben található elérési utakat,
 
             Kódcsipeteken (copy és move ctor és assign) keresztül vesd össze a C++11 másoló és a mozgató
             szemantikáját, a mozgató konstruktort alapozd a mozgató értékadásra!
-        </para>
 
-    </section>
-    <title>Hibásan implementált RSA törése</title>
+        </para>
+        <programlisting language="c++"><![CDATA[LZWBinFa (LZWBinFa&& regi){
+            std::cout<< "LZWBinFa movetor" << std::endl;
+            
+            *this = std:move(regi);]]></programlisting>
+            <para>Itt látható az std::move funkció,
+             amely egy jobbérték referenciát ad vissza, ezzel "mozgatva" az objektumot.
+            </para>
+<programlisting language="c++"><![CDATA[LZWBinFa (const LZWBinFa& regi)
+{
+std::cout << "LZWBinFa copytor" << std::endl;
+
+gyoker.ujEgyesGyerek (masol (regi.gyoker.egyesGyerek (), regi.fa));
+gyoker.ujNullasGyerek (masol (regi.gyoker.nullasGyerek (), regi.fa));
+
+if (regi.fa == & (regi.gyoker)){fa = &gyoker;}
+}
+
+}]]></programlisting><para>Ez a másoló konstruktor,mely lemásolja a regi.fa-ban található nullás és egyes gyermekek-et,
+és az új fa-ba másolja azokat.</para>
+    
+    <programlisting language="c++"><![CDATA[LZWBinFa (const LZWBinFa& regi)
+{
+std::cout << "LZWBinFa masolo ertekadas" << std::endl;
+
+szabadit (gyoker.egyesGyerek());
+szabadit (gyoker.nullasGyerek());
+
+gyoker.ujEgyesGyerek (masol (regi.gyoker.egyesGyerek (), regi.fa));
+gyoker.ujNullasGyerek (masol (regi.gyoker.nullasGyerek (), regi.fa));
+
+if (regi.fa == & (regi.gyoker)){fa = &gyoker;}
+}
+
+}]]></programlisting><para>EZ pedig a másoló értékadás, amely nagyban hasonlít a konstruktoros megoldásra,
+csak annyi a különbség,hogy a másolás előtt felszabadítja az egyes- és nullásgyermek-et, Null-ra állítja értéküket.
+</para>
+
+<programlisting language="c++"><![CDATA[LZWBinFa (LZWBinFa&& regi)
+{
+            std::cout<< "LZWBinFa movetor" << std::endl;
+            
+            gyoker.ujEgyesGyerek (regi.gyoker.egyesGyerek());
+            gyoker.ujNullasGyerek (regi.gyoker.nullasGyerek());
+            
+            regi.gyoker.ujEgyesGyerek(nullptr);
+            regi.gyoker.ujNullasGyerek(nullptr);
+}]]></programlisting><para>Különbség az eredeti "movetor"-hoz képest, hogy itt nem egy jobbérték referenciát ad vissza egy move függvény,
+helyette az új fa gyokerének az új Egyes és Nullás gyermekei-t a régi gyökér nullás és egyes gyermekeire állítjuk be, majd a regi fa gyökerének gyermekeit beállítjuk, hogy nullpointerre mutassanak.
+</para>
+
+
+</section>
+
+
+    <section>    <title>Hibásan implementált RSA törése</title>
     <para>
 
         Készítsünk betű gyakoriság alapú törést egy hibásan implementált RSA kódoló:
         https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_3.pdf (71-73 fólia) által
         készített titkos szövegen.
     </para>
+</section>
 
     <section>
         <title>Változó argumentumszámú ctor</title>
