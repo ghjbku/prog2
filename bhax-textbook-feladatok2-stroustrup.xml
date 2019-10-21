@@ -201,25 +201,7 @@ egy új BigInteger-el, majd egy modulus exponenciális függvényt végez el azo
 A <command>this.e</command> jelenti az exponenciális számot, míg a <command>this.n</command> a modulus-t. 
 A pow-al szemben a modpow képes elvégezni a számítást akkor is, ha az exp negatív szám.
 </para>
-      <figure>
-            <title>
-                Az
-                <type>rsa</type>
-                futás
-            </title>
-            <mediaobject>
-                <imageobject>
-                    <imagedata fileref="stroustrup/rsa.png" scale="250" />
-                </imageobject>
-                <textobject>
-                    <phrase>
-                        Az
-                        <type>rsa</type>
-                        futás
-                    </phrase>
-                </textobject>
-            </mediaobject>
-        </figure>
+      
         <programlisting language="java"><![CDATA[
         public String atlagDecrypt(String clean ,BigInteger[] msg , Map<Character,Integer> m) {
 byte[] buffer = clean.getBytes();
@@ -266,7 +248,26 @@ currentMap.remove(wrong_dm.charAt(i));
         </figure><para>Látható, hogy a program egyfajta bruteforce metódusként üzemel azzal, hogy az RSA kódolás
         betűk helyett szavanként történt meg, ezért a betű előfordulási arány segítségével készíthető olyan program, amely az eredeti szöveg egy részét képes "lefordítani".
         Sajnos ez nem teljesen lehetséges, hiszen ha a betűk aránya a szövegben nem egyezik meg az online található statisztikával, akkor az betű-elcsúszásokhoz vezet, emiatt szinte lehetetlen a teljes decriptálás.
-        Látható viszont az első képnél, hogy ha minden betűt sikeresen eltalál, onnan már egész egyszerű kitalálnunk az eredeti szót.
+        </para><figure>
+            <title>
+                Az
+                <type>rsa</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="stroustrup/rsa.png" scale="250" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>rsa</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure><para>
+        Látható viszont a felső képnél, hogy ha minden betűt sikeresen eltalál, onnan már egész egyszerű kitalálnunk az eredeti szót.
         Ha nem sikerült volna megfejteni a szót, amire gondoltam, a szó: <command>valami</command></para>
         <figure>
             <title>
