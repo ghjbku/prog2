@@ -84,7 +84,7 @@ dobozosat) akkor itt az alkalom!</para>
 Ez a függvény az "elem" névre hallgat, és 2 paramétert kér be, az "x"-et és a "lista"-át.
 Ha az x=1, akkor a (car lista) parancs hajtódik végre, ha nem, akkor pedig az (elem (x-1) (cdr lista)) parancs.
 Ez miatt a sor miatt a függvény rekurzív lesz, hiszen addig hajta végre az "else" ágat, amíg az x!=1.
-
+A car és cdr függvények a lista elején ill. végén lévő elemet adják vissza.
 </para>
 <programlisting><![CDATA[(define (text-width text font fontsize)
 (let*
