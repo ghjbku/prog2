@@ -179,6 +179,25 @@ helyette az új fa gyokerének az új Egyes és Nullás gyermekei-t a régi gyö
         https://arato.inf.unideb.hu/batfai.norbert/UDPROG/deprecated/Prog2_3.pdf (71-73 fólia) által
         készített titkos szövegen.
     </para>
+      <figure>
+            <title>
+                Az
+                <type>rsa</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="stroustrup/rsa.png" scale="250" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>rsa</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
 </section>
 
     <section>
