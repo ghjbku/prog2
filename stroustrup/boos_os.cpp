@@ -25,7 +25,7 @@ return current_working_dir;
 }
 
 int main(int argc, char const *argv[])
-{
+{std::move()
 vector<string> roots = {
 GetCurrentWorkingDir()+"/"+"src"
 };
