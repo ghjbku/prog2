@@ -41,7 +41,7 @@ msg[i] = msg[i].modPow(this.d, this.n);
 buffer[i] = msg[i].byteValue();
 }
 String wrong_dm = new String(buffer);
-System.out.println("encripted private msg " + wrong_dm);
+System.out.println("\nencripted private msg: " + wrong_dm+"\n");
 Map<Character,Integer> currentMap = new HashMap<>();
 for (char i : wrong_dm.toCharArray()) {
 if(currentMap.containsKey(i)) currentMap.put(i, currentMap.get(i) + 1);
@@ -87,7 +87,7 @@ return currentMap;
 }
 public static void main(String[] args) {
 RSA obj = new RSA();
-String privateMsg = "valami";
+String privateMsg = "az ipar számára a professzionális programozó, a tudománynak és az emberiségnek a komplex problémákkal megküzdeni tudó algoritmuselmélész, az egyénnek és a társadalomnak a boldog és tetterős polgár. Reményeink szerint ennek az érzésnek az átadásához ezzel a digitális szakkönyvvel mi is hozzá tudunk járulni, miközben általában foglalkozunk a programozással, annak elméletével és filozófiájával, majd részletesen és gyakorlatiasan az objektumorientált paradigmával, és ezen belül a Java programozással. Ebben a kézikönyvben a Java nyelvvel egy labirintus játék világának felépítése során ismerkedünk meg, ami során ezt az egyszerű, példa labirintus játékot elkészítjük a weboldalon elhelyezhető appletként, mobiltelefonos és teljes képernyős\n PC-s, illetve hálózati: TCP/IP, Java Servlet, Java RMI és CORBA változatban is. De ezeken a labirintus témájú esettanulmányokon túl biológiai, matematikai és informatikai programozási példákkal is megismerkedhet majd a kedves Olvasó.";
 BigInteger[] msg = obj.encript(privateMsg);
 Map<Character,Integer> m = toMap(privateMsg);
 System.out.println("character map of the private message: " + m.toString());

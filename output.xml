@@ -6852,6 +6852,28 @@ helyette az új fa gyokerének az új Egyes és Nullás gyermekei-t a régi gyö
                 </textobject>
             </mediaobject>
         </figure>
+         <figure>
+            <title>
+                Az
+                <type>rsa</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="stroustrup/rsa2.png" scale="250"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>rsa</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure><para>Látható, hogy a program egyfajta bruteforce metódusként üzemel azzal, hogy az RSA kódolás
+        betűk helyett szavanként történt meg, ezért a betű előfordulási arány segítségével készíthető olyan program, amely az eredeti szöveg egy részét képes "lefordítani".
+        Sajnos ez nem teljesen lehetséges, hiszen ha a betűk aránya a szövegben nem egyezik meg az online található statisztikával, akkor az betű-elcsúszásokhoz vezet, emiatt szinte lehetetlen a teljes decriptálás.
+        </para>
 </section>
 
     <section>
