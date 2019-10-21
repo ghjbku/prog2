@@ -22,6 +22,7 @@ d = ( (BigInteger.ONE).add( (new BigInteger(100,new Random())).multiply(tn) ) ).
 }while ( (( (d.multiply(e)).subtract(BigInteger.ONE) ).mod(tn)).equals(BigInteger.ZERO) );
 //d = e.modInverse(tn);
 }
+
 public BigInteger[] encript(String msg) {
 byte[] buffer = msg.getBytes();
 java.math.BigInteger[] priv = new java.math.BigInteger[buffer.length];
@@ -30,9 +31,6 @@ priv[i] = new java.math.BigInteger(new byte[] {buffer[i]});
 priv[i] = priv[i].modPow(this.e, this.n);
 }
 return priv;
-}
-public BigInteger decrypt(BigInteger encriptedMsg) {
-return encriptedMsg.modPow(this.d, this.n);
 }
 public String atlagDecrypt(String clean ,BigInteger[] msg , Map<Character,Integer> m) {
 byte[] buffer = clean.getBytes();
@@ -92,5 +90,6 @@ BigInteger[] msg = obj.encript(privateMsg);
 Map<Character,Integer> m = toMap(privateMsg);
 System.out.println("character map of the private message: " + m.toString());
 System.out.println("the result of the decryption: " + obj.atlagDecrypt(privateMsg,msg,m));
+System.out.println("\nthe thing was: \n" + privateMsg);
 }
 }

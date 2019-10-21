@@ -6897,6 +6897,25 @@ A pow-al szemben a modpow képes elvégezni a számítást akkor is, ha az exp n
         Sajnos ez nem teljesen lehetséges, hiszen ha a betűk aránya a szövegben nem egyezik meg az online található statisztikával, akkor az betű-elcsúszásokhoz vezet, emiatt szinte lehetetlen a teljes decriptálás.
         Látható viszont az első képnél, hogy ha minden betűt sikeresen eltalál, onnan már egész egyszerű kitalálnunk az eredeti szót.
         Ha nem sikerült volna megfejteni a szót, amire gondoltam, a szó: <command>valami</command></para>
+        <figure>
+            <title>
+                Az
+                <type>rsa</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="stroustrup/rsa3.png" scale="250"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>rsa</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
 </section>
 
     <section>
