@@ -6978,11 +6978,11 @@ currentMap.remove(wrong_dm.charAt(i));
         </keywordset>
     </info>
 	
-	<section>
+<!-- 	<section>
 <title>gengszterek</title>
         <para>Gengszterek rendezése lambdával a Robotautó Világbajnokságban
 https://youtu.be/DL6iQwPx1Yw (8:05-től)</para>
-	</section>
+	</section>-->
 
 	<section>
 	<title>C++11 Custom Allocator</title>
@@ -7047,18 +7047,108 @@ Na persze ebben a függvényben adjuk az mAllocations változónak az értéket 
 	<section>
 	<title>STL map érték szerinti rendezése</title>
 	<para>Például: https://github.com/nbatfai/future/blob/master/cs/F9F2/fenykard.cpp#L180</para>
-	</section>
+	<para>forráskód:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/godel/">github link</link> </para>
+    <programlisting language="c++"><![CDATA[#include <iostream>
+#include <map>
 
-	<section>
+ int main(void){
+ srand(time(NULL));
+ std::map<char, int> map;
+ std::map<int, char> sortedMap;
+
+
+ for(char c = 'a'; c <= 'd'; c++){
+map.insert({c,(rand()% 100 + 0)});
+ }
+
+
+ std::cout << "unsorted numbers: " << std::endl;
+ for(auto const numb: map){
+ std::cout << numb.first << ": " << numb.second << std::endl;
+sortedMap[numb.second] = numb.first;
+ }
+
+ std::cout <<std::endl <<"Sorted numbers: " << std::endl;
+ for(auto const numb: sortedMap)
+ std::cout << numb.second << ": " << numb.first << std::endl;
+
+
+ return 0;
+}]]></programlisting>
+<para>
+a map-ek használatához szükségünk van a map library-ra,ezek olyan tárolók, melyeknek van egy azonosítója(egy kulcs) és van egy értéke.
+Két map rekordnak az azonosítója soha nem egyezik/egyezhet meg. 
+</para>
+<programlisting language="c++"><![CDATA[int main(void){
+ srand(time(NULL));
+ std::map<char, int> map;
+ std::map<int, char> sortedMap;
+]]></programlisting>
+<para>Először létrehozunk két map-et, az egyik tárolja majd a rendezetlen, a másik a rendezett számokat.
+az <command>std::map</command> "paraméterei" a következők: az első, kacsacsőr utáni paraméter a kulcs érték típusa, a második param. pedig a map érték.
+Így tehát az unsorted-map kulcsértéke char típusú lesz, és számokat tárol, a sortedMap kulcsértéke viszont már szám típusú, és karaktereket tárol.
+</para>
+<programlisting language="c++"><![CDATA[for(char c = 'a'; c <= 'd'; c++){
+map.insert({c,(rand()% 100 + 0)});
+ }]]></programlisting><para>A deklarálás után feltöltjük az unsorted mapunkat.
+ Ehhez egy for-ciklus lesz segítségünkre.</para>
+ <para>A ciklus a-tól d-ig fog menni, és minden tick-ben insertel egy adatpárt a map-ba.
+ A map.instert szintaktikája a következő:</para>
+ <para><command>map_név.insert({kulcs,map_érték});</command></para>
+ <para>A mapunk értékét randomizált 100-ig terjedő számokkal töltjük meg, a kulcs pedig a ciklus-változó értéke lesz.
+ </para>
+
+<programlisting language="c++"><![CDATA[std::cout << "unsorted numbers: " << std::endl;
+ for(auto const numb: map){
+ std::cout << numb.first << ": " << numb.second << std::endl;
+sortedMap[numb.second] = numb.first;
+ }]]></programlisting>
+ <para>Harmadik lépésként kiíratjuk az unsorted-map értékpárosait, ezt is for-ciklus segítségével.
+ Észrevehetjük, hogy a for-ciklus szintaxisa nem éppen az előzőhöz hasonló.
+ Ezt a for ciklust range-based for-nak hívják.
+ ennek a szintaktikája a következő:</para>
+ <para><command>for(típus1 változó: vektor/map/array/etc. )</command></para><para>Fontos tudni viszont,
+ hogy a változónak azonos típusúnak kell lennie a map-ban levő érték típusával.
+ Mivel a mi esetünkben auto típust adtunk meg, ezért a típusmegválasztást a compiler-re hagyjuk, az pedig a map értékeit figyelembe véve választ majd típust.
+ </para>
+
+<programlisting language="c++"><![CDATA[std::cout <<std::endl <<"Sorted numbers: " << std::endl;
+ for(auto const numb: sortedMap)
+ std::cout << numb.second << ": " << numb.first << std::endl;
+]]></programlisting><para>Végül kiíratásra kerül a sortedMap tartalma, amely az előbbi ciklushoz hasonlóan zajlik.
+</para>
+    <figure>
+            <title>
+                Az
+                <type>stl</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="godel/stl.png" scale="250"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>stl</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+
+    </section>
+
+<!-- 	<section>
 	<title>Alternatív Tabella rendezése</title>
 	<para>Mutassuk be a https://progpater.blog.hu/2011/03/11/alternativ_tabella<![CDATA[ a programban a java.lang
 Interface Comparable<T> szerepét!]]></para>
-	</section>
+</section>
 
 	<section>
 	<title>Prolog családfa</title>
 	<para>Ágyazd be a Prolog családfa programot C++ vagy Java programba! Lásd para_prog_guide.pdf!</para>
-	</section>
+	</section>-->
 
 	<section>
 	<title>GIMP Scheme hack</title>

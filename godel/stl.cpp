@@ -8,12 +8,13 @@
 
 
  for(char c = 'a'; c <= 'd'; c++){
- map[c] = rand() % 100 + 0;
+map.insert({c,(rand()% 100 + 0)});
+// map[c] = rand() % 100 + 0;
  }
 
 
  std::cout << "unsorted numbers: " << std::endl;
- for(auto const numb: map){
+ for(auto const numb:map){
  std::cout << numb.first << ": " << numb.second << std::endl;
 sortedMap[numb.second] = numb.first;
  }
