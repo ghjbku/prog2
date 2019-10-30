@@ -7042,7 +7042,27 @@ Ez egy ún. operátor túlterhelés/overload.
 Ezt az egészet egy static_cast-al átkonvertáljuk pointer típussá, és ezt a pointert fogja majd a függvényünk visszaadni.
 Ez a metódus a fordítás során castolja át a megadott paraméterként kapott értéket.
 Na persze ebben a függvényben adjuk az mAllocations változónak az értéket is, melyet majd a végén használunk fel, hogy megkapjuk, mennyi memóriahelyet allokáltunk.</para>
-	</section>
+	 <figure>
+            <title>
+                Az
+                <type>allokátor</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="godel/alloc.png" scale="250"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>allokátor</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+
+    </section>
 
 	<section>
 	<title>STL map érték szerinti rendezése</title>
