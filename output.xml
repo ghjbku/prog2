@@ -6989,7 +6989,33 @@ https://youtu.be/DL6iQwPx1Yw (8:05-től)</para>
 	<para>https://prezi.com/jvvbytkwgsxj/high-level-programming-languages-2-c11-allocators/ a
 CustomAlloc-os példa, lásd C forrást az UDPROG repóban!</para>
 	<para>forráskód:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/godel/">github link</link> </para>
-<programlisting language="c++"><![CDATA[class TrackingAllocator
+<programlisting language="c++"><![CDATA[template<class T>
+class TrackingAllocator
+{
+public:
+    using value_type = T;
+
+    using pointer = T *;
+    using const_pointer = const T *;
+
+    using size_type = size_t;
+
+    TrackingAllocator() = default;
+
+    template<class U>
+    TrackingAllocator(const TrackingAllocator<U> &other) {}
+
+    ~TrackingAllocator() = default;]]></programlisting>
+    <para>A template segítségével bármilyen típusra alkalmazható az allokátor, a használni kívánt
+     paramétereket a <command>using </command>kulcsszóval ellátott parancsok-nál láthatjuk.
+     Maga a <command>T</command> lesz az értéktípus, a pointer ugyebár egy T típusú pointer lesz, ugyanez a constans pointer is, csak a const kulcsszóval ellátva,
+     Továbbá deklarálunk egy méret-típust is a <command>size_t</command>-re.</para>
+     <para>Láthatjuk továbbá a konstruktort és dekonstruktort, melyekhez a default értéket párosítjuk.
+     Ez az érték a compiler felé utasítást ad, miszerint ha nem adunk más értéket, akkor a compiler maga fog egy alapértelmezett értéket adni.
+     Látható még egy fúrcsa szócska a <command><![CDATA[template<class U]]></command> sor után, az a bizonyos <command><![CDATA[&other]]></command>.
+     Ez egy ún. referencia, ez a referált érték memóriahelyét kapja, nincs külön memóriahelye.
+     Itt a TrackingAllocator osztályon egy ún. overload-ot hajtunk végre.</para>
+    <programlisting language="c++"><![CDATA[class TrackingAllocator
 {
 .
 .
@@ -7009,6 +7035,13 @@ pointer allocate(size_type numObjects)
 ]]></programlisting>
 <para>A programkód legfontosabb részletei az allokációért felelős <command>allocate</command> és a deallokációért felelős <command>deallocate</command> függvények.
 Ezek a TrackingAllocator osztályban foglalnak helyet.</para>
+<para>az <command>allocate</command> függvényben láthatjuk, hogy a visszatérési értékben allokáljuk az új
+memóriahelyeket a new funkcióval, melyben megszámoljuk a T méretét, majd azt megszorozzuk az objektumok számával, amit ugye paraméterként kap az allokációs függvény
+.
+Ez egy ún. operátor túlterhelés/overload.
+Ezt az egészet egy static_cast-al átkonvertáljuk pointer típussá, és ezt a pointert fogja majd a függvényünk visszaadni.
+Ez a metódus a fordítás során castolja át a megadott paraméterként kapott értéket.
+Na persze ebben a függvényben adjuk az mAllocations változónak az értéket is, melyet majd a végén használunk fel, hogy megkapjuk, mennyi memóriahelyet allokáltunk.</para>
 	</section>
 
 	<section>
