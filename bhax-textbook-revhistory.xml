@@ -205,7 +205,18 @@
         <authorinitials>Balázs Tóth</authorinitials>
 <revremark>Gödel és Stroustrup chapterek elkezdése</revremark>
     </revision>
-
+    <revision>
+        <revnumber>1.1.3</revnumber>
+        <date>2019-10-26</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Gödel és Stroustrup chapterek befejezése</revremark>
+    </revision>
+<revision>
+        <revnumber>1.1.4</revnumber>
+        <date>2019-11-1</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>név nélküli chapter inicializálása</revremark>
+    </revision>
 
 
 </revhistory>

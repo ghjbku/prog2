@@ -278,7 +278,18 @@
         <authorinitials>Balázs Tóth</authorinitials>
 <revremark>Gödel és Stroustrup chapterek elkezdése</revremark>
     </revision>
-
+    <revision>
+        <revnumber>1.1.3</revnumber>
+        <date>2019-10-26</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Gödel és Stroustrup chapterek befejezése</revremark>
+    </revision>
+<revision>
+        <revnumber>1.1.4</revnumber>
+        <date>2019-11-1</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>név nélküli chapter inicializálása</revremark>
+    </revision>
 
 
 </revhistory>               
@@ -7233,6 +7244,47 @@ A függvény törzsében a megadott paraméterekkel a gimp beállítja a szöveg
     </para>
 
 	</section>
+</chapter>     
+    <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, !</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+   <title>FUTURE tevékenység editor</title> <para>
+Javítsunk valamit a ActivityEditor.java JavaFX programon!
+https://github.com/nbatfai/future/tree/master/cs/F6
+Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467</para>
+    </section>
+<section>
+<title>OOCWC Boost ASIO hálózatkezelése</title>
+<para>
+Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocar-
+emulator/blob/master/justine/rcemu/src/carlexer.ll</para>
+</section>
+<section>
+<title>SamuCam</title>
+<para>
+Mutassunk rá a webcam (pl. Androidos mobilod) kezelésére ebben a projektben:
+https://github.com/nbatfai/SamuCam</para>
+</section>
+<section>
+<title>BrainB</title>
+<para>
+Mutassuk be a Qt slot-signal mechanizmust ebben a projektben: https://github.com/nbatfai/esport-
+talent-search</para>
+</section>
+<section>
+<title>OSM térképre rajzolása</title>
+<para>Debrecen térképre dobjunk rá cuccokat, ennek mintájára, ahol én az országba helyeztem el a DEAC
+hekkereket: https://www.twitch.tv/videos/182262537 (de az OOCWC Java Swinges
+megjelenítőjéből:
+https://github.com/nbatfai/robocar-emulator/tree/master/justine/rcwin
+is
+kiindulhatsz, mondjuk az komplexebb, mert ott időfejlődés is van...)</para></section>
 </chapter>     
 </part>                                                              
 

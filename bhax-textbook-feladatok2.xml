@@ -69,4 +69,11 @@
             </para>
         </xi:fallback>
     </xi:include>     
+    <xi:include href="bhax-textbook-feladatok2-het.xml">
+        <xi:fallback>
+            <para>
+                <emphasis>XInclude: bhax-textbook-het.xml file not found</emphasis>
+            </para>
+        </xi:fallback>
+    </xi:include>     
 </part>  
