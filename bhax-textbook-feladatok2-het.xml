@@ -11,6 +11,95 @@
 Javítsunk valamit a ActivityEditor.java JavaFX programon!
 https://github.com/nbatfai/future/tree/master/cs/F6
 Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467</para>
+
+<figure>
+            <title>
+                Az
+                <type>editor</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="future/f6.png" scale="200" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>editor</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para>Sajnos a java 8.1-től nem található meg a java-ban a JavaFX, ezért ezt külön telepítenünk kell,
+        A program lefordításához szükségünk van az openjfx 8.u202-3 verziójára:</para>
+        <figure>
+            <title>
+                A
+                <type>javafx</type>
+                
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="future/fx.png" scale="200" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>javafx</type>
+                        
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para>kód snippetek a változtatásról:</para>
+        <programlisting language="java"><![CDATA[import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
+import javafx.scene.control.TextField;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+.
+.
+.
+//410-dik sor
+public class ActivityEditor extends javafx.application.Application {
+]]></programlisting>
+<para>a paint.Color osztályt azért importáltuk, mivel használni fogjuk a Color.GREENYELLOW parancsot, na persze bármely színt használhatjuk, miután a class importálva lett.
+a paint.Paint osztály felel a háttér "befestéséért", de más ábrák, szövegdobozok és egyéb színezéséért is felelős.Kódunkban a fill objektum (alúl) egy Paint típusú változó. 
+A TextField-et használjuk a szövegmezők megjelenítéséhez,a " tevékenységekhez hozzárendelt tulajdonságok" label alatti rész egy ilyen textfield.
+A Background és BackgroundFill class-ok a háttér-ért felelősek.
+A BackgroundFill teszi lehetővé a háttér színezését, egyedül a Paint nem elegendő.
+A 410-edik sor-tól kezdődik az editor megjelenítésének "leírása".</para>
+<programlisting language="java"><![CDATA[private static Paint fill;
+.
+.
+.
+public void start(javafx.stage.Stage stage) {
+    .
+    .
+    .
+  javafx.scene.layout.VBox box = new javafx.scene.layout.VBox();
+        box.setBackground(null);
+        String style = "-fx-background-color: rgba(255, 255, 0, 0.5);";
+        
+        final javafx.scene.Scene scene = new javafx.scene.Scene(box,800,400,Color.GREENYELLOW);
+.
+.
+.
+javafx.scene.control.TreeView<String> stringTree = new StringTree(properties, true, propsEdit);
+        stringTree.setEditable(false);
+        stringTree.setBackground(new Background(new BackgroundFill(fill, null,null)));
+        
+.
+.
+.
+
+        box.getChildren().add(new javafx.scene.control.Label("Tulajdonságok fája"));
+
+        box.getChildren().add(stringTree);
+        box.getChildren().add(new javafx.scene.control.Label("Tevékenységek fája és a tevékenységekhez hozzárendelt tulajdonságok"));
+        box.getChildren().add(fileTree);
+        box.setStyle(style);]]></programlisting>
     </section>
 <section>
 <title>OOCWC Boost ASIO hálózatkezelése</title>
