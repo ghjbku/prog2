@@ -7371,12 +7371,6 @@ javafx.scene.control.TreeView<String> stringTree = new StringTree(properties, tr
     </section>
 
 
-<section>
-<title>OOCWC Boost ASIO hálózatkezelése</title>
-<para>
-Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll</para>
-</section>
-
 
 <section>
 <title>SamuCam</title>
@@ -7438,12 +7432,68 @@ A metódus először hívja a <command>VideoCapture::release</command>-t, ha a f
     Ez a Qdebug library-ban található,használatával egyszerűbbé válik a hibák értelmezése.
     Például a <command> QDate::currentDate()</command> metódussal lehetőségünk van a dátum megjelenítésére a hibaüzenetben.</para>
 </section>
+
+
+
 <section>
 <title>BrainB</title>
 <para>
-Mutassuk be a Qt slot-signal mechanizmust ebben a projektben: https://github.com/nbatfai/esport-
-talent-search</para>
+Mutassuk be a Qt slot-signal mechanizmust ebben a projektben: https://github.com/nbatfai/esport-talent-search</para>
+<programlisting language="c++"><![CDATA[BrainBWin::BrainBWin ( int w, int h, QWidget *parent ) : QMainWindow ( parent )
+{
+
+//    setWindowTitle(appName + " " + appVersion);
+//    setFixedSize(QSize(w, h));
+
+        statDir = appName + " " + appVersion + " - " + QDate::currentDate().toString() + QString::number ( QDateTime::currentMSecsSinceEpoch() );
+
+        brainBThread = new BrainBThread ( w, h - yshift );
+        brainBThread->start();
+
+        connect ( brainBThread, SIGNAL ( heroesChanged ( QImage, int, int ) ),
+                  this, SLOT ( updateHeroes ( QImage, int, int ) ) );
+
+        connect ( brainBThread, SIGNAL ( endAndStats ( int ) ),
+                  this, SLOT ( endAndStats ( int ) ) );
+
+}
+]]></programlisting><para>ez a slot-signal mechanizmus az objektumok közötti kommunikációt teszi lehetővé.
+Ez a meta-object rendszer segítségével lehetséges.
+</para><para>Más keretrendszerek callback funkciójához hasonlóan működik,viszont a callback-el ellentétben ez a mechanizmus nem küszködik típus-tartási hibákkal, hiszen <command>csak akkor hajzódik végre a slot-ban helyetfoglaló függvény, ha a jel típusa megegyezik a slot-ban várt típussal.</command>
+A slotban található funkció virtuálisként is definiálható, és teljes mértékben egy normál funkcióval megegyező függvény található a slotban.
+Tehát ha a heroesChanged függvény végrehajtódik, akkor egy jel küldődik az updateHeroes slotba, és ezzel az updateHeroes függvény is végrehajtásra kerül.
+</para>
+<programlisting language="c++"><![CDATA[QImage dest ( src.data, src.cols, src.rows, src.step, QImage::Format_RGB888 );
+        dest=dest.rgbSwapped();
+        dest.bits();
+
+        emit heroesChanged ( dest, heroes[0].x, heroes[0].y );
+
+    }]]></programlisting>
+<para>A brainBThread header fájlban találunk rá erre a signál-ra,a draw függvényben.</para>
+<para>az endAndStats szignál akkor kerül elküldésre, ha lejár az idő, ezt a slot "elkapja" és végrehajtódik az ugyanezzel a névvel ellátott függvény, amely a következőt jeleníti meg:</para>
+<programlisting language="c++"><![CDATA[void BrainBWin::endAndStats ( const int &t )
+{
+
+        qDebug()  << "\n\n\n";
+        qDebug()  << "Thank you for using " + appName;
+        qDebug()  << "The result can be found in the directory " + statDir;
+        qDebug()  << "\n\n\n";
+
+        save ( t );
+        close();
+}]]></programlisting><para>megköszöni az app használatát, kiírja a statisztikák "lelőhelyét", elmenti az időt és végül bezárja az ablakot.
+</para>
 </section>
+
+
+<section>
+<title>OOCWC Boost ASIO hálózatkezelése</title>
+<para>
+Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll</para>
+</section>
+
+
 <section>
 <title>OSM térképre rajzolása</title>
 <para>Debrecen térképre dobjunk rá cuccokat, ennek mintájára, ahol én az országba helyeztem el a DEAC
