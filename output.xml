@@ -7369,17 +7369,74 @@ javafx.scene.control.TreeView<String> stringTree = new StringTree(properties, tr
         <programlisting language="java">box.getChildren().add()</programlisting><para>Ez a függvény 
         adja hozzá az üres tárolónkhoz a sorokat.</para>
     </section>
+
+
 <section>
 <title>OOCWC Boost ASIO hálózatkezelése</title>
 <para>
-Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocar-
-emulator/blob/master/justine/rcemu/src/carlexer.ll</para>
+Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll</para>
 </section>
+
+
 <section>
 <title>SamuCam</title>
 <para>
 Mutassunk rá a webcam (pl. Androidos mobilod) kezelésére ebben a projektben:
 https://github.com/nbatfai/SamuCam</para>
+<programlisting language="c++"><![CDATA[#include "opencv2/objdetect.hpp"
+#include "opencv2/videoio.hpp"
+#include "opencv2/highgui.hpp"
+#include "opencv2/imgproc.hpp"
+]]></programlisting><para>
+<link xlink:href="https://github.com/opencv/opencv/blob/master/modules/videoio/include/opencv2/videoio.hpp">
+https://github.com/opencv/opencv/blob/master/modules/videoio/include/opencv2/videoio.hpp</link>              
+     </para>
+<programlisting language="c++"><![CDATA[class SamuCam : public QThread
+{
+    Q_OBJECT
+
+public:
+    SamuCam ( std::string videoStream, int width, int height );
+    ~SamuCam();
+
+    void openVideoStream();]]></programlisting>
+<para>Az opencv segítségével képes a program a kamera használatára, a SamuCam osztály egy QThread objektumot képvisel,
+ezen belűl található az openVideoStream, melyet majd a felvétel kezeléséhez használunk a <command>  cv::VideoCapture videoCapture;</command> segítségével.
+</para>
+<programlisting language="c++"><![CDATA[void SamuCam::openVideoStream()
+{
+  videoCapture.open ( videoStream );
+
+  videoCapture.set ( CV_CAP_PROP_FRAME_WIDTH, width );
+  videoCapture.set ( CV_CAP_PROP_FRAME_HEIGHT, height );
+  videoCapture.set ( CV_CAP_PROP_FPS, 10 );
+}]]></programlisting>
+<para>Itt láthatjuk az openVideoStream felhasználását.
+a videoCapture.open indítja el a felvételt, paraméterként pedig egy fájlnevet kap meg.
+A metódus először hívja a <command>VideoCapture::release</command>-t, ha a felvétel már folyamatban van.</para>
+<para>Alatta beállítjuk a felvétel szélességét és magasságát, valamint az fps rátát.</para>
+<programlisting language="c++"><![CDATA[if ( ! videoCapture.isOpened() )
+        {
+          openVideoStream();
+        }
+]]></programlisting><para>Ezzel a sorral hívjuk meg a felvételt.</para>
+<programlisting language="c++"><![CDATA[void SamuCam::run()
+{
+
+  cv::CascadeClassifier faceClassifier;
+
+  std::string faceXML = "lbpcascade_frontalface.xml"; // https://github.com/Itseez/opencv/tree/master/data/lbpcascades
+
+  if ( !faceClassifier.load ( faceXML ) )
+    {
+      qDebug() << "error: cannot found" << faceXML.c_str();
+      return;
+    }]]></programlisting><para>Található továbbá a samu::run-ban egy <command>cv::CascadeClassifier</command> is, ez az objektumok értelmezésére hivatott, használatához az objdetect library behívása szükséges.
+    </para>
+    <para>a faceXML fájl egy osztályozást tárol emberi arcokról,ha a program nem tudja megnyitni a fájlt(mint láthatjuk, a program feltételezi, hogy ez a bizonyos xml fájl azonos mappában található a cpp fájl-al.),
+    akkor egy qDebug funkció-n keresztül dob egy hibaüzenetet.
+    Ez a Qdebug library-ban található,használatával egyszerűbbé válik a hibák értelmezése.
+    Például a <command> QDate::currentDate()</command> metódussal lehetőségünk van a dátum megjelenítésére a hibaüzenetben.</para>
 </section>
 <section>
 <title>BrainB</title>
