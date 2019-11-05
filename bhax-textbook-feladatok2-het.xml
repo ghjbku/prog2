@@ -32,7 +32,7 @@ Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467</
             </mediaobject>
         </figure>
         <para>Sajnos a java 8.1-től nem található meg a java-ban a JavaFX, ezért ezt külön telepítenünk kell,
-        A program lefordításához szükségünk van az openjfx 8.u202-3 verziójára:</para>
+        A program lefordításához szükségünk van az openjfx 8.u202-3 verziójára(minimum):</para>
         <figure>
             <title>
                 A
@@ -79,8 +79,9 @@ public void start(javafx.stage.Stage stage) {
     .
     .
   javafx.scene.layout.VBox box = new javafx.scene.layout.VBox();
-        box.setBackground(null);
-        String style = "-fx-background-color: rgba(255, 255, 0, 0.5);";
+        box.setBackground(new Background(new BackgroundFill(null,null,null)));
+       
+        String style = "-fx-background-color: rgba(255, 255, 0, 5);";
         
         final javafx.scene.Scene scene = new javafx.scene.Scene(box,800,400,Color.GREENYELLOW);
 .
@@ -100,6 +101,26 @@ javafx.scene.control.TreeView<String> stringTree = new StringTree(properties, tr
         box.getChildren().add(new javafx.scene.control.Label("Tevékenységek fája és a tevékenységekhez hozzárendelt tulajdonságok"));
         box.getChildren().add(fileTree);
         box.setStyle(style);]]></programlisting>
+        <programlisting language="java"><![CDATA[javafx.scene.layout.VBox box = new javafx.scene.layout.VBox();
+         box.setBackground(new Background(new BackgroundFill(null,null,null)));
+    ]]></programlisting><para>Ez a sor létrehoz egy vertikális "teret", és a gyermekeit mind egy sorba rendezi ezen a téren belül.
+        A setBackground metódusban a BackgroundFill paraméterként null-t kapott, tehát a háttér transzparens/átlátszó. 
+        a BackgroundFill második paramétere a CornerRadii, ami a sarok-lekerekítések rádiuszát/sugarát adja meg, a harmadik pedig az inseteket adja meg, ezek a keretek.
+        A használatukhoz be kell importálnunk a javafx.geometry.Insets osztályt.</para>
+        <programlisting language="java">String style = "-fx-background-color: rgba(255, 255, 0, 5);";</programlisting>
+        <para>Ez egy narancssárgás színárnyalatot kölcsönöz a GREENYELLOW szín mellé., az objektumot később, a setStyle metódussal használjuk fel.
+        </para>
+        <programlisting language="java"><![CDATA[final javafx.scene.Scene scene = new javafx.scene.Scene(box,800,400,Color.GREENYELLOW);
+]]></programlisting><para>A scene lesz a "vászon", ezen foglal helyet minden, ha a szövegdobozok háttérszíne nem lenne fehér, akkor láthatnánk, hogy az egész ablak zöldes-sárga.
+</para>
+<programlisting language="java"><![CDATA[javafx.scene.control.TreeView<String> stringTree = new StringTree(properties, true, propsEdit);
+        stringTree.setEditable(false);
+        stringTree.setBackground(new Background(new BackgroundFill(fill, null,null)));]]></programlisting>
+        <para>Ez a parancs hoz létre egy fa ágazat menüt,paraméterekként egy listát(properties), egy boolean típusú paramétert(az expanded opció ki és bekapcsolására) és egy TextArea szövegmezőt tartalmaz.
+        a setEditable funkció segítségével állíthatjuk be, hogy az ágazatunk szerkeszthető legyen-e.
+        Végül itt is beállítjuk a hátteret.</para>
+        <programlisting language="java">box.getChildren().add()</programlisting><para>Ez a függvény 
+        adja hozzá az üres tárolónkhoz a sorokat.</para>
     </section>
 <section>
 <title>OOCWC Boost ASIO hálózatkezelése</title>

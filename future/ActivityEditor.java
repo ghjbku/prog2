@@ -56,6 +56,7 @@ import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.BackgroundSize;
 import javafx.scene.text.*;
+import javafx.scene.layout.CornerRadii;
 
 
 class FileTree extends javafx.scene.control.TreeView<java.io.File> {
@@ -421,8 +422,8 @@ public class ActivityEditor extends javafx.application.Application {
 
         stage.setTitle("FUTURE 6 - TEV. és TEV. TUL. SZERKESZTŐ/ACT & ACT PROPS EDITOR");
         javafx.scene.layout.VBox box = new javafx.scene.layout.VBox();
-        box.setBackground(null);
-        String style = "-fx-background-color: rgba(255, 255, 0, 0.5);";
+        box.setBackground(new Background(new BackgroundFill(null,new CornerRadii(10),null)));
+        String style = "-fx-background-color: rgba(255, 255, 0, 5);";
         
         final javafx.scene.Scene scene = new javafx.scene.Scene(box,800,400,Color.GREENYELLOW);
 
@@ -470,12 +471,12 @@ public class ActivityEditor extends javafx.application.Application {
         propsEdit.setSkin(null);
         javafx.scene.control.TreeView<String> stringTree = new StringTree(properties, true, propsEdit);
         stringTree.setEditable(false);
-        stringTree.setBackground(new Background(new BackgroundFill(fill, null,null)));
+        stringTree.setBackground(new Background(new BackgroundFill(null, new CornerRadii(10),null)));
         
         javafx.scene.control.Label actPropsLabel = new javafx.scene.control.Label("A tevékenységekhez hozzárendelt tulajdonságok");
         javafx.scene.control.TreeView<java.io.File> fileTree = new FileTree(city, true, propsEdit, actPropsLabel);
         fileTree.setEditable(true);
-        fileTree.setBackground(new Background(new BackgroundFill(null, null,null)));
+        fileTree.setBackground(new Background(new BackgroundFill(null, new CornerRadii(40),null)));
         fileTree.setStyle(style);
 
         box.getChildren().add(new javafx.scene.control.Label("Tulajdonságok fája"));
