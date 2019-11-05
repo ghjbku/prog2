@@ -212,7 +212,7 @@ Mutassuk be a Qt slot-signal mechanizmust ebben a projektben: https://github.com
 }
 ]]></programlisting><para>ez a slot-signal mechanizmus az objektumok közötti kommunikációt teszi lehetővé.
 Ez a meta-object rendszer segítségével lehetséges.
-</para><para>Más keretrendszerek callback funkciójához hasonlóan működik,viszont a callback-el ellentétben ez a mechanizmus nem küszködik típus-tartási hibákkal, hiszen <command>csak akkor hajzódik végre a slot-ban helyetfoglaló függvény, ha a jel típusa megegyezik a slot-ban várt típussal.</command>
+</para><para>Más keretrendszerek callback funkciójához hasonlóan működik,viszont a callback-el ellentétben ez a mechanizmus nem küszködik típus-tartási hibákkal, hiszen <command>csak akkor hajtódik végre a slot-ban helyetfoglaló függvény, ha a jel típusa megegyezik a slot-ban várt típussal.</command>
 A slotban található funkció virtuálisként is definiálható, és teljes mértékben egy normál funkcióval megegyező függvény található a slotban.
 Tehát ha a heroesChanged függvény végrehajtódik, akkor egy jel küldődik az updateHeroes slotba, és ezzel az updateHeroes függvény is végrehajtásra kerül.
 </para>
