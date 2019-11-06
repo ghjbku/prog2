@@ -60,6 +60,8 @@ import javafx.scene.layout.CornerRadii;
 
 
 class FileTree extends javafx.scene.control.TreeView<java.io.File> {
+static final String actlab="A tevékenységekhez hozzárendelt tulajdonságok";
+    
 
     class FileTreeItem extends javafx.scene.control.TreeItem<java.io.File> {
         
@@ -189,10 +191,13 @@ class FileTree extends javafx.scene.control.TreeView<java.io.File> {
                 } else {
 
                     save(propsEdit, actPropsLabel);
-
                     propsEdit.setText("");
-                    actPropsLabel.setText("");
+                    
 
+                }
+                if(item==root){
+                    save(propsEdit, actPropsLabel);
+            actPropsLabel.setText(actlab);
                 }
             }
         });
@@ -473,7 +478,7 @@ public class ActivityEditor extends javafx.application.Application {
         stringTree.setEditable(false);
         stringTree.setBackground(new Background(new BackgroundFill(null, new CornerRadii(10),null)));
         
-        javafx.scene.control.Label actPropsLabel = new javafx.scene.control.Label("A tevékenységekhez hozzárendelt tulajdonságok");
+        javafx.scene.control.Label actPropsLabel = new javafx.scene.control.Label(FileTree.actlab);
         javafx.scene.control.TreeView<java.io.File> fileTree = new FileTree(city, true, propsEdit, actPropsLabel);
         fileTree.setEditable(true);
         fileTree.setBackground(new Background(new BackgroundFill(null, new CornerRadii(40),null)));

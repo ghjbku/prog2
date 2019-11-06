@@ -31,6 +31,49 @@ Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467</
                 </textobject>
             </mediaobject>
         </figure>
+        <para>látható, hogy a tevékenység-fa-ba kattintás hatására a "tevékenységekhez hozzárendelt tulajdonságok" szöveg eltűnik, ez a szöveg az <command>actPropsLabel</command> objektumban található.
+        Ezen bug kiküszöbölhető, ha az else ágból kivesszük a actPropsLabel.setText(""); sort, így csak akkor tűnik el a szöveg, ha egy tevékenységre rákattintunk.
+        Viszont a szerekesztés után még ekkor sem jelenik meg újra az alapértelmezett szöveg, helyette üres marad a label.
+        A szöveget visszahozhatjuk, ha az onclicked event-ben az item!=null elágazás után beillesszük ezt a pár sort:</para>
+        <programlisting language="java"><![CDATA[class FileTree extends javafx.scene.control.TreeView<java.io.File> {
+        static final String actlab="A tevékenységekhez hozzárendelt tulajdonságok";
+        .
+        .
+        .
+/*ez az if(item!=null) utolsó ága*/} else {
+
+                    save(propsEdit, actPropsLabel);
+                    propsEdit.setText("");
+                    
+                }
+
+        if(item==root){
+                    save(propsEdit, actPropsLabel);
+            actPropsLabel.setText(actlab);
+                }]]></programlisting>
+                <para>Ez azt fogja tenni, hogy ha rákattintunk a City-re, ami a gyökérkönyvtár,akkor elmenti a propsEdit-ben található szöveget, majd
+                az actPropsLabel szövegét újra beállítja az alapértelmezettre, ezt a szöveget az actlab változóban tároljuk el.</para>
+        
+        <figure>
+            <title>
+                Az
+                <type>editor</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="future/f6jav.png" scale="200" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>editor</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        
         <para>Sajnos a java 8.1-től nem található meg a java-ban a JavaFX, ezért ezt külön telepítenünk kell,
         A program lefordításához szükségünk van az openjfx 8.u202-3 verziójára(minimum):</para>
         <figure>
