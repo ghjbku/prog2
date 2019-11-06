@@ -10,8 +10,39 @@
 <title>Port scan</title>
 <para>Mutassunk rá ebben a port szkennelő forrásban a kivételkezelés szerepére!
 https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id527287</para>
+<figure>
+            <title>
+                A
+                <type>socket</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/socket.png" scale="150" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>socket</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
 	</section>
-
+<programlisting language="java"><![CDATA[try {
+                
+                java.net.Socket socket = new java.net.Socket(args[0], i);
+                
+                System.out.println(i + " figyeli");
+                
+                socket.close();
+                
+            } catch (Exception e) {
+                
+                System.out.println(i + " nem figyeli");
+                
+            }]]></programlisting>
 
 	<section>
 <title>AOP</title>
