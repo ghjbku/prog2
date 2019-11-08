@@ -7278,6 +7278,49 @@ Itt láthatjuk működésben az alapot: https://www.twitch.tv/videos/222879467</
                 </textobject>
             </mediaobject>
         </figure>
+        <para>látható, hogy a tevékenység-fa-ba kattintás hatására a "tevékenységekhez hozzárendelt tulajdonságok" szöveg eltűnik, ez a szöveg az <command>actPropsLabel</command> objektumban található.
+        Ezen bug kiküszöbölhető, ha az else ágból kivesszük a actPropsLabel.setText(""); sort, így csak akkor tűnik el a szöveg, ha egy tevékenységre rákattintunk.
+        Viszont a szerekesztés után még ekkor sem jelenik meg újra az alapértelmezett szöveg, helyette üres marad a label.
+        A szöveget visszahozhatjuk, ha az onclicked event-ben az item!=null elágazás után beillesszük ezt a pár sort:</para>
+        <programlisting language="java"><![CDATA[class FileTree extends javafx.scene.control.TreeView<java.io.File> {
+        static final String actlab="A tevékenységekhez hozzárendelt tulajdonságok";
+        .
+        .
+        .
+/*ez az if(item!=null) utolsó ága*/} else {
+
+                    save(propsEdit, actPropsLabel);
+                    propsEdit.setText("");
+                    
+                }
+
+        if(item==root){
+                    save(propsEdit, actPropsLabel);
+            actPropsLabel.setText(actlab);
+                }]]></programlisting>
+                <para>Ez azt fogja tenni, hogy ha rákattintunk a City-re, ami a gyökérkönyvtár,akkor elmenti a propsEdit-ben található szöveget, majd
+                az actPropsLabel szövegét újra beállítja az alapértelmezettre, ezt a szöveget az actlab változóban tároljuk el.</para>
+        
+        <figure>
+            <title>
+                Az
+                <type>editor javitott</type>
+                futása
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="future/f6jav.png" scale="200"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>editor javitott</type>
+                        futása
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        
         <para>Sajnos a java 8.1-től nem található meg a java-ban a JavaFX, ezért ezt külön telepítenünk kell,
         A program lefordításához szükségünk van az openjfx 8.u202-3 verziójára(minimum):</para>
         <figure>
@@ -7503,6 +7546,137 @@ https://github.com/nbatfai/robocar-emulator/tree/master/justine/rcwin
 is
 kiindulhatsz, mondjuk az komplexebb, mert ott időfejlődés is van...)</para></section>
 </chapter>     
+ <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Schwarzenegger!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+	<section>
+<title>Port scan</title>
+<para>Mutassunk rá ebben a port szkennelő forrásban a kivételkezelés szerepére!
+https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id527287</para>
+<figure>
+            <title>
+                A
+                <type>socket</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/socket.png" scale="150"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>socket</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+	</section>
+<programlisting language="java"><![CDATA[try {
+                
+                java.net.Socket socket = new java.net.Socket(args[0], i);
+                
+                System.out.println(i + " figyeli");
+                
+                socket.close();
+                
+            } catch (Exception e) {
+                
+                System.out.println(i + " nem figyeli");
+                
+            }]]></programlisting>
+
+	<section>
+<title>AOP</title>
+<para>Szőj bele egy átszövő vonatkozást az első védési programod Java átiratába! (Sztenderd védési
+feladat volt korábban.)</para>
+	</section>
+
+
+	<section>
+<title>Android Játék
+</title>
+<para>Írjunk egy egyszerű Androidos „játékot”! Építkezzünk például a 2. hét „Helló, Android!” feladatára!</para>
+	</section>
+
+
+	<section>
+<title>Junit teszt</title>
+<para>A https://progpater.blog.hu/2011/03/05/labormeres_otthon_avagy_hogyan_dolgozok_fel_egy_pedat
+poszt kézzel számított mélységét és szórását dolgozd be egy Junit tesztbe (sztenderd védési feladat
+volt korábban).</para>
+	</section>
+
+
+
+	<section>
+<title>OSCI</title>
+<para>Készíts egyszerű C++/OpenGL-es megjelenítőt, amiben egy kocsit irányítasz az úton. A kocsi
+állapotát minden pillanatban mentsd le. Ezeket add át egy Prolog programnak, ami egyszerű reflex
+ágensként adjon vezérlést a kocsinak, hasonlítsd össze a kézi és a Prolog-os vezérlést. Módosítsd
+úgy a programodat, hogy ne csak kézzel lehessen vezérelni a kocsit, hanem a Prolog reflex ágens
+vezérelje!</para>
+	</section>
+
+</chapter> 
+
+ <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, Calvin!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+	<section>
+<title>MNIST</title>
+<para>Az alap feladat megoldása, +saját kézzel rajzolt képet is ismerjen fel,
+https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol Háttérként ezt vetítsük le:
+https://prezi.com/0u8ncvvoabcr/no-programming-programming/</para>
+	</section>
+
+
+	<section>
+<title>Deep MNIST</title>
+<para>Mint az előző, de a mély változattal. Segítő ábra, vesd össze a forráskóddal a
+https://arato.inf.unideb.hu/batfai.norbert/NEMESPOR/DE/denbatfai2.pdf 8. fóliáját!</para>
+	</section>
+
+
+	<section>
+<title>CIFAR-10</title>
+<para>Az alap feladat megoldása, +saját fotót is ismerjen fel,
+https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol</para>
+	</section>
+
+
+	<section>
+<title>Android telefonra a TF objektum detektálója</title>
+<para>Telepítsük fel, próbáljuk ki!</para>
+	</section>
+
+
+
+	<section>
+<title>SMNIST for Machines</title>
+<para>Készíts saját modellt, vagy használj meglévőt, lásd: https://arxiv.org/abs/1906.12213</para>
+	</section>
+
+
+	<section>
+<title>Minecraft MALMO-s példa</title>
+<para><link xlink:href="https://github.com/Microsoft/malmo">A https://github.com/Microsoft/malmo</link> felhasználásával egy ágens példa, lásd pl.:
+<link xlink:href="https://youtu.be/bAPSu3Rndi8">youtube</link>, <link xlink:href="https://bhaxor.blog.hu/2018/11/29/eddig_csaltunk_de_innentol_mi">bhax_blog_eddig_csaltunl</link>,
+<link xlink:href="https://bhaxor.blog.hu/2018/10/28/minecraft_steve_szemuvege">bhax_szemüveg</link></para>
+	</section>
+
+</chapter> 
 </part>                                                              
 
 
