@@ -218,5 +218,25 @@
 <revremark>név nélküli chapter inicializálása</revremark>
     </revision>
 
+<revision>
+        <revnumber>1.1.5</revnumber>
+        <date>2019-11-3</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>név nélküli chapter kész</revremark>
+    </revision>
+
+<revision>
+        <revnumber>1.1.6</revnumber>
+        <date>2019-11-6</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>Schwarz és Calvin chapterek inicializálása</revremark>
+    </revision>
+
+<revision>
+        <revnumber>1.1.7</revnumber>
+        <date>2019-11-1</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>schwarz chapter elkezdése</revremark>
+    </revision>
 
 </revhistory>
