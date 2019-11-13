@@ -2,7 +2,7 @@ public class KapuSzkenner {
     
     public static void main(String[] args) {
         
-        for(int i=0; i<1024; ++i)
+        for(int i=0; i<300; ++i)
             
             try {
                 //String s=null;
@@ -14,7 +14,7 @@ public class KapuSzkenner {
                 
             } catch (Exception e) {
                 
-                System.out.println(i + " nem figyeli");
+                System.out.println(i + " nem figyeli\n" + e);
                 
             }
     }
