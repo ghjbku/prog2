@@ -88,6 +88,8 @@ A mi esetünkben ez a hiba az, hogy nincs figyelő folyamat a cél ip/port együ
                 </textobject>
             </mediaobject>
         </figure>
+        <para>Látható, hogy a 631-es porton van figyelő folyamat, tehát a programunk megfelelően működik, hiszen talált egy figyelt portot is.
+        Na persze az nem jelentené, hogy hibás a program, ha nem találtunk volna 1 figyelt portot se.</para>
 </section>
 	<section>
 <title>AOP</title>
