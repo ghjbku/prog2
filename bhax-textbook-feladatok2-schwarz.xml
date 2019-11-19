@@ -43,7 +43,9 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728
                 System.out.println(i + " nem figyeli");
                 
             }]]></programlisting>
-
+        <para>Hogy lássuk, mi az az exception, amit dob, amikor a "nem figyeli" szöveg jelenik meg, ki kell íratnunk az <command>e</command> objektum tartalmát.
+        Tehát az előző programkód így bővül:</para>
+        <programlisting language="java"><![CDATA[System.out.println(i + " nem figyeli\n" + e);]]></programlisting>
             <figure>
             <title>
                 A

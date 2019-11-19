@@ -7613,7 +7613,9 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728
                 System.out.println(i + " nem figyeli");
                 
             }]]></programlisting>
-
+        <para>Hogy lássuk, mi az az exception, amit dob, amikor a "nem figyeli" szöveg jelenik meg, ki kell íratnunk az <command>e</command> objektum tartalmát.
+        Tehát az előző programkód így bővül:</para>
+        <programlisting language="java"><![CDATA[System.out.println(i + " nem figyeli\n" + e);]]></programlisting>
             <figure>
             <title>
                 A
@@ -7634,7 +7636,7 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728
             </mediaobject>
         </figure>
 <para>Ez az exception akkor dobódik, ha valami hiba lépett fel a távoli ip-cím-hez csatlakozáskor.
-A mi esetünkben ez a hiba az, hogy nincs figyelő folyamat a cél ip/port együttesen 
+A mi esetünkben ez a hiba az, hogy nincs figyelő folyamat a cél ip/port együttesen.
 <link xlink:href="https://javadoc.scijava.org/Java7/java/net/ConnectException.html">A leírása megtalálható angolul itt.</link>
 </para>
          <figure>
