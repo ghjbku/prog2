@@ -7522,7 +7522,9 @@ Mutassuk be a Qt slot-signal mechanizmust ebben a projektben: https://github.com
 }
 ]]></programlisting><para>ez a slot-signal mechanizmus az objektumok közötti kommunikációt teszi lehetővé.
 Ez a meta-object rendszer segítségével lehetséges.
-</para><para>Más keretrendszerek callback funkciójához hasonlóan működik,viszont a callback-el ellentétben ez a mechanizmus nem küszködik típus-tartási hibákkal, hiszen <command>csak akkor hajtódik végre a slot-ban helyetfoglaló függvény, ha a jel típusa megegyezik a slot-ban várt típussal.</command>
+</para>
+<link xlink:href="https://wiki.qt.io/New_Signal_Slot_Syntax"><command>Ez a fajta szintaktika már elavultnak számít, helyette itt látható az új szintakszis.</command></link>
+<para>Más keretrendszerek callback funkciójához hasonlóan működik,viszont a callback-el ellentétben ez a mechanizmus nem küszködik típus-tartási hibákkal, hiszen <command>csak akkor hajtódik végre a slot-ban helyetfoglaló függvény, ha a jel típusa megegyezik a slot-ban várt típussal.</command>
 A slotban található funkció virtuálisként is definiálható, és teljes mértékben egy normál funkcióval megegyező függvény található a slotban.
 Tehát ha a heroesChanged függvény végrehajtódik, akkor egy jel küldődik az updateHeroes slotba, és ezzel az updateHeroes függvény is végrehajtásra kerül.
 </para>
@@ -7597,7 +7599,7 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728
                 </textobject>
             </mediaobject>
         </figure>
-	</section>
+	
 <programlisting language="java"><![CDATA[try {
                 
                 java.net.Socket socket = new java.net.Socket(args[0], i);
@@ -7612,6 +7614,49 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728
                 
             }]]></programlisting>
 
+            <figure>
+            <title>
+                A
+                <type>socket</type>
+                Exception
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/connexc.jpg" scale="100"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>socket</type>
+                        Exception
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+<para>Ez az exception akkor dobódik, ha valami hiba lépett fel a távoli ip-cím-hez csatlakozáskor.
+A mi esetünkben ez a hiba az, hogy nincs figyelő folyamat a cél ip/port együttesen 
+<link xlink:href="https://javadoc.scijava.org/Java7/java/net/ConnectException.html">A leírása megtalálható angolul itt.</link>
+</para>
+         <figure>
+            <title>
+                A
+                <type>socket</type>
+                eredménye
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/eredmeny.png" scale="350"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>socket</type>
+                        eredménye
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+</section>
 	<section>
 <title>AOP</title>
 <para>Szőj bele egy átszövő vonatkozást az első védési programod Java átiratába! (Sztenderd védési

@@ -52,13 +52,36 @@ https://www.tankonyvtar.hu/hu/tartalom/tkt/javat-tanitok-javat/ch01.html#id52728
             </title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="schwarz/connexc.jpg" scale="150" />
+                    <imagedata fileref="schwarz/connexc.jpg" scale="100" />
                 </imageobject>
                 <textobject>
                     <phrase>
                         A
                         <type>socket</type>
                         Exception
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+<para>Ez az exception akkor dobódik, ha valami hiba lépett fel a távoli ip-cím-hez csatlakozáskor.
+A mi esetünkben ez a hiba az, hogy nincs figyelő folyamat a cél ip/port együttesen.
+<link xlink:href="https://javadoc.scijava.org/Java7/java/net/ConnectException.html">A leírása megtalálható angolul itt.</link>
+</para>
+         <figure>
+            <title>
+                A
+                <type>socket</type>
+                eredménye
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/eredmeny.png" scale="350" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>socket</type>
+                        eredménye
                     </phrase>
                 </textobject>
             </mediaobject>
