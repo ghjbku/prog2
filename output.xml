@@ -7665,7 +7665,65 @@ A mi esetünkben ez a hiba az, hogy nincs figyelő folyamat a cél ip/port együ
 <title>AOP</title>
 <para>Szőj bele egy átszövő vonatkozást az első védési programod Java átiratába! (Sztenderd védési
 feladat volt korábban.)</para>
-	</section>
+<para>források:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/schwarz/Lzw.java">Lzw.java</link>
+<link xlink:href="https://github.com/ghjbku/prog2/tree/master/schwarz/LZWBinFa.java">LZWBinFa.java</link>
+<link xlink:href="https://github.com/ghjbku/prog2/tree/master/schwarz/atszovo_lzw.aj">atszovo_lzw.aj</link>
+</para>
+
+
+    <figure>
+            <title>
+                A
+                <type>szövés</type>
+                eredménye
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/atszott.png" scale="350"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>szövés</type>
+                        eredménye
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para>Alul láthatjók, hogy a getAtlag függvény meghívódik a getSzoras függvényen belül, tehát tényleg 2x kell majd viszont látnunk az átszőtt szöveget.
+        </para>
+         <figure>
+            <title>
+                A
+                <type>szövés</type>
+                függvényei
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/atszott_fg.png" scale="350"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>szövés</type>
+                        függvényei
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+<para>Itt látható, hogy a getAtlag és a getSzoras egymás után hívódnak meg.</para>
+<programlisting language="java">kiFile.println("mean = " + binFa.getAtlag());
+    kiFile.println("var = " + binFa.getSzoras());</programlisting>
+<para>Itt pedig láthatjuk az aspectj forráskódot:</para>
+<programlisting language="java"><![CDATA[public aspect atszovo_lzw {
+
+    public pointcut fgvHívás(): call(public double LZWBinFa.getAtlag());
+
+   before():fgvHívás(){
+        System.out.println("getAtlag meghívása előtt ez a szöveg megjelenik");
+    }
+}]]></programlisting>
+</section>
 
 
 	<section>
