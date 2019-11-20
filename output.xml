@@ -7730,8 +7730,52 @@ feladat volt korábban.)</para>
 <title>Android Játék
 </title>
 <para>Írjunk egy egyszerű Androidos „játékot”! Építkezzünk például a 2. hét „Helló, Android!” feladatára!</para>
-	</section>
-
+	
+    <figure>
+            <title>
+                A
+                <type>játék</type>
+                proto
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/andro/app.png" scale="35"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>játék</type>
+                        proto
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+<para>Az applikáció készítése, IntelIj IDEA szoftver segítségével.
+Maga a program dolgozhatóvá tétele vette el a legtöbb időt, sajnos a laptop kevés memóriája miatt kompromisszumokat kellett kötnöm, nem tudtam használni a virtuális android készüléket.
+Az applikáció készítése során egyre egyszerűbbé vált a fejlesztés, míg eleinte hosszadalmas volt 1-1 bug javítása is.</para>
+        <figure>
+            <title>
+                A
+                <type>játék</type>
+                proto
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/andro/andro.png" scale="50"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>játék</type>
+                        proto
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+    </section>
+<para>A játék 10k pontnál véget ér, na persze ez még csak egy alpha verzió.</para>
+<para>Az apk megtalálható <link xlink:href="https://github.com/ghjbku/prog2/tree/master/schwarz/andro">itt</link></para>
+<para>Az xml fájlok és a main fájl pedig <link xlink:href="https://github.com/ghjbku/prog2/tree/master/schwarz/andro/xml_and_main/">itt</link></para>
 
 	<section>
 <title>Junit teszt</title>
