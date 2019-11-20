@@ -7869,7 +7869,14 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
 	<section>
 <title>Android telefonra a TF objektum detektálója</title>
 <para>Telepítsük fel, próbáljuk ki!</para>
-
+<para>A feltelepítéséhez szükségünk van egy Android studió-ra, vagy olyan IDE-re, ami képes az Android Studio-t plugin-ként kezelni.
+Én az IntelIJ IDEA programot használom erre.</para>
+<para>A program működéséhez a gradle modult frissitenünk kell 4.8-as verzióra, melyet az IDE magától meg fog tenni, erre azért van szükség, mert a 4.6-os gradle nem képes a 10-es JAVA-verziószámú-tól nagyobb verziót kezelni.
+Ha a gradle update megvan, akkor szinkronizálnunk kell a beimportált projektet, majd le-buildelni.
+Buildelésnél le fog tölteni elég sok dependency-t, viszont ezen csak 1x kell átesnünk, azután pár másodperc alatt felépül a program.
+</para>
+<para>Ha kész a building, akkor futtathatjuk a programot kétféle módon, saját android eszköz használatával, vagy egy virtuális android eszköz(emulátor) segítségével.
+Én saját telefon-t használtam, mivel a virtuális emuláció során nem lenne módom az eszköz kameráját használni(feltéve, ha a laptop kamerát használom helyette), másrészről pedig a virtuális eszköz használata igencsak megerőlteti szegény kis laptopomat.</para>
  <figure>
             <title>
                 A
@@ -7889,6 +7896,8 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
                 </textobject>
             </mediaobject>
         </figure>
+        <para>A program a kamerán keresztül érzékelt objektumokról próbálja eldönteni, hogy mi látható a képen.
+        Ez sokszor helyes, de lehetséges macskát felismerni az ásványvizes dobozra, szóval van még mit javítani rajta.</para>
 		<figure>
             <title>
                 A
@@ -7908,7 +7917,48 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
                 </textobject>
             </mediaobject>
         </figure>
+<para>A program tesztelése során a laptop-ot és az ásványvizes palackot ismertettem fel a szoftverrel, majd később egy debuggert is kapcsoltam hozzá, melyről a kép kicsit lentebb található meg.</para>
+<figure>
+            <title>
+                A
+                <type>tensor</type>
+                futása3
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/tensor_debug.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>tensor</type>
+                        futása3
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
 
+    <figure>
+            <title>
+                A
+                <type>tensor</type>
+                exception
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/tensor_exception.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>tensor</type>
+                        exception
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para>Látható, hogy a debugger hosszas tétlenség után egy exception-t dob ki (én voltam hosszú ideig tétlen, majd véletlenül kihúztam az usb kábelt :'D)
+        A kábel nélkül pedig a debugger nem találta többé a portot, amin kapcsolódhad az android eszközre, tehát jöttek a vérvörös sorok.</para>
 	</section>
 
 
