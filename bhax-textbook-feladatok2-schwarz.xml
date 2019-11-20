@@ -204,6 +204,45 @@ Az applikáció készítése során egyre egyszerűbbé vált a fejlesztés, mí
         </figure>
     </section>
 <para>A játék 10k pontnál véget ér, na persze ez még csak egy alpha verzió.</para>
+<figure>
+            <title>
+                A
+                <type>játék</type>
+                proto2
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/andro/appupg.png" scale="50" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>játék</type>
+                        proto2
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para>Újabb verzióként belekerült egy multiplier számláló is, és a menüben resetelhető a progress.</para>
+        <figure>
+            <title>
+                A
+                <type>játék</type>
+                reset
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="schwarz/andro/appres.png" scale="50" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>játék</type>
+                        reset
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
 <para>Az apk megtalálható <link xlink:href="https://github.com/ghjbku/prog2/tree/master/schwarz/andro">itt</link></para>
 <para>Az xml fájlok és a main fájl pedig <link xlink:href="https://github.com/ghjbku/prog2/tree/master/schwarz/andro/xml_and_main/">itt</link></para>
 
