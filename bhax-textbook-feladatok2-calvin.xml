@@ -31,6 +31,46 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
 	<section>
 <title>Android telefonra a TF objektum detektálója</title>
 <para>Telepítsük fel, próbáljuk ki!</para>
+
+ <figure>
+            <title>
+                A
+                <type>tensor</type>
+                futása
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/tensor_andro.png" scale="40" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>tensor</type>
+                        futása
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+		<figure>
+            <title>
+                A
+                <type>tensor</type>
+                futása2
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/tensor_andro2.png" scale="40" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>tensor</type>
+                        futása2
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+
 	</section>
 
 

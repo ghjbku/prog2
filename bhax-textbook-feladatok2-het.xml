@@ -285,7 +285,7 @@ Tehát ha a heroesChanged függvény végrehajtódik, akkor egy jel küldődik a
 </section>
 
 
-<section>
+<!-- <section>
 <title>OOCWC Boost ASIO hálózatkezelése</title>
 <para>
 Mutassunk rá a scanf szerepére és használatára! https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll</para>
@@ -299,5 +299,5 @@ hekkereket: https://www.twitch.tv/videos/182262537 (de az OOCWC Java Swinges
 megjelenítőjéből:
 https://github.com/nbatfai/robocar-emulator/tree/master/justine/rcwin
 is
-kiindulhatsz, mondjuk az komplexebb, mert ott időfejlődés is van...)</para></section>
+kiindulhatsz, mondjuk az komplexebb, mert ott időfejlődés is van...)</para></section>-->
 </chapter>
