@@ -11,6 +11,45 @@
 <para>Az alap feladat megoldása, +saját kézzel rajzolt képet is ismerjen fel,
 https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol Háttérként ezt vetítsük le:
 https://prezi.com/0u8ncvvoabcr/no-programming-programming/</para>
+<figure>
+            <title>
+                A
+                <type>z mnist</type>
+                futása
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/mnist_eredmeny.png" scale="80" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>mnist</type>
+                        futása
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+
+        <figure>
+            <title>
+                A
+                <type>kettes</type>
+                
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/ketto.png" scale="600" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>kettes</type>
+                        
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
 	</section>
 
 
