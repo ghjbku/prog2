@@ -15,7 +15,31 @@ https://prezi.com/0u8ncvvoabcr/no-programming-programming/</para>
 A telepítésre 2 módszert használtam, a packet-manager-en keresztül való telepítést és a python pip-es telepítést.
 A második módszerhez a python is szükséges, viszont mindenképp le kell töltenünk azt, hiszen a program is python nyelven íródott.
 A python-t a packet-manager használatával szinte pillanatok alatt feltelepíthetjük és már használatra kész.
-Ennek a 3.7-es verziójára lesz szükségünk, amíg a tensorflow 2.0 vagy 1.4 között választhatunk.
+Ennek a 3.7-es verziójára lesz szükségünk, amíg a tensorflow 2.0 vagy 1.4 között választhatunk.</para>
+
+<figure>
+            <title>
+                A
+                <type>pip</type>
+                telepítés
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/pip.png" scale="60" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>pip</type>
+                        telepítés
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <para>Láthatjuk a képen, hogy nálam már up-to-date a tensorflow, de ha először írjuk be a parancsot, akkor 1-2 percen át telepítgeti a szükséges fájlokat.
+        <command>Fontos még megemlíteni, hogy néhány distrón permission denied lesz a vége, ha sudo nélkül, vagy su nélkül próbálkozunk az installációval, másrészlől viszont van, ahol anélkül is tökéletesen feltelepítődik.
+        A biztonság kedvéért használjuk a sudo parancsot a pip előtt.</command></para>
+<para>
 Itt viszont fontos megjegyezni, hogy az újabb verzió nem mindíg jobb, mivel a 2.0-ás verzióban hiányoznak olyan modulok, amelyek létfontosságúak lennének a jelenlegi programunkhoz(<command>matplotlib.pyplot,
 tensorflow.examples.tutorials.mnist</command>)</para>
 <para>A működéshez ezeket a modulokat manuálisan kell beillesztenünk a tensorflow-core/examples mappába, vagy egyszerűen használjuk az 1.4-es verziót, amelyből nem felejtették ki ezeket :'D</para>
@@ -32,6 +56,7 @@ predicts = model.predict(testimg) # megkérjük a model hogy tippelje meg h mit 
 print("sajat kep: ")
 print( np.argmax(predicts[0]) )
 """ megnézzük hogy az elso (nulladik) képre mit tippelt. Ehhez szükség van az argmax függvényre, mert a model 10 értéket ad vissza egy kép tippelésekor (pl. szerinte ez 10%-ra 1-es, 20%-ra 2-es...), de nekünk csak a legnagyobb kell, amiben a legbiztosabb """]]></programlisting>
+<para>Az egész forráskód megtalálható ezen a <link xlink:href="https://github.com/ghjbku/prog2/tree/master/calvin/mnist.py">linken</link></para>
 <figure>
             <title>
                 Az
@@ -72,22 +97,6 @@ print( np.argmax(predicts[0]) )
             </mediaobject>
         </figure>
 	</section>
-
-
-	<section>
-<title>Deep MNIST</title>
-<para>Mint az előző, de a mély változattal. Segítő ábra, vesd össze a forráskóddal a
-https://arato.inf.unideb.hu/batfai.norbert/NEMESPOR/DE/denbatfai2.pdf 8. fóliáját!</para>
-	</section>
-
-
-	<section>
-<title>CIFAR-10</title>
-<para>Az alap feladat megoldása, +saját fotót is ismerjen fel,
-https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol</para>
-	</section>
-
-
 	<section>
 <title>Android telefonra a TF objektum detektálója</title>
 <para>Telepítsük fel, próbáljuk ki!</para>
@@ -107,7 +116,7 @@ Buildelésnél le fog tölteni elég sok dependency-t, viszont ezen csak 1x kell
             </title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="calvin/tensor_andro.png" scale="40" />
+                    <imagedata fileref="calvin/tensor_andro.png" scale="30" />
                 </imageobject>
                 <textobject>
                     <phrase>
@@ -185,6 +194,18 @@ Buildelésnél le fog tölteni elég sok dependency-t, viszont ezen csak 1x kell
     </section>
 
 
+	<section>
+<title>Deep MNIST</title>
+<para>Mint az előző, de a mély változattal. Segítő ábra, vesd össze a forráskóddal a
+https://arato.inf.unideb.hu/batfai.norbert/NEMESPOR/DE/denbatfai2.pdf 8. fóliáját!</para>
+	</section>
+
+
+	<section>
+<title>CIFAR-10</title>
+<para>Az alap feladat megoldása, +saját fotót is ismerjen fel,
+https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol</para>
+	</section>
 
 	<section>
 <title>SMNIST for Machines</title>
