@@ -312,6 +312,30 @@
 <revremark>schwarz chapter elkezdése</revremark>
     </revision>
 
+    <revision>
+        <revnumber>1.1.8</revnumber>
+        <date>2019-11-7</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>schwarz chapter vége</revremark>
+    </revision>
+<revision>
+        <revnumber>1.1.9</revnumber>
+        <date>2019-11-15</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>calvin chapter elkezdése</revremark>
+    </revision>
+    <revision>
+        <revnumber>1.2.0</revnumber>
+        <date>2019-11-26</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>calvin chapter befejezése</revremark>
+    </revision>
+    <revision>
+        <revnumber>1.2.1</revnumber>
+        <date>2019-11-27</date>
+        <authorinitials>Balázs Tóth</authorinitials>
+<revremark>chapterek átnézése</revremark>
+    </revision>
 </revhistory>               
                                
 </info>     
