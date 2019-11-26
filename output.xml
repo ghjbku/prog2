@@ -7849,10 +7849,31 @@ vezérelje!</para>
 <para>Az alap feladat megoldása, +saját kézzel rajzolt képet is ismerjen fel,
 https://progpater.blog.hu/2016/11/13/hello_samu_a_tensorflow-bol Háttérként ezt vetítsük le:
 https://prezi.com/0u8ncvvoabcr/no-programming-programming/</para>
+<para>A futtatáshoz szükségünk lesz a tensorflow library meglétére a gépen.
+A telepítésre 2 módszert használtam, a packet-manager-en keresztül való telepítést és a python pip-es telepítést.
+A második módszerhez a python is szükséges, viszont mindenképp le kell töltenünk azt, hiszen a program is python nyelven íródott.
+A python-t a packet-manager használatával szinte pillanatok alatt feltelepíthetjük és már használatra kész.
+Ennek a 3.7-es verziójára lesz szükségünk, amíg a tensorflow 2.0 vagy 1.4 között választhatunk.
+Itt viszont fontos megjegyezni, hogy az újabb verzió nem mindíg jobb, mivel a 2.0-ás verzióban hiányoznak olyan modulok, amelyek létfontosságúak lennének a jelenlegi programunkhoz(<command>matplotlib.pyplot,
+tensorflow.examples.tutorials.mnist</command>)</para>
+<para>A működéshez ezeket a modulokat manuálisan kell beillesztenünk a tensorflow-core/examples mappába, vagy egyszerűen használjuk az 1.4-es verziót, amelyből nem felejtették ki ezeket :'D</para>
+<para>Ha sikerült működésre bírnunk, akkor jöhet a második része a feladatnak, saját kép felismerése.
+Erről a kódrészlet itt található:</para>
+<programlisting language="python"><![CDATA[from matplotlib.image import imread # sajat kephez
+import numpy as np # sajat kephez
+
+img = imread('ketto.png') # csak png-t hasznalj
+
+img_gray = 1 - img[:, :, 0] # mivel a kép fekete-fehér, ezért mind az R, G és B érték ugyanaz, így elég csak az egyiket elmenteni, mert az algoritmus 28 * 28-as formátumot igényel (és nem 28*28*4(RGBA))
+testimg = np.array([img_gray]) # a predict függvénynek numpy array-ba helyezett képek kellenek, ezért mi beletesszük a miénket
+predicts = model.predict(testimg) # megkérjük a model hogy tippelje meg h mit irhattunk a kepekre (nekünk csak 1 van most) és mentse el a predicts valtozozba tömbként (pl. [szerintem8, talán7, biztos3])
+print("sajat kep: ")
+print( np.argmax(predicts[0]) )
+""" megnézzük hogy az elso (nulladik) képre mit tippelt. Ehhez szükség van az argmax függvényre, mert a model 10 értéket ad vissza egy kép tippelésekor (pl. szerinte ez 10%-ra 1-es, 20%-ra 2-es...), de nekünk csak a legnagyobb kell, amiben a legbiztosabb """]]></programlisting>
 <figure>
             <title>
-                A
-                <type>z mnist</type>
+                Az
+                <type>mnist</type>
                 futása
             </title>
             <mediaobject>
