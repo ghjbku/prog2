@@ -8080,7 +8080,125 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
 <para><link xlink:href="https://github.com/Microsoft/malmo">A https://github.com/Microsoft/malmo</link> felhasználásával egy ágens példa, lásd pl.:
 <link xlink:href="https://youtu.be/bAPSu3Rndi8">youtube</link>, <link xlink:href="https://bhaxor.blog.hu/2018/11/29/eddig_csaltunk_de_innentol_mi">bhax_blog_eddig_csaltunl</link>,
 <link xlink:href="https://bhaxor.blog.hu/2018/10/28/minecraft_steve_szemuvege">bhax_szemüveg</link></para>
-	</section>
+<para>	<link xlink:href="https://www.youtube.com/watch?v=acG40X5RYug">youtube videó a szkript futtatásáról</link>
+
+   </para>
+
+    <figure>
+            <title>
+                A
+                <type>malmo</type>
+                kliens futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/malmo/client.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>malmo</type>
+                        kliens futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <figure>
+            <title>
+                A
+                <type>malmo</type>
+                future modul
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/malmo/future.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>malmo</type>
+                        future modul
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <figure>
+            <title>
+                A
+                <type>malmo</type>
+                kliens futtatása
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/malmo/launch.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>malmo</type>
+                        kliens futtatása
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <figure>
+            <title>
+                A
+                <type>python</type>
+                forráskód futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/malmo/pythonfut.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>python</type>
+                        forráskód futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <figure>
+            <title>
+                egy
+                <type>malmo</type>
+                példa
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/malmo/malmifut1.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        egy
+                        <type>malmo</type>
+                        példa
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+        <figure>
+            <title>
+                A második
+                <type>malmo</type>
+                példa
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/malmo/malmifut2.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A második
+                <type>malmo</type>
+                példa
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+ </section>
 
 </chapter> 
 </part>                                                              
