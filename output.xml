@@ -8056,33 +8056,13 @@ Buildelésnél le fog tölteni elég sok dependency-t, viszont ezen csak 1x kell
     </section>
 
 
-	<section>
-<title>Deep MNIST</title>
-<para>Mint az előző, de a mély változattal. Segítő ábra, vesd össze a forráskóddal a
-https://arato.inf.unideb.hu/batfai.norbert/NEMESPOR/DE/denbatfai2.pdf 8. fóliáját!</para>
-	</section>
-
-
-	<section>
-<title>CIFAR-10</title>
-<para>Az alap feladat megoldása, +saját fotót is ismerjen fel,
-https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol</para>
-	</section>
-
-	<section>
-<title>SMNIST for Machines</title>
-<para>Készíts saját modellt, vagy használj meglévőt, lásd: https://arxiv.org/abs/1906.12213</para>
-	</section>
-
 
 	<section>
 <title>Minecraft MALMO-s példa</title>
 <para><link xlink:href="https://github.com/Microsoft/malmo">A https://github.com/Microsoft/malmo</link> felhasználásával egy ágens példa, lásd pl.:
 <link xlink:href="https://youtu.be/bAPSu3Rndi8">youtube</link>, <link xlink:href="https://bhaxor.blog.hu/2018/11/29/eddig_csaltunk_de_innentol_mi">bhax_blog_eddig_csaltunl</link>,
 <link xlink:href="https://bhaxor.blog.hu/2018/10/28/minecraft_steve_szemuvege">bhax_szemüveg</link></para>
-<para>	<link xlink:href="https://www.youtube.com/watch?v=acG40X5RYug">youtube videó a szkript futtatásáról</link>
 
-   </para>
 
     <figure>
             <title>
@@ -8111,7 +8091,7 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
             </title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="calvin/malmo/future.png" scale="40"/>
+                    <imagedata fileref="calvin/malmo/future.png" scale="50"/>
                 </imageobject>
                 <textobject>
                     <phrase>
@@ -8122,6 +8102,9 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
                 </textobject>
             </mediaobject>
         </figure>
+        <para>Ezen forráskódot hívtam segítségül a line-of-sight forrásrész megírásakor.
+        Itt a képen látható, hogy van pár példa,mely a future modul nélkül nem fut le, tehát a pip-el installálnunk kellett a modult, mielőtt a scripteket futtathattuk volna.</para>
+        <para><command>pip install future</command></para>
         <figure>
             <title>
                 A
@@ -8141,6 +8124,8 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
                 </textobject>
             </mediaobject>
         </figure>
+        <para>A kliens első futtatása nagyon hosszadalmas, 5-10 percet is igénybe vehet, hiszen 
+        telepíti a dependency-ket, és frissíti az esetleges outdated szoftvereket.</para>
         <figure>
             <title>
                 A
@@ -8160,6 +8145,8 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
                 </textobject>
             </mediaobject>
         </figure>
+        <para>Ha elindult a kliens, akkor futtathatjuk a python kódokat, a kliens indulása előtt hiába próbáljuk futtatni őket, hiszen nincs mi értelmezze a kódot.
+        </para>
         <figure>
             <title>
                 egy
@@ -8168,7 +8155,7 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
             </title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="calvin/malmo/malmifut1.png" scale="40"/>
+                    <imagedata fileref="calvin/malmo/malmifut1.png" scale="50"/>
                 </imageobject>
                 <textobject>
                     <phrase>
@@ -8179,6 +8166,7 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
                 </textobject>
             </mediaobject>
         </figure>
+        <para>Ebben a példában a konzolból irányíthattuk a karaktert szöveges módon.Érdekes megoldás, de akkor már használjuk a billentyűzetet.</para>
         <figure>
             <title>
                 A második
@@ -8198,7 +8186,55 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
                 </textobject>
             </mediaobject>
         </figure>
+<para>Ez a példa pedig egy a képen látható objektumot hozott létre a semmiből, szimpla xml kódokat használva.</para>
+        <para>	<link xlink:href="https://www.youtube.com/watch?v=acG40X5RYug">youtube videó a szkript futtatásáról</link>
+
+   </para>
+    <figure>
+            <title>
+                A
+                <type>malmo</type>
+                saját kód alapja
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="calvin/malmo/pelda.png" scale="40"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>malmo</type>
+                        saját kód alapja
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+   <para>A forráskód itt található:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/calvin/malmo/">https://github.com/ghjbku/prog2/tree/master/calvin/malmo</link></para>
  </section>
+
+
+
+
+
+
+	<!-- <section>
+<title>Deep MNIST</title>
+<para>Mint az előző, de a mély változattal. Segítő ábra, vesd össze a forráskóddal a
+https://arato.inf.unideb.hu/batfai.norbert/NEMESPOR/DE/denbatfai2.pdf 8. fóliáját!</para>
+	</section>
+
+
+	<section>
+<title>CIFAR-10</title>
+<para>Az alap feladat megoldása, +saját fotót is ismerjen fel,
+https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol</para>
+	</section>
+
+	<section>
+<title>SMNIST for Machines</title>
+<para>Készíts saját modellt, vagy használj meglévőt, lásd: https://arxiv.org/abs/1906.12213</para>
+	</section>
+-->
 
 </chapter> 
 </part>                                                              
