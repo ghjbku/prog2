@@ -253,7 +253,27 @@ Mutassuk be a Qt slot-signal mechanizmust ebben a projektben: https://github.com
                   this, SLOT ( endAndStats ( int ) ) );
 
 }
-]]></programlisting><para>ez a slot-signal mechanizmus az objektumok közötti kommunikációt teszi lehetővé.
+]]></programlisting>
+<figure>
+            <title>
+                A
+                <type>brainb</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/brainb.png" scale="40" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>brainb</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+<para>ez a slot-signal mechanizmus az objektumok közötti kommunikációt teszi lehetővé.
 Ez a meta-object rendszer segítségével lehetséges.
 </para>
 <link xlink:href="https://wiki.qt.io/New_Signal_Slot_Syntax"><command>Ez a fajta szintaktika már elavultnak számít, helyette itt látható az új szintakszis.</command></link>

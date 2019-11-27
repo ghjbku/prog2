@@ -38,9 +38,10 @@
 #include <cstdlib>
 #include <ctime>
 #include <vector>
-#include <opencv/opencv.hpp>
-#include <opencv/opencv2/core/core.hpp>
-#include <opencv/opencv2/imgproc/imgproc.hpp>
+#include <opencv2/opencv.hpp>
+#include <opencv2/core/core.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <opencv2/imgproc.hpp>
 
 class Hero;
 typedef std::vector<Hero> Heroes;
@@ -307,7 +308,7 @@ public:
 
             cv::Point xc ( hero.x+dispShift , hero.y+dispShift );
 
-            cv::circle ( src, xc, 11, cCenter, CV_FILLED, 8, 0 );
+            cv::circle ( src, xc, 11, cCenter, cv::FILLED, 8, 0 );
 
             cv::Mat box = src ( cv::Rect ( x, y ) );
 
