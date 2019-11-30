@@ -105,9 +105,9 @@ void BrainBWin::updateHeroes ( const QImage &image, const int &x, const int &y )
 
 				
                                 brainBThread->incComp();
-				//saját
+				/*saját
 				brainBThread->samu_move_random();
-
+*/
 
 
                         }

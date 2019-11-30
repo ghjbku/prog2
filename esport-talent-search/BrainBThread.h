@@ -133,7 +133,7 @@ class BrainBThread : public QThread
     cv::Scalar cBorderAndText { 47, 8, 4 };
     cv::Scalar cCenter { 170, 18, 1 };
     cv::Scalar cBoxes { 10, 235, 252 };
-    
+
 
     /*
     //Matyi
@@ -184,6 +184,16 @@ public:
 
     //saját
 
+int randomcolor()
+    {std::srand(std::time ( 0 ) );
+   int color=rand() % 255 +1;
+        return color;}
+int randomcolor2()
+    {std::srand(std::time ( 0 ) );
+   int color2=rand() % 100 +1;
+        return color2;}
+        
+
     void samu_move_random() {
 
             heroes[0].move_random (  w, h, 300);       
@@ -196,13 +206,14 @@ public:
         }
     }
     void minden_move_nemsamu_random() {
+
         for (size_t i = 1; i < heroes.size(); i++)
         {
             heroes[i].move_random (  w, h, 300); 
         }
+        cCenter=(randomcolor2(),randomcolor(),randomcolor2());
     }
-        
-        
+    
     
 
 
@@ -378,7 +389,7 @@ public:
 
             cv::Point xc ( hero.x+dispShift , hero.y+dispShift );
 
-            cv::circle ( src, xc, 11, cCenter, cv::FILLED, 8, 0 );
+            cv::circle ( src, xc, 11, cCenter,cv::FILLED, 8, 0 );
 
             cv::Mat box = src ( cv::Rect ( x, y ) );
 
