@@ -194,10 +194,16 @@ public:
         {
             heroes[i].move_random (  w, h, 300); 
         }
-        
-        
-        
     }
+    void minden_move_nemsamu_random() {
+        for (size_t i = 1; i < heroes.size(); i++)
+        {
+            heroes[i].move_random (  w, h, 300); 
+        }
+    }
+        
+        
+    
 
 
     void devel() {
