@@ -186,11 +186,11 @@ public:
 
 int randomcolor()
     {std::srand(std::time ( 0 ) );
-   int color=rand() % 255 +1;
+   int color=rand() % 255;
         return color;}
 int randomcolor2()
     {std::srand(std::time ( 0 ) );
-   int color2=rand() % 255 +1;
+   int color2=rand() % 255;
         return color2;}
 
         int randomcolor3()
