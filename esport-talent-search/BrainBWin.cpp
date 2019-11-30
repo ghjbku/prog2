@@ -191,8 +191,8 @@ void BrainBWin::keyPressEvent ( QKeyEvent *event )
         } else if ( event->key() == Qt::Key_Q ||  event->key() == Qt::Key_Escape ) {
                 close();
         }
-         else if ( event->key() == Qt::Key_K) {
-                close();
+         else if ( event->key() == Qt::Key_Space) {
+                brainBThread->minden_move_random();
         }
 
 }

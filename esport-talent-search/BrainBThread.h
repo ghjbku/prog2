@@ -78,7 +78,7 @@ public:
 void move_random ( int maxx, int maxy, int env )
 {
 
-   std::srand ( std::time ( 0 ) );
+   //std::srand ( std::time ( 0 ) );
    int v1 = rand() % 4;
 				
 
