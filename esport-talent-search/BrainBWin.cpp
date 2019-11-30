@@ -181,6 +181,17 @@ void BrainBWin::keyPressEvent ( QKeyEvent *event )
         } else if ( event->key() == Qt::Key_Q ||  event->key() == Qt::Key_Escape ) {
                 close();
         }
+        else if (event->key()==Qt::Key_K){
+
+            Hero.me.agility += 200;
+            QThread::sleep(1);
+            Hero.me.agility -= 200;
+            printf("asd");
+
+                }
+        else if (event->key()==Qt::Key_Space){
+                
+        }
 
 }
 
