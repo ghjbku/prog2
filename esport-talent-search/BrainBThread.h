@@ -190,8 +190,13 @@ int randomcolor()
         return color;}
 int randomcolor2()
     {std::srand(std::time ( 0 ) );
-   int color2=rand() % 100 +1;
+   int color2=rand() % 255 +1;
         return color2;}
+
+        int randomcolor3()
+    {std::srand(std::time ( 0 ) );
+   int color3=rand() % 255 +1;
+        return color3;}
         
 
     void samu_move_random() {
@@ -211,7 +216,7 @@ int randomcolor2()
         {
             heroes[i].move_random (  w, h, 300); 
         }
-        cCenter=(randomcolor2(),randomcolor(),randomcolor2());
+        cCenter=(randomcolor2(),randomcolor3(),randomcolor());
     }
     
     
