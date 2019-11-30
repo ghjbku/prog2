@@ -195,7 +195,7 @@ int randomcolor2()
 
         int randomcolor3()
     {std::srand(std::time ( 0 ) );
-   int color3=rand() % 255 +1;
+   int color3=rand() % 255;
         return color3;}
         
 
