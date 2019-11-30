@@ -197,7 +197,9 @@ void BrainBWin::keyPressEvent ( QKeyEvent *event )
         else if ( event->key() == Qt::Key_K) {
                 brainBThread->minden_move_nemsamu_random();
         }
-
+        else if ( event->key() == Qt::Key_O) {
+                brainBThread->samu_move_random();
+        }
 }
 
 BrainBWin::~BrainBWin()
