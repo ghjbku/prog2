@@ -42,7 +42,6 @@
 #include <opencv2/core/core.hpp>
 #include <opencv2/imgproc/imgproc.hpp>
 #include <opencv2/imgproc.hpp>
-
 class Hero;
 typedef std::vector<Hero> Heroes;
 
@@ -74,6 +73,53 @@ public:
         }
 
     }
+
+//saját
+void move_random ( int maxx, int maxy, int env )
+{
+
+   std::srand ( std::time ( 0 ) );
+   int v1 = rand() % 4;
+				
+
+	//up
+   if(v1==0){
+	env=env/2;
+        int newy = y - env;
+        if ( newy-env > 0 && newy+env < maxy ) {
+            y = newy;
+        }
+
+   }
+	//down
+   if(v1==1){
+        env=env/2;
+	int newy = y + env;
+        if ( newy-env > 0 && newy+env < maxy ) {
+            y = newy;
+        }
+   }
+	//left
+   if(v1==2){
+
+	
+	int newx = x - env;
+        if ( newx-env > 0 && newx+env < maxx ) {
+            x = newx;
+        }
+   }
+	//right
+   if(v1==3){
+	
+	int newx = x + env;
+        if ( newx-env > 0 && newx+env < maxx ) {
+            x = newx;
+        }
+   }
+}
+
+     
+
 
 };
 
@@ -135,6 +181,24 @@ public:
         }
 
     }
+
+    //saját
+
+    void samu_move_random() {
+
+            heroes[0].move_random (  w, h, 300);       
+
+    }
+    void minden_move_random() {
+        for (size_t i = 0; i < heroes.size(); i++)
+        {
+            heroes[i].move_random (  w, h, 300); 
+        }
+        
+        
+        
+    }
+
 
     void devel() {
 

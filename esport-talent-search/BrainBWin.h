@@ -30,7 +30,6 @@
  */
 
 #include <QKeyEvent>
-#include <QThread>
 #include <QMainWindow>
 #include <QPixmap>
 #include <QPainter>

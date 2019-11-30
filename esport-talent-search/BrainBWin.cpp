@@ -103,8 +103,16 @@ void BrainBWin::updateHeroes ( const QImage &image, const int &x, const int &y )
                                 //double mean = brainBThread->meanFound();
                                 //qDebug() << mean;
 
+				
                                 brainBThread->incComp();
+				//saját
+				brainBThread->samu_move_random();
+
+
+
                         }
+
+			
 
                 }
 
@@ -176,21 +184,15 @@ void BrainBWin::keyPressEvent ( QKeyEvent *event )
 
         if ( event->key() == Qt::Key_S ) {
                 save ( brainBThread->getT() );
-        } else if ( event->key() == Qt::Key_P ) {
+        }  //saját
+
+	  else if ( event->key() == Qt::Key_P ) {
                 brainBThread->pause();
         } else if ( event->key() == Qt::Key_Q ||  event->key() == Qt::Key_Escape ) {
                 close();
         }
-        else if (event->key()==Qt::Key_K){
-
-            Hero.me.agility += 200;
-            QThread::sleep(1);
-            Hero.me.agility -= 200;
-            printf("asd");
-
-                }
-        else if (event->key()==Qt::Key_Space){
-                
+         else if ( event->key() == Qt::Key_K) {
+                close();
         }
 
 }
