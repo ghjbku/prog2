@@ -54,6 +54,8 @@ public:
     int color;
     int agility;
     int conds {0};
+    int uj=0;
+    bool samu=false;
     std::string name;
 
     Hero ( int x=0, int  y=0, int color=0, int agility=1,  std::string name ="Samu Entropy" ) :
@@ -78,7 +80,7 @@ public:
 void move_random ( int maxx, int maxy, int env )
 {
 
-   //std::srand ( std::time ( 0 ) );
+   std::srand ( std::time ( 0 ) );
    int v1 = rand() % 4;
 				
 
@@ -129,10 +131,12 @@ class BrainBThread : public QThread
 
     
      //Norbi
-    cv::Scalar cBg { 247, 223, 208 };
-    cv::Scalar cBorderAndText { 47, 8, 4 };
-    cv::Scalar cCenter { 170, 18, 1 };
-    cv::Scalar cBoxes { 10, 235, 252 };
+    cv::Scalar cBg { randomcolor2(), randomcolor(), randomcolor3() };
+    cv::Scalar cBorderAndText { 255,8,4};
+    cv::Scalar cCenter { randomcolor3(), randomcolor2(),randomcolor() };
+    cv::Scalar cCenteruj { randomcolor2(), randomcolor2(),randomcolor3() };
+    
+    cv::Scalar cBoxes { randomcolor(), randomcolor2(), randomcolor3() };
 
 
     /*
@@ -184,18 +188,18 @@ public:
 
     //saját
 
-int randomcolor()
+double randomcolor()
     {std::srand(std::time ( 0 ) );
-   int color=rand() % 255;
+   double color=rand() % 255;
         return color;}
-int randomcolor2()
-    {std::srand(std::time ( 0 ) );
-   int color2=rand() % 255;
+double randomcolor2()
+    {std::srand(2);
+   double color2=rand() % 255;
         return color2;}
 
-        int randomcolor3()
-    {std::srand(std::time ( 0 ) );
-   int color3=rand() % 255;
+        double randomcolor3()
+    {std::srand(1);
+   double color3=rand() % 255;
         return color3;}
         
 
@@ -364,7 +368,8 @@ int randomcolor2()
         Hero other ( heroes[0].x + rx*std::rand() / ( RAND_MAX+1.0 )-rx/2,
                      heroes[0].y + ry*std::rand() / ( RAND_MAX+1.0 )-ry/2,
                      255.0*std::rand() / ( RAND_MAX+1.0 ), 11, "New Entropy" );
-		
+                     other.uj=1;
+		//other.cv::circle.cCenter=(randomcolor2(),randomcolor3(),randomcolor());
         heroes.push_back ( other );
 
         for ( Hero & hero : heroes ) {
@@ -401,6 +406,9 @@ int randomcolor2()
             cv::Mat cbox ( 2*heroRectSize, 2*heroRectSize, CV_8UC3, cBoxes );
             box = cbox*.3 + box*.7;
 
+            if(hero.uj>0){
+                            cv::circle ( src, xc, 11, cCenteruj,cv::FILLED, 8, 0 );
+            }
         }
 
         cv::Mat comp;

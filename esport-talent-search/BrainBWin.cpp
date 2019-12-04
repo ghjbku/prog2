@@ -105,9 +105,9 @@ void BrainBWin::updateHeroes ( const QImage &image, const int &x, const int &y )
 
 				
                                 brainBThread->incComp();
-				/*saját
+				//saját
 				brainBThread->samu_move_random();
-*/
+
 
 
                         }
@@ -191,13 +191,10 @@ void BrainBWin::keyPressEvent ( QKeyEvent *event )
         } else if ( event->key() == Qt::Key_Q ||  event->key() == Qt::Key_Escape ) {
                 close();
         }
-         else if ( event->key() == Qt::Key_Space) {
-                brainBThread->minden_move_random();
-        }
-        else if ( event->key() == Qt::Key_K) {
+        else if ( event->key() == Qt::Key_E) {
                 brainBThread->minden_move_nemsamu_random();
         }
-        else if ( event->key() == Qt::Key_O) {
+        else if ( event->key() == Qt::Key_Space) {
                 brainBThread->samu_move_random();
         }
 }

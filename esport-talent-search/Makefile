@@ -37,7 +37,7 @@ MOVE          = mv -f
 TAR           = tar -cf
 COMPRESS      = gzip -9f
 DISTNAME      = BrainB1.0.0
-DISTDIR = /home/windsake/Desktop/sajat/esport-talent-search/.tmp/BrainB1.0.0
+DISTDIR = /home/windsake/Desktop/sajat/prog2/esport-talent-search/.tmp/BrainB1.0.0
 LINK          = g++
 LFLAGS        = -Wl,-O1 -Wl,-O1,--sort-common,--as-needed,-z,relro,-z,now
 LIBS          = $(SUBLIBS) -fopenmp `pkg-config --libs opencv` /usr/lib/libQt5Widgets.so /usr/lib/libQt5Gui.so /usr/lib/libQt5Core.so /usr/lib/libGL.so -lpthread   
@@ -658,13 +658,13 @@ compiler_moc_header_clean:
 moc_BrainBThread.cpp: BrainBThread.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/windsake/Desktop/sajat/esport-talent-search/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/windsake/Desktop/sajat/esport-talent-search -I/home/windsake/Desktop/sajat/esport-talent-search -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include BrainBThread.h -o moc_BrainBThread.cpp
+	/usr/bin/moc $(DEFINES) --include /home/windsake/Desktop/sajat/prog2/esport-talent-search/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/windsake/Desktop/sajat/prog2/esport-talent-search -I/home/windsake/Desktop/sajat/prog2/esport-talent-search -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include BrainBThread.h -o moc_BrainBThread.cpp
 
 moc_BrainBWin.cpp: BrainBWin.h \
 		BrainBThread.h \
 		moc_predefs.h \
 		/usr/bin/moc
-	/usr/bin/moc $(DEFINES) --include /home/windsake/Desktop/sajat/esport-talent-search/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/windsake/Desktop/sajat/esport-talent-search -I/home/windsake/Desktop/sajat/esport-talent-search -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include BrainBWin.h -o moc_BrainBWin.cpp
+	/usr/bin/moc $(DEFINES) --include /home/windsake/Desktop/sajat/prog2/esport-talent-search/moc_predefs.h -I/usr/lib/qt/mkspecs/linux-g++ -I/home/windsake/Desktop/sajat/prog2/esport-talent-search -I/home/windsake/Desktop/sajat/prog2/esport-talent-search -I/usr/include/qt -I/usr/include/qt/QtWidgets -I/usr/include/qt/QtGui -I/usr/include/qt/QtCore -I/usr/include/c++/9.2.0 -I/usr/include/c++/9.2.0/x86_64-pc-linux-gnu -I/usr/include/c++/9.2.0/backward -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include -I/usr/local/include -I/usr/lib/gcc/x86_64-pc-linux-gnu/9.2.0/include-fixed -I/usr/include BrainBWin.h -o moc_BrainBWin.cpp
 
 compiler_moc_objc_header_make_all:
 compiler_moc_objc_header_clean:
