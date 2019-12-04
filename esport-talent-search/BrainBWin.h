@@ -54,15 +54,13 @@ class BrainBWin : public QMainWindow
     BrainBThread *brainBThread;
     QPixmap pixmap;
     Heroes *heroes;
-
+    QTimer *timer = new QTimer(this);
     int mouse_x;
     int mouse_y;
     int yshift {50};
     int nofLost {0};
     int nofFound {0};
-
     int xs, ys;
-
     bool firstLost {false};
     bool start {false};
     playerstate state = lost;

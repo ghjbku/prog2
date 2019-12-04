@@ -8259,6 +8259,222 @@ https://progpater.blog.hu/2016/12/10/hello_samu_a_cifar-10_tf_tutorial_peldabol<
 -->
 
 </chapter> 
+    <chapter xmlns="http://docbook.org/ns/docbook" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:xi="http://www.w3.org/2001/XInclude" version="5.0" xml:lang="hu">
+    <info>
+        <title>Helló, védés!</title>
+        <keywordset>
+            <keyword/>
+        </keywordset>
+    </info>
+
+    <section>
+        <title>BrainB védés</title>
+
+        <figure>
+            <title>A <type> Brainb</type> ablak</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="esport-talent-search/brainb_vedes.png" scale="200"/>
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> Brainb</type> ablak</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
+        <programlisting language="c++"><![CDATA[ QTimer *timer = new QTimer(this);
+connect(timer, &QTimer::timeout,[=](  ) { this->asd(); });//az asd(saját) szignál használata
+connect(this,SIGNAL(asd()),this, SLOT(szinezes_samu()));//samu 5s-enként színt vált
+connect(this,SIGNAL(asd()),this, SLOT(mozgas_samu()));//samu 5s-enként ugrik 
+        timer->setInterval(5000);
+        timer->start();]]></programlisting>
+        <para>Az 5 másodpercenkénti szín- és pozíció váltáshoz szükségünk volt egy QTimer-re, amely a setInterval tag-ban beállított időközönként hatja majd végre a 
+        slot-ban megadott függvényt.
+        Ez az intervallum milisec-ben értendő, tehát 5 helyett 5000-et kellett beírni.
+        A BrainThread.h fájlban létrehoztunk egy signált asd() azonosítóval, amelyet connectelünk a QTimer::timeout event-hez.
+        Tehát ez a signal akkor lesz "eltüzelve", amikor ez az event megtörténik.
+        A szignált aztán hozzákötjük a két létrehozott slotunk-hoz, a szinezes_samu és a mozgas_samu-hoz.
+        Ezek definiálása itt található:
+        </para>
+         <figure>
+            <title>A <type> Brainb</type> slotok</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="esport-talent-search/brainb_slotok.png" scale="200"/>
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> Brainb</type> slotok</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
+        <para>Valamint a függvények:</para>
+        <programlisting language="c++"><![CDATA[void BrainBThread::szinezes_samu()
+{
+    
+
+        for ( Hero & hero : heroes ) {
+            if(hero.samu==true){
+            double r=std::rand()%255;
+            double g=std::rand()%255;
+            double b=std::rand()%255;
+            cv::Scalar ujc { r, g, b };
+            cCentersam=ujc;
+            }
+        } 
+}]]></programlisting><para>Ez a függvény az összes Hero típusú hero objektumon keresztül-pásztáz, és ha egy olyan elemet talál,
+amelyben a samu változó értéke igaz, akkor a cCentersam skalár-hoz egy új érték hármast rendel.
+Ez a változó az azonosítás megkönnyítése érdekében lett hozzáadva a Hero típus definiálásánál a változók közé. 
+Ehelyett a hero objektum nevével is azonosíthattuk volna az egyedet.
+Snippet a Hero típus-ról:</para>
+<programlisting language="c++"><![CDATA[class Hero
+{
+
+public:
+    int x;
+    int y;
+    int color;
+    int agility;
+    int conds {0};
+    int uj=0;
+    bool samu=false;
+    std::string name;
+    
+    .
+    .
+    .]]></programlisting>
+    <para>A samu változón kívül egy másik változó is bekerült a már meglévőek mellé, az "uj", amely az 
+    új entitások azonosítására szolgál ilyen módon:</para>
+    <programlisting language="c++"><![CDATA[ Hero other ( heroes[0].x + rx*std::rand() / ( RAND_MAX+1.0 )-rx/2,
+                     heroes[0].y + ry*std::rand() / ( RAND_MAX+1.0 )-ry/2,
+                     255.0*std::rand() / ( RAND_MAX+1.0 ), 11, "New Entropy" );
+                     other.uj=1;]]></programlisting><para>Az új entitások uj változója az 1-es értéket hordozza, a többiek viszont a 0-ás értéket.
+                     Az azonosítás pedig itt látható:</para>
+                     <programlisting language="c++"><![CDATA[ if(hero.uj>0){
+                            cv::circle ( src, xc, 11, cCenteruj,cv::FILLED, 8, 0 );
+            }]]></programlisting><para>Itt beállítjuk, hogy ha ez az entitás egy "new Entropy" lesz, akkor a színét ne a cCenter skalár hordozza, hanem a cCenteruj.
+            </para>
+            <para>A samu azonosítására pedig itt található a második módszer:</para>
+        <programlisting language="c++"><![CDATA[ if(hero.name=="Samu Entropy")
+            {
+                cv::circle ( src, xc, 11, cCentersam, cv::FILLED, 8, 0 );
+            }]]></programlisting>
+<para>Samu mozgatásáért ezen függvények felelősek:</para>
+<programlisting language="c++"><![CDATA[void BrainBThread::mozgas_samu()
+{
+        samu_move_random();
+}
+.
+.
+.
+void samu_move_random() {
+
+            heroes[0].move_random (  w, h, 300);       
+
+    }
+    .
+    .
+    .
+    void move_random ( int maxx, int maxy, int env )
+{
+   std::srand ( std::time ( 0 ) );
+   int v1 = rand() % 4;			
+
+	//up
+   if(v1==0){
+	env=env/2;
+        int newy = y - env;
+        if ( newy-env > 0 && newy+env < maxy ) {
+            y = newy;
+        }
+
+   }
+	//down
+   if(v1==1){
+        env=env/2;
+	int newy = y + env;
+        if ( newy-env > 0 && newy+env < maxy ) {
+            y = newy;
+        }
+   }
+	//left
+   if(v1==2){
+
+	
+	int newx = x - env;
+        if ( newx-env > 0 && newx+env < maxx ) {
+            x = newx;
+        }
+   }
+	//right
+   if(v1==3){
+	
+	int newx = x + env;
+        if ( newx-env > 0 && newx+env < maxx ) {
+            x = newx;
+        }
+   }
+}]]></programlisting><para>Ugyebár samu a legelső hero, tehát a heroes[0]-val hivatkozunk rá.</para>
+<para>A move_random függvény 4 féle mozgást képes használni, a fel,le,balra és jobbra irányokat, amelyek között a v1 változó értéke segítségével változatunk.
+Ugyebár az y tengely a fel és le irányokért felelős, míg az x tengely a bal és jobb irányokért.</para>
+        <para>következő függvény a szinezés(), amely a háttér és az entitások dobozának színét változtatja meg.</para>
+        <programlisting><![CDATA[void BrainBThread::szinezes()
+{
+        
+            double r=std::rand()%255;
+            double g=std::rand()%255;
+            double b=std::rand()%255;
+            cv::Scalar ujc { r, g, b };
+           std::srand (1);
+            double r2=std::rand()%255;
+            double g2=std::rand()%255;
+            double b2=std::rand()%255;
+            cv::Scalar ujc2 { r2, g2, b2 };
+            cBoxes=ujc;
+            cBg=ujc2;//random háttér
+        
+}]]></programlisting>
+<para>Az srand seed-et azért kellett megváltoztatnunk, mert anélkül mind a háttérszín mind a dobozok színe ugyanazon random értéket kapná, hiába a másik változó. 
+A háttér színét a cBg skalár tartalmazza.</para>
+<para>A szinezés2 függvény felelős a randomizált kezdő-entitások színezéséért és az új entitások színéért.</para>
+<programlisting language="c++"><![CDATA[void BrainBThread::szinezes2()
+{
+        
+            double r=std::rand()%255;
+            double g=std::rand()%255;
+            double b=std::rand()%255;
+            cv::Scalar ujc { r, g, b };
+            std::srand (2);
+            double r2=std::rand()%255;
+            double g2=std::rand()%255;
+            double b2=std::rand()%255;
+            cv::Scalar ujc2 { r2, g2, b2 };
+            cCenter=ujc;
+            cCenteruj=ujc2;//random új entitás színe
+        
+}]]></programlisting> <para>az előzőhöz hasonlóan itt is azonos lett volna a színezés, ha ugyanazon seed-et használtuk volna a skalárok értékeinek beállításához.
+</para>
+<para>A következő funkció az entitások mozgatása, samu kivételével.Ennek a kódja itt található:</para>
+<programlisting language="c++"><![CDATA[void minden_move_nemsamu_random() {
+
+        for (size_t i = 1; i < heroes.size(); i++)
+        {
+            heroes[i].move_random (  w, h, 300); 
+        }
+    }]]></programlisting><para>Mivel samu a 0-dik entitás, ezért a ciklusunkat az első entitásnál kezdjük, tehát Samun kívül mindenki más ugrani fog.
+    </para>
+    <para>A billetyűlenyomásra vonatkozó függvények a BrainBWin.cpp állományban találhatóak:</para>
+    <figure>
+            <title>A <type> Brainb</type> bill.funkciók</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="esport-talent-search/brainb_gombok.png" scale="200"/>
+                </imageobject>
+                <textobject>
+                    <phrase>A <type> Brainb</type> gombok</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
+        </section>
+</chapter> 
 </part>                                                              
 
 

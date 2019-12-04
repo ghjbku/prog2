@@ -27,6 +27,7 @@
  */
 
 #include "BrainBWin.h"
+#include <QTimer>
 
 const QString BrainBWin::appName = "NEMESPOR BrainB Test";
 const QString BrainBWin::appVersion = "6.0.3";
@@ -47,6 +48,8 @@ BrainBWin::BrainBWin ( int w, int h, QWidget *parent ) : QMainWindow ( parent )
 
         connect ( brainBThread, SIGNAL ( endAndStats ( int ) ),
                   this, SLOT ( endAndStats ( int ) ) );
+
+      
 
 }
 
@@ -182,6 +185,7 @@ void BrainBWin::mouseMoveEvent ( QMouseEvent *event )
 void BrainBWin::keyPressEvent ( QKeyEvent *event )
 {
 
+       
         if ( event->key() == Qt::Key_S ) {
                 save ( brainBThread->getT() );
         }  //saját
@@ -196,7 +200,24 @@ void BrainBWin::keyPressEvent ( QKeyEvent *event )
         }
         else if ( event->key() == Qt::Key_Space) {
                 brainBThread->samu_move_random();
+                brainBThread->szinezes_samu2();
+                brainBThread->asd();
+               
         }
+       /* else if (event->key() == Qt::Key_T){
+                if(van == false)
+                {
+                        BrainBThread.timer->start(5000);
+                        van=true;
+                }
+                
+                else
+                {
+                        BrainBThread.timer->stop();
+                }
+                
+
+        }*/
 }
 
 BrainBWin::~BrainBWin()

@@ -27,6 +27,7 @@
  */
 
 #include "BrainBThread.h"
+#include <QTimer>
 
 BrainBThread::BrainBThread ( int w, int h )
 {
@@ -57,12 +58,91 @@ BrainBThread::BrainBThread ( int w, int h )
         heroes.push_back ( other4 );
         heroes.push_back ( other5 );
 
+  QTimer *timer = new QTimer(this);
+connect(timer, &QTimer::timeout,[=](  ) { this->asd(); });//az asd(saját) szignál használata
+connect(this,SIGNAL(asd()),this, SLOT(szinezes_samu()));//samu 5s-enként színt vált
+connect(this,SIGNAL(asd()),this, SLOT(mozgas_samu()));//samu 5s-enként ugrik 
+        timer->setInterval(5000);
+        timer->start();
+
+//szinezések meghívása
+szinezes(); 
+szinezes2();
+
 }
 
 BrainBThread::~BrainBThread()
 {
 
 }
+void BrainBThread::szinezes_samu()
+{
+    
+
+        for ( Hero & hero : heroes ) {
+            if(hero.samu==true){
+            double r=std::rand()%255;
+            double g=std::rand()%255;
+            double b=std::rand()%255;
+            cv::Scalar ujc { r, g, b };
+            cCentersam=ujc;
+            }
+        } 
+}
+void BrainBThread::mozgas_samu()
+{
+        samu_move_random();
+}
+
+void BrainBThread::szinezes_samu2()
+{
+    
+
+        for ( Hero & hero : heroes ) {
+            if(hero.samu==true){
+            double r=std::rand()%255;
+            double g=std::rand()%255;
+            double b=std::rand()%255;
+            cv::Scalar ujc { r, g, b };
+            cCentersam=ujc;
+            }
+        }
+    
+}
+
+void BrainBThread::szinezes()
+{
+        
+            double r=std::rand()%255;
+            double g=std::rand()%255;
+            double b=std::rand()%255;
+            cv::Scalar ujc { r, g, b };
+           std::srand (1);
+            double r2=std::rand()%255;
+            double g2=std::rand()%255;
+            double b2=std::rand()%255;
+            cv::Scalar ujc2 { r2, g2, b2 };
+            cBoxes=ujc;
+            cBg=ujc2;//random háttér
+        
+}
+void BrainBThread::szinezes2()
+{
+        
+            double r=std::rand()%255;
+            double g=std::rand()%255;
+            double b=std::rand()%255;
+            cv::Scalar ujc { r, g, b };
+            std::srand (2);
+            double r2=std::rand()%255;
+            double g2=std::rand()%255;
+            double b2=std::rand()%255;
+            cv::Scalar ujc2 { r2, g2, b2 };
+            cCenter=ujc;
+            cCenteruj=ujc2;//random új entitás színe
+        
+}
+
 
 void BrainBThread::run()
 {

@@ -33,6 +33,7 @@
 #include <QSize>
 #include <QImage>
 #include <QDebug>
+#include <QTimer>
 #include <sstream>
 #include <QPainter>
 #include <cstdlib>
@@ -79,10 +80,8 @@ public:
 //saját
 void move_random ( int maxx, int maxy, int env )
 {
-
    std::srand ( std::time ( 0 ) );
-   int v1 = rand() % 4;
-				
+   int v1 = rand() % 4;			
 
 	//up
    if(v1==0){
@@ -131,13 +130,18 @@ class BrainBThread : public QThread
 
     
      //Norbi
-    cv::Scalar cBg { randomcolor2(), randomcolor(), randomcolor3() };
+    cv::Scalar cBg {1,1,1 };
     cv::Scalar cBorderAndText { 255,8,4};
-    cv::Scalar cCenter { randomcolor3(), randomcolor2(),randomcolor() };
-    cv::Scalar cCenteruj { randomcolor2(), randomcolor2(),randomcolor3() };
+    cv::Scalar cCenter { 1,1,1 };
+    cv::Scalar cBoxes { 1,1,1 };
     
-    cv::Scalar cBoxes { randomcolor(), randomcolor2(), randomcolor3() };
 
+    cv::Scalar cCenteruj { 1,1,1};
+    
+    cv::Scalar cCentersam {1,1,1};
+    cv::Scalar cBoxessam { 1,1,1 };
+
+     
 
     /*
     //Matyi
@@ -169,7 +173,9 @@ class BrainBThread : public QThread
 public:
     BrainBThread ( int w = 256, int h = 256 );
     ~BrainBThread();
-
+    void szinezes_samu2();
+    void szinezes();
+     void szinezes2();
     void run();
     void pause();
     void set_paused ( bool p );
@@ -188,19 +194,14 @@ public:
 
     //saját
 
-double randomcolor()
-    {std::srand(std::time ( 0 ) );
-   double color=rand() % 255;
-        return color;}
-double randomcolor2()
-    {std::srand(2);
-   double color2=rand() % 255;
-        return color2;}
+ //Time in milliseconds
+//timer->setSingleShot(false); //Setting this to true makes the timer run only once
+ //Call start() AFTER connect
+   
 
-        double randomcolor3()
-    {std::srand(1);
-   double color3=rand() % 255;
-        return color3;}
+
+//coloring
+
         
 
     void samu_move_random() {
@@ -220,7 +221,6 @@ double randomcolor2()
         {
             heroes[i].move_random (  w, h, 300); 
         }
-        cCenter=(randomcolor2(),randomcolor3(),randomcolor());
     }
     
     
@@ -395,7 +395,7 @@ double randomcolor2()
 
             cv::rectangle ( src, x, y, cBorderAndText );
 
-            cv::putText ( src, hero.name, x, cv::FONT_HERSHEY_SIMPLEX, .35, cBorderAndText, 1 );
+            cv::putText ( src, hero.name, x, cv::FONT_HERSHEY_SIMPLEX, .35,cBorderAndText, 1 );
 
             cv::Point xc ( hero.x+dispShift , hero.y+dispShift );
 
@@ -409,6 +409,11 @@ double randomcolor2()
             if(hero.uj>0){
                             cv::circle ( src, xc, 11, cCenteruj,cv::FILLED, 8, 0 );
             }
+            if(hero.name=="Samu Entropy")
+            {
+                cv::circle ( src, xc, 11, cCentersam, cv::FILLED, 8, 0 );
+            }
+            
         }
 
         cv::Mat comp;
@@ -453,7 +458,11 @@ signals:
 
     void heroesChanged ( const QImage &image, const int &x, const int &y );
     void endAndStats ( const int &t );
+    void asd();//saját szignál létrehozása
 
+public slots:
+void szinezes_samu();//a szignál-t használó slotok
+void mozgas_samu();
 };
 
 #endif // BrainBThread_H

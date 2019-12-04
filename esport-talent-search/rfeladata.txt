@@ -2,6 +2,5 @@ rand háttér !!!
 rand új cucc szin!!!
 5s és space ugrik ->samu !!!
 e->összes de nem samu ugrik !!!
-5s samu szín
-saját szignál
-lambda slot
+5s samu szín!!!
+saját szignál!!!

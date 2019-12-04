@@ -91,4 +91,11 @@
             </para>
         </xi:fallback>
     </xi:include> 
+    <xi:include href="bhax-textbook-vedes.xml">
+        <xi:fallback>
+            <para>
+                <emphasis>XInclude: bhax-textbook-vedes.xml file not found</emphasis>
+            </para>
+        </xi:fallback>
+    </xi:include> 
 </part>  
