@@ -13,7 +13,7 @@
             <title>A <type> Brainb</type> ablak</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="esport-talent-search/brainb_vedes.png" scale="200" />
+                    <imagedata fileref="esport-talent-search/brainb_vedes.png" scale="100" />
                 </imageobject>
                 <textobject>
                     <phrase>A <type> Brainb</type> ablak</phrase>
@@ -26,7 +26,7 @@ connect(this,SIGNAL(asd()),this, SLOT(szinezes_samu()));//samu 5s-enként színt
 connect(this,SIGNAL(asd()),this, SLOT(mozgas_samu()));//samu 5s-enként ugrik 
         timer->setInterval(5000);
         timer->start();]]></programlisting>
-        <para>Az 5 másodpercenkénti szín- és pozíció váltáshoz szükségünk volt egy QTimer-re, amely a setInterval tag-ban beállított időközönként hatja majd végre a 
+        <para>Az 5 másodpercenkénti szín- és pozíció váltáshoz szükségünk volt egy QTimer-re, amely a setInterval tag-ban beállított időközönként hajtja majd végre a 
         slot-ban megadott függvényt.
         Ez az intervallum milisec-ben értendő, tehát 5 helyett 5000-et kellett beírni.
         A BrainThread.h fájlban létrehoztunk egy signált asd() azonosítóval, amelyet connectelünk a QTimer::timeout event-hez.
@@ -38,7 +38,7 @@ connect(this,SIGNAL(asd()),this, SLOT(mozgas_samu()));//samu 5s-enként ugrik
             <title>A <type> Brainb</type> slotok</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="esport-talent-search/brainb_slotok.png" scale="200" />
+                    <imagedata fileref="esport-talent-search/brainb_slotok.png" scale="80" />
                 </imageobject>
                 <textobject>
                     <phrase>A <type> Brainb</type> slotok</phrase>
@@ -205,13 +205,13 @@ A háttér színét a cBg skalár tartalmazza.</para>
             <title>A <type> Brainb</type> bill.funkciók</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="esport-talent-search/brainb_gombok.png" scale="200" />
+                    <imagedata fileref="esport-talent-search/brainb_gombok.png" scale="100" />
                 </imageobject>
                 <textobject>
                     <phrase>A <type> Brainb</type> gombok</phrase>
                 </textobject>
             </mediaobject>
         </figure> 
-        <para>A forráskódok megtalálhatóak itt:</para><link xlink:href=""></link>
+        <para>A forráskódok megtalálhatóak itt:</para><link xlink:href="https://github.com/ghjbku/prog2/tree/master/esport-talent-search/">https://github.com/ghjbku/prog2/tree/master/esport-talent-search/</link>
         </section>
 </chapter>
