@@ -168,6 +168,17 @@ A régi irányítás is működik, esetleges használati kényelmetlenségek elk
 </para>
 <para>a program lefordításához a következő kapcsolók kellenek:
 g++ para6.cpp -o para <command> -lboost_system -lGL -lGLU -lglut</command></para>
+<figure>
+            <title>A <type> fullscreen </type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="chomsky/rapszodia2.png" scale="150" />
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> fullscreen </type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 <para>Az lboost_system library a boost-nak a használata miatt szükséges, az lGL, az lGLU ls az lglut kapcsolók pedig az openGL könyvtárai, hiszen az openGL-t használva jelenítettük meg a kockákat, ezért ezekre is szükségünk volt.
 Érdekes viszont megfigyelnünk, hogy az glut(opengl utility toolkit) támogatása már több,mint 15 éve lejárt, ehelyett a freeglut-ot használják manapság az openGL programok írásánál,
 viszont ez a jelenlegi programunkat nem befolyásolja, a megfelelő library-k segítségével tökéletesen működőképes.
