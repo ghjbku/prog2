@@ -223,6 +223,25 @@ A metódus először hívja a <command>VideoCapture::release</command>-t, ha a f
       return;
     }]]></programlisting><para>Található továbbá a samu::run-ban egy <command>cv::CascadeClassifier</command> is, ez az objektumok értelmezésére hivatott, használatához az objdetect library behívása szükséges.
     </para>
+    <figure>
+            <title>
+                A
+                <type>samu</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="img/samu.png" scale="40" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        A
+                        <type>samu</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
     <para>a faceXML fájl egy osztályozást tárol emberi arcokról,ha a program nem tudja megnyitni a fájlt(mint láthatjuk, a program feltételezi, hogy ez a bizonyos xml fájl azonos mappában található a cpp fájl-al.),
     akkor egy qDebug funkció-n keresztül dob egy hibaüzenetet.
     Ez a Qdebug library-ban található,használatával egyszerűbbé válik a hibák értelmezése.
