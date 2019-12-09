@@ -394,25 +394,5 @@ A szó összes karakterén végighalad a for-ciklussal, míg a szó végéhez ne
        Végül a for-ciklus kiírja a lefordított szöveget karakterenként.</para>
 </section>
 
-<section>
-<title>Paszigráfia Rapszódia LuaLaTeX vizualizáció</title>
-<para>
 
-Lásd vis_prel_para.pdf! Apró módosításokat eszközölj benne, pl. színvilág, még erősebb 3D-s hatás.
-</para>
-</section>
-
-<section>
-<title>OOCW lexer</title>
-<para>Izzítsuk be az OOCWC-t és vázoljuk a https://github.com/nbatfai/robocar-emulator/blob/master/justine/rcemu/src/carlexer.ll lexert és kapcsolását a programunk OO struktúrájába!</para>
-</section>
-
-<section>
-<title>Perceptron osztály</title>
-<para>
-
-Dolgozzuk be egy külön projektbe a projekt Perceptron osztályát!
-Lásd https://youtu.be/XpBnR31BRJY
-</para>
-</section>
 </chapter>

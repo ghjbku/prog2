@@ -290,28 +290,5 @@ currentMap.remove(wrong_dm.charAt(i));
         </figure><para>Ezen a képen látható, hogy az utolsó két sor szinte pofon-egyszerűen kitalálható a törést követően, na persze nem 100%-os a törés, de egy pár futás után össze lehet illeszteni a szöveget.</para>
 </section>
 
-    <section>
-        <title>Változó argumentumszámú ctor</title>
-        <para>
-
-            Készítsünk olyan példát, amely egy képet tesz az alábbi projekt Perceptron osztályának bemenetére
-            és a Perceptron ne egy értéket, hanem egy ugyanakkora méretű „képet” adjon vissza. (Lásd még a 4
-            hét/Perceptron osztály feladatot is.)
-        </para>
-    </section>
-    <section>
-        <title>Összefoglaló</title>
-        <para>
-
-            Az előző 4 feladat egyikéről írj egy 1 oldalas bemutató „”esszé szöveget!
-        </para>
-    </section>
-    <section>
-        <title>+feladat</title>
-        <para>
-            egy egyszerű string osztály elkészítését
-            (hogy ne a verembe tegyük a kockászárójel megvalósítását,
-            mert az nyilván odacsap az osztály értelmezésének)
-        </para>
-    </section>
+ 
 </chapter>

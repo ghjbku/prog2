@@ -177,18 +177,5 @@ int HardDisk::GetCurrentPrice() const
 ne tört számot kapjunk vissza, hanem egész számot.</para>
 </section>
 
-<section>
-<title>TEX uml</title>
-<para>Valamilyen TeX-es csomag felhasználásával készíts szép diagramokat az OOCWC projektről (pl.
-use case és class diagramokat).
-</para>
-</section>
 
-<section>
-<title>BPEL Helló, Világ! - egy visszhang folyamat</title>
-<para>
-Egy visszhang folyamat megvalósítása az alábbi teljes „videó tutoriál” alapján:
-https://youtu.be/0OnlYWX2v_I
-</para>
-</section>
 </chapter>

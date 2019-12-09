@@ -209,12 +209,6 @@ Ha includeoljuk a math.h headert, akkor erre a kapcsolóra is szükségünk lesz
 Ez C++-ban már nem szükséges, elég csak az include.</para>
 	</section>
 
-	<section>
-<title>Hello, Android!</title>
-        <para>Élesszük fel az SMNIST for Humans projektet!
-https://gitlab.com/nbatfai/smnist/tree/master/forHumans/SMNISTforHumansExp3/app/src/main
-Apró módosításokat eszközölj benne, pl. színvilág.</para>
-	</section>
 
 	<section>
 <title>Ciklomatikus komplexitás</title>
@@ -350,16 +344,3 @@ void fight(int intel, int d)
             </mediaobject>
         </figure> 
 	</section>
-
-	<section>
-<title>deprecated - Hello, Android!</title>
-	<para>Élesszük fel a https://github.com/nbatfai/SamuEntropy/tree/master/cs projektjeit és vessünk össze
-néhány egymásra következőt, hogy hogyan változtak a források!</para>
-	</section>
-	
-	<section>
-	<title>Hello, SMNIST for Humans!</title>
-	<para>Fejleszd tovább az SMNIST for Humans projektet SMNIST for Anyone emberre szánt appá! Lásd
-az smnist2_kutatasi_jegyzokonyv.pdf-ben a részletesebb hátteret!</para>
-	</section>
-</chapter>
