@@ -231,7 +231,7 @@ A metódus először hívja a <command>VideoCapture::release</command>-t, ha a f
             </title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="img/samu.png" scale="40" />
+                    <imagedata fileref="img/samu.png" scale="20" />
                 </imageobject>
                 <textobject>
                     <phrase>
