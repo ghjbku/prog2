@@ -95,7 +95,7 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
         </para>
         <para>Amint láthatjuk, az első két tagja a ciklus feltételeknek a két változó értékét hasonlítja össze
         . A harmadik viszont (<command>t!=x</command>) a változók referenciáját, ami az integer-cache miatt -128 és 127 között ugyanaz lesz.
-        A gagyi.java fájl ezért végtelenciklust képez, hiszen a -129 már nincs benne a cache-ben, ezért 
+        A gagyi.java fájl ezért végtelen ciklust képez, hiszen a -129 már nincs benne a cache-ben, ezért 
         a t!=x mindíg igaz lesz.
         a gagyi2.java viszont a -128 értékkel dolgozik, ami benne van a cache-ben, tehát a ciklus nem jön létre.
         </para>
@@ -151,9 +151,13 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
  <para>
            A fenti programkód a yoda kondíciós megoldást mutatja, ami annyit tesz, hogy a konstanst rakjuk 
            a ciklusmagban az első helyre, amelyel a NullPointer kivételeket elkerülhetjük.
-           A kikommentelt részt beillesztve pedig a program lefutásánál megkapjuk a nullpointer exception-t.
-       a <command>yoda f=new yoda();</command> sor példányosítja a yoda osztályt.
-
+            A program maga annyit tesz, hogy összehasonlítja a konstans számot a yoda típusú f objektumunk i tagváltozójával.
+            a <command>yoda f=new yoda();</command> sor példányosítja a yoda osztályt.
+       Ha a két érték megegyezik, akkor kiír az alapértelmezett output-ra egy t betűt, egyébként pedig egy f betűt.
+       A yoda kondíció nélkül egyik sem történik meg, hiszen az i értéke <command>null</command>, tehát azt várnánk, hogy NullPointerEx hibakódot látunk viszont.
+           A kikommentelt részt beillesztve pedig a program lefutásánál meg is kapjuk a nullpointer exception-t.
+        A kondíciót alkalmazva ugyebár egy f betű kerül ki a standard outputra. 
+       
         </para>
         <figure>
             <title>A <type> yoda</type> futás</title>
