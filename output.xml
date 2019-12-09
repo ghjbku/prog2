@@ -6662,6 +6662,17 @@ A szó összes karakterén végighalad a for-ciklussal, míg a szó végéhez ne
        ]]></programlisting><para>Következő a while ciklus, amely magáért a szó bekéréséért és annak lefordításáért felel.
        a <command>word=scan.nextLine();</command> sor kéri be a word változóba a szót,a <command>wordvect=translate(word,wordvect);</command> sor pedig magáért a lefordításért felelős.
        Végül a for-ciklus kiírja a lefordított szöveget karakterenként.</para>
+       <figure>
+            <title>A <type> fullscreen </type> futás</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="chomsky/leet.png" scale="100"/>
+				  </imageobject>
+                <textobject>
+                    <phrase>A <type> fullscreen </type> futás</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
 </section>
 
 
