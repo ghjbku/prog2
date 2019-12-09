@@ -5714,7 +5714,7 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
         </figure> 
         <para>
             a <command>public PiBBP(int d) </command> rész a d+1 hexadecimális jegytől számítja ki a jegyeket
-        , azon belűl a 16^d pi képket kiszámítása.
+        , azon belűl a 16^d pi képlet kiszámítása.
         A <command> public double d16Sj(int d, int j)</command> eljárás a {16^d Sj} részlet kiszámítását végzi.
         <command> public long n16modk(int n, int k)</command> végzi a hatványozás modulóját, itt n a kitevő, k a modulus.
         </para>
@@ -6647,7 +6647,7 @@ A szó összes karakterén végighalad a for-ciklussal, míg a szó végéhez ne
                
        for(int i=0;i<wordvect.size();i++)
          System.out.print(wordvect.get(i));
-       ]]></programlisting><para>Követekző a while ciklus, amely magáért a szó bekéréséért és annak lefordításáért felel.
+       ]]></programlisting><para>Következő a while ciklus, amely magáért a szó bekéréséért és annak lefordításáért felel.
        a <command>word=scan.nextLine();</command> sor kéri be a word változóba a szót,a <command>wordvect=translate(word,wordvect);</command> sor pedig magáért a lefordításért felelős.
        Végül a for-ciklus kiírja a lefordított szöveget karakterenként.</para>
 </section>

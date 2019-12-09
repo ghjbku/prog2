@@ -389,7 +389,7 @@ A szó összes karakterén végighalad a for-ciklussal, míg a szó végéhez ne
                
        for(int i=0;i<wordvect.size();i++)
          System.out.print(wordvect.get(i));
-       ]]></programlisting><para>Követekző a while ciklus, amely magáért a szó bekéréséért és annak lefordításáért felel.
+       ]]></programlisting><para>Következő a while ciklus, amely magáért a szó bekéréséért és annak lefordításáért felel.
        a <command>word=scan.nextLine();</command> sor kéri be a word változóba a szót,a <command>wordvect=translate(word,wordvect);</command> sor pedig magáért a lefordításért felelős.
        Végül a for-ciklus kiírja a lefordított szöveget karakterenként.</para>
 </section>
