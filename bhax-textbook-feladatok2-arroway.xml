@@ -95,6 +95,7 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
         </para>
         <para>Amint láthatjuk, az első két tagja a ciklus feltételeknek a két változó értékét hasonlítja össze
         . A harmadik viszont (<command>t!=x</command>) a változók referenciáját, ami az integer-cache miatt -128 és 127 között ugyanaz lesz.
+        Tehát ha a két objektum értéke nem haladja meg ezt a határt, akkor a referenciájuk ugyan oda mutat majd.
         A gagyi.java fájl ezért végtelen ciklust képez, hiszen a -129 már nincs benne a cache-ben, ezért 
         a t!=x mindíg igaz lesz.
         a gagyi2.java viszont a -128 értékkel dolgozik, ami benne van a cache-ben, tehát a ciklus nem jön létre.
