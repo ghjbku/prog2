@@ -50,7 +50,7 @@ int main()
     std::vector<std::string, TrackingAllocator<std::string>> v(3);
     std::cout << "allokált memóriahelyek száma:"<< v.get_allocator().get_allocations() << std::endl;
     std::cout << "allokált memóriahelyek címe:"<< std::endl;
-    for(auto i=0;i<=v.size();++i){
+    for(auto i=0;i<v.size();++i){
 
         std::cout << &v[i] << std::endl;
     }

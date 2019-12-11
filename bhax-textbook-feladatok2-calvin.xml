@@ -57,6 +57,7 @@ print("sajat kep: ")
 print( np.argmax(predicts[0]) )
 """ megnézzük hogy az elso (nulladik) képre mit tippelt. Ehhez szükség van az argmax függvényre, mert a model 10 értéket ad vissza egy kép tippelésekor (pl. szerinte ez 10%-ra 1-es, 20%-ra 2-es...), de nekünk csak a legnagyobb kell, amiben a legbiztosabb """]]></programlisting>
 <para>Az egész forráskód megtalálható ezen a <link xlink:href="https://github.com/ghjbku/prog2/tree/master/calvin/mnist.py">linken</link></para>
+<para><link xlink:href="http://deeplearning.net/tutorial/logreg.html">a regresszióról és a modellről itt találhatunk leírást.</link></para>
 <figure>
             <title>
                 Az
