@@ -153,24 +153,26 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
            A fenti programkód a yoda kondíciós megoldást mutatja, ami annyit tesz, hogy a konstanst rakjuk 
            a ciklusmagban az első helyre, amelyel a NullPointer kivételeket elkerülhetjük.
             A program maga annyit tesz, hogy összehasonlítja a konstans számot a yoda típusú f objektumunk i tagváltozójával.
-            a <command>yoda f=new yoda();</command> sor példányosítja a yoda osztályt.
-       Ha a két érték megegyezik, akkor kiír az alapértelmezett output-ra egy t betűt, egyébként pedig egy f betűt.
-       A yoda kondíció nélkül egyik sem történik meg, hiszen az i értéke <command>null</command>, tehát azt várnánk, hogy NullPointerEx hibakódot látunk viszont.
-           A kikommentelt részt beillesztve pedig a program lefutásánál meg is kapjuk a nullpointer exception-t.
-        A kondíciót alkalmazva ugyebár egy f betű kerül ki a standard outputra. 
-       
-        </para>
-        <figure>
+            a <command>yoda f=new yoda();</command> sor példányosítja a yoda osztályt.</para>
+             <figure>
             <title>A <type> yoda</type> futás</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="yoda/unknown.png" scale="200" />
+                    <imagedata fileref="yoda/unknown.png" scale="220" />
                 </imageobject>
                 <textobject>
                     <phrase>A <type> yoda</type> futás</phrase>
                 </textobject>
             </mediaobject>
         </figure> 
+            <para>
+       Ha a két érték megegyezik, akkor kiír az alapértelmezett output-ra egy t betűt, egyébként pedig egy f betűt.
+       A yoda kondíció nélkül egyik sem történik meg, hiszen az i értéke <command>null</command>, tehát azt várnánk, hogy NullPointerEx hibakódot látunk viszont.
+           A kikommentelt részt beillesztve pedig a program lefutásánál meg is kapjuk a nullpointer exception-t.
+        A kondíciót alkalmazva ugyebár egy f betű kerül ki a standard outputra. 
+       
+        </para>
+       
 
     </section>        
 <section>
@@ -213,7 +215,7 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
         System.out.print(new PiBBP(1000000));
     }]]>
         </programlisting><para>
-        A main függvényben láthatjuk is, hogy meghívjuk a PiBBP-t és a d változónak az "1millió" értéket adjuk.
+        A main függvényben láthatjuk is, hogy meghívjuk a PiBBP-t és a d változónak az "1millió" értéket adjuk.</para><para>
         A <command> public double d16Sj(int d, int j)</command> eljárás a {16^d Sj} részlet kiszámítását végzi.
         <command> public long n16modk(int n, int k)</command> végzi a hatványozás modulóját, itt n a kitevő, k a modulus.
         </para>
