@@ -7960,6 +7960,25 @@ print("sajat kep: ")
 print( np.argmax(predicts[0]) )
 """ megnézzük hogy az elso (nulladik) képre mit tippelt. Ehhez szükség van az argmax függvényre, mert a model 10 értéket ad vissza egy kép tippelésekor (pl. szerinte ez 10%-ra 1-es, 20%-ra 2-es...), de nekünk csak a legnagyobb kell, amiben a legbiztosabb """]]></programlisting>
 <para>Az egész forráskód megtalálható ezen a <link xlink:href="https://github.com/ghjbku/prog2/tree/master/calvin/mnist.py">linken</link></para>
+<para>a <link xlink:href="https://www.geeksforgeeks.org/understanding-logistic-regression/">regresszióról</link> és a <link xlink:href="https://www.tensorflow.org/guide/keras/custom_layers_and_models#building_models">modellről</link> itt találhatunk leírást.</para>
+<para>A <command>modell</command>ünk:</para>
+<programlisting language="python"><![CDATA[model = tf.keras.models.Sequential([
+  tf.keras.layers.Flatten(input_shape=(28, 28)),
+  tf.keras.layers.Dense(128, activation='relu'),
+  tf.keras.layers.Dropout(0.2),
+  tf.keras.layers.Dense(10, activation='softmax')
+])
+
+model.compile(optimizer='adam',
+              loss='sparse_categorical_crossentropy',
+              metrics=['accuracy'])
+
+model.fit(x_train, y_train, epochs=5)
+
+model.evaluate(x_test,  y_test, verbose=2)]]></programlisting>
+<para>A model maga az az objektum, amit tanítunk a program futása során.
+A modellen belül taláhatóak a layerek, amelyek 1-1 tanítási blokk-nak felelnek meg.
+A layerek-et elérjük a model.layers paranccsal.</para>
 <figure>
             <title>
                 Az
