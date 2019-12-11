@@ -215,6 +215,13 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
         </programlisting><para>
         A main függvényben láthatjuk is, hogy meghívjuk a PiBBP-t és a d változónak az "1millió" értéket adjuk.</para><para>
         A <command> public double d16Sj(int d, int j)</command> eljárás a {16^d Sj} részlet kiszámítását végzi.
+        Ehhez meghívja a n16modk függvényt, amely a <command>n16modk(d-k, 8*k + j)</command> paramétereket kapja.
+        A paraméterek:</para>
+        <para><command>k:</command>  <![CDATA[for(int k=0; k<=d; ++k)]]>.</para>
+        <para>d: <command>A PiBBP argumentuma, egyébként a d16Sj argumentum listájának az első eleme, de értékként a PiBBP d-jét kapja meg a függvény.
+        </command></para>
+        <para>j: <command>A második argumentuma a d16Sj függvénynek.</command></para>
+        <para>
         <command> public long n16modk(int n, int k)</command> végzi a hatványozás modulóját, itt n a kitevő, k a modulus.
         </para>
         <programlisting language="java"><![CDATA[public String toString() {
