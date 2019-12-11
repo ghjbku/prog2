@@ -172,8 +172,6 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
         A kondíciót alkalmazva ugyebár egy f betű kerül ki a standard outputra. 
        
         </para>
-       
-
     </section>        
 <section>
         <title>Kódolás from scratch</title>
