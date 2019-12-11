@@ -153,6 +153,11 @@ feladat volt korábban.)</para>
         System.out.println("getAtlag meghívása előtt ez a szöveg megjelenik");
     }
 }]]></programlisting>
+<para>A program a pointcut kifejezést használja,a join point egy olyan pont a programban, amelyet használhatunk egy aspektus készítéséhez.
+Ilyen pont például egy függvény meghívása vagy egy kivétel lekezelése.
+A pointcut egy olyan predikátum, amely a join point-ra hivatkozik.
+Az új verziójú aspectJ-ben ezt a kifejezést annotációval hívjuk meg: <![CDATA[@Pointcut]]></para>
+<para>A pointcut-ról bővebben itt: <link xlink:href="https://www.baeldung.com/spring-aop-pointcut-tutorial">pointcut</link></para>
 </section>
 
 

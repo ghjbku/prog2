@@ -7088,6 +7088,32 @@ Na persze ebben a függvényben adjuk az mAllocations változónak az értéket 
             </mediaobject>
         </figure>
 
+<programlisting language="c++"><![CDATA[std::cout << "allokált memóriahelyek címe:"<< std::endl;
+    for(auto i=0;i<=v.size();++i){
+
+        std::cout << &v[i] << std::endl;
+    }]]></programlisting><para>A memóriahelyek címe és a program futása.</para>
+
+    <figure>
+            <title>
+                Az
+                <type>allokátor2</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="godel/alloc2.png" scale="250"/>
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>allokátor2</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+
     </section>
 
 	<section>
@@ -7757,6 +7783,11 @@ feladat volt korábban.)</para>
         System.out.println("getAtlag meghívása előtt ez a szöveg megjelenik");
     }
 }]]></programlisting>
+<para>A program a pointcut kifejezést használja,a join point egy olyan pont a programban, amelyet használhatunk egy aspektus készítéséhez.
+Ilyen pont például egy függvény meghívása vagy egy kivétel lekezelése.
+A pointcut egy olyan predikátum, amely a join point-ra hivatkozik.
+Az új verziójú aspectJ-ben ezt a kifejezést annotációval hívjuk meg: <![CDATA[@Pointcut]]></para>
+<para>A pointcut-ról bővebben itt: <link xlink:href="https://www.baeldung.com/spring-aop-pointcut-tutorial">pointcut</link></para>
 </section>
 
 

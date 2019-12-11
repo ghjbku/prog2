@@ -90,6 +90,32 @@ Na persze ebben a függvényben adjuk az mAllocations változónak az értéket 
             </mediaobject>
         </figure>
 
+<programlisting language="c++"><![CDATA[std::cout << "allokált memóriahelyek címe:"<< std::endl;
+    for(auto i=0;i<=v.size();++i){
+
+        std::cout << &v[i] << std::endl;
+    }]]></programlisting><para>A memóriahelyek címe és a program futása.</para>
+
+    <figure>
+            <title>
+                Az
+                <type>allokátor2</type>
+                futás
+            </title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="godel/alloc2.png" scale="250" />
+                </imageobject>
+                <textobject>
+                    <phrase>
+                        Az
+                        <type>allokátor2</type>
+                        futás
+                    </phrase>
+                </textobject>
+            </mediaobject>
+        </figure>
+
     </section>
 
 	<section>
