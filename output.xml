@@ -5706,7 +5706,7 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
             <title>A <type> piBBP</type> futás</title>
             <mediaobject>
                 <imageobject>
-                    <imagedata fileref="pibbp/pibbp.png" scale="200"/>
+                    <imagedata fileref="pibbp/pibbp.png" scale="250"/>
                 </imageobject>
                 <textobject>
                     <phrase>A <type> piBBP</type> futás</phrase>
