@@ -1,80 +1,83 @@
 import java.util.Scanner;
 import java.util.Vector;
+import java.util.HashMap;
+import java.util.Random;
+import java.util.Map.Entry;
 
 
 public class Leet {
+private String sb,word;
+private Random rand;
 
-    public static Vector<String> translate(String word, Vector<String> wordvect)
-    {
-        
-        word=word.toUpperCase();
-        for(int i=0;i<word.length();i++)
-        {
-            switch (word.charAt(i)) {
-                case 'A' : wordvect.add("4");
-                     break;
-                case 'B' : wordvect.add("|3");
-                     break;
-                case 'C' : wordvect.add("(");
-                     break;
-                case 'D' : wordvect.add("|)");
-                     break;
-                case 'E' : wordvect.add("3");
-                     break;
-                case 'F' : wordvect.add("|=");
-                     break;
-                case 'G' : wordvect.add("6");
-                     break;
-                case 'H' : wordvect.add("|-|");
-                     break;
-                case 'I' : wordvect.add("|");
-                     break;     
-                case 'J' : wordvect.add(".]");
-                     break;
-                case 'K' : wordvect.add("|<");
-                     break;      
-                case 'L' : wordvect.add("1");
-                     break;      
-                case 'M' : wordvect.add("|Y|");
-                     break;
-                case 'N' : wordvect.add("N");
-                     break;
-                case 'O' : wordvect.add("0");
-                     break;
-                 case 'P' : wordvect.add("P");
-                     break;
-                case 'Q' : wordvect.add("Q");
-                     break;
-                case 'R' : wordvect.add("|2");
-                     break;
-                case 'S' : wordvect.add("5");
-                     break;
-                case 'T' : wordvect.add("7");
-                     break;
-                case 'U' : wordvect.add("|_|");
-                     break;                    
-                case 'V' : wordvect.add("V");
-                     break;
-                case 'W' : wordvect.add("W");
-                     break;                    
-                case 'X' : wordvect.add("}{");
-                     break;                     
-                case 'Y' : wordvect.add("'/");
-                     break;
-                case 'Z' : wordvect.add("2");
-                     break;
-                case ' ' : wordvect.add(" ");
-                     break;      
-            }
-        
-        
+
+         private HashMap<String, String[]> leet = new HashMap<String, String[]>() {{
+		put("a", new String[] { "4", "4", "@", "-" });
+		put("b", new String[] { "b", "8", "3", "}" });
+		put("c", new String[] { "c", "(", "", "{" });
+		put("d", new String[] { "d", ")", "]", "}" });
+		put("e", new String[] { "3", "3", "3", "3" });
+		put("f", new String[] { "f", "=", "ph", "#" });
+		put("g", new String[] { "g", "6", "[", "[+" });
+		put("h", new String[] { "h", "4", "-", "[-]" });
+		put("i", new String[] { "1", "1", "", "!" });
+		put("j", new String[] { "j", "7", "_", "_" });
+		put("k", new String[] { "k", "", "1", "{" });
+		put("l", new String[] { "l", "1", "", "_" });
+		put("m", new String[] { "m", "44", "(V)", "" });
+		put("n", new String[] { "n", "", "", "V" });
+		put("o", new String[] { "0", "0", "()", "[]" });
+		put("p", new String[] { "p", "o", "D", "o" });
+		put("q", new String[] { "q", "9", "O_", "(,)" });
+		put("r", new String[] { "r", "12", "12", "2" });
+		put("s", new String[] { "s", "5", "$", "$" });
+		put("t", new String[] { "t", "7", "7", "''" });
+		put("u", new String[] { "u", "_", "(_)", "[_]" });
+		put("v", new String[] { "v", "", "", "" });
+		put("w", new String[] { "w", "VV", "", "()" });
+		put("x", new String[] { "x", "%", ")(", ")(" });
+		put("y", new String[] { "y", "", "", "" });
+		put("z", new String[] { "z", "2", "7_", "_" });
+
+		put("0", new String[] { "D", "0", "D", "0" });
+		put("1", new String[] { "I", "I", "L", "L" });
+		put("2", new String[] { "Z", "Z", "Z", "e" });
+		put("3", new String[] { "E", "E", "E", "E" });
+		put("4", new String[] { "h", "h", "A", "A" });
+		put("5", new String[] { "S", "S", "S", "S" });
+		put("6", new String[] { "b", "b", "G", "G" });
+		put("7", new String[] { "T", "T", "j", "j" });
+		put("8", new String[] { "X", "X", "X", "X" });
+		put("9", new String[] { "g", "g", "j", "j" });
+	}};
+
+
+     public Leet(String word) {
+		rand = new Random();
+		this.word = word;
+	}
+
+    public Leet translate() {
+		StringBuilder sb = new StringBuilder();
+		for (int i = 0; i < word.length(); ++i) {
+            char c = word.charAt(i);
+            String loc = Character.toString(Character.toLowerCase(c));
+            if (leet.containsKey(loc))
+            	sb.append(leet.get(loc)[rand.nextInt(leet.get(loc).length)]);
+            else
+            	sb.append(c);
         }
-        
-    return wordvect; 
-    }
-    
+		this.sb = sb.toString();
+		
+		return this;
+	}
+
+public String getLeet() {
+		return this.sb;
+	}
+
+
     public static void main(String[] args) {
-       Vector<String> wordvect = new Vector<>();
+       String wordvect;
        Scanner scan = new Scanner(System.in);
        String word;
        String question;
@@ -86,18 +89,15 @@ public class Leet {
        System.out.println("irj be egy szót!");
        word=scan.nextLine();
        System.out.println("szó: "+word);
-       
-       wordvect=translate(word,wordvect);
-               
-       for(int i=0;i<wordvect.size();i++)
-         System.out.print(wordvect.get(i));
-       
+       wordvect=(new Leet(word).translate().getLeet());
+       System.out.println(wordvect);
+
        System.out.print("\n");
        System.out.println("tovább?(y / n)");
        question=scan.nextLine();
        if(question.startsWith("y"))
        {
-           wordvect.clear();
+           wordvect=null;
            questionbool = true;
        }
        else
