@@ -5715,7 +5715,23 @@ Ha megakadsz, de csak végső esetben:<link xlink:href="https://www.tankonyvtar.
         </figure> 
         <para>
             a <command>public PiBBP(int d) </command> rész a d+1 hexadecimális jegytől számítja ki a jegyeket
-        , azon belűl a 16^d pi képlet kiszámítása.
+        , azon belűl a 16^d pi képlet kiszámítása.</para>
+        <programlisting language="java"><![CDATA[public PiBBP(int d) {
+        
+        double d16Pi = 0.0d;
+        
+        double d16S1t = d16Sj(d, 1);
+        double d16S4t = d16Sj(d, 4);
+        double d16S5t = d16Sj(d, 5);
+        double d16S6t = d16Sj(d, 6);]]></programlisting><para>
+        A függvény bekér majd egy számot a d változóban, melyből készíteni fog double típusú számokat(d16S1t..d16S6t).
+        </para>
+        <programlisting language="java">
+        <![CDATA[ public static void main(String args[]) {        
+        System.out.print(new PiBBP(1000000));
+    }]]>
+        </programlisting><para>
+        A main függvényben láthatjuk is, hogy meghívjuk a PiBBP-t és a d változónak az "1millió" értéket adjuk.
         A <command> public double d16Sj(int d, int j)</command> eljárás a {16^d Sj} részlet kiszámítását végzi.
         <command> public long n16modk(int n, int k)</command> végzi a hatványozás modulóját, itt n a kitevő, k a modulus.
         </para>
