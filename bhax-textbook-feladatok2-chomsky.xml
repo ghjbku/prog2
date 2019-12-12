@@ -195,7 +195,7 @@ A freeglut megtalálható itt:<link xlink:href="http://freeglut.sourceforge.net/
 helyettesítést: https://simple.wikipedia.org/wiki/Leet (Ha ez első részben nem tetted meg, akkor írasd
 ki és magyarázd meg a használt struktúratömb memóriafoglalását!)</para>
 
-<para>A cipher java-ban.</para>
+<para>A cipher java-ban.<command>A map-ra átírásban segített Győri Márk Patrik</command></para>
 <programlisting language="java"><![CDATA[import java.util.Scanner;
 import java.util.Vector;
 import java.util.HashMap;

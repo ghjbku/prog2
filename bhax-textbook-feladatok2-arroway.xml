@@ -89,7 +89,17 @@ A példát építsd a JDK Integer.java forrására, hogy a 128-nál inkluzív ob
             Megoldás forrása:<link xlink:href="https://github.com/ghjbku/prog2/tree/master/gagyi">github link</link>
                        
         </para>
-    
+        <figure>
+            <title>Az <type> integer</type> cache</title>
+            <mediaobject>
+                <imageobject>
+                    <imagedata fileref="arroway/gagyi.png" scale="55" />
+                </imageobject>
+                <textobject>
+                    <phrase>Az <type> integer</type> cache</phrase>
+                </textobject>
+            </mediaobject>
+        </figure> 
         <para>
     <![CDATA[while (x <= t && x >= t && t != x);]]>        
         </para>
